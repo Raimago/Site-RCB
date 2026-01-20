@@ -1,0 +1,22 @@
+{
+  "name": "site-rcb-advogados",
+  "version": "1.0.0",
+  "description": "Site R & CB Advogados - Patrimônio Protegido, Sucessão Planejada",
+  "main": "Site_Novo/index.html",
+  "scripts": {
+    "start": "cd Site_Novo && npx http-server . -p $PORT -a 0.0.0.0 --cors"
+  },
+  "keywords": [
+    "advogados",
+    "direito-patrimonial",
+    "planejamento-sucessorio"
+  ],
+  "author": "R & CB Advogados",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
