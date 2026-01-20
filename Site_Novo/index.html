@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="R & CB Advogados - Escritório especializado em planejamento patrimonial, direito sucessório, tributário, societário e digital. Patrimônio protegido, sucessão planejada.">
+    <meta name="keywords"
+        content="advogados, direito patrimonial, planejamento sucessório, holding familiar, inventário, Recife, Pernambuco">
+    <meta name="author" content="R & CB Advogados">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rorizcastelobrancoadv.com/">
+    <meta property="og:title" content="R & CB Advogados - Patrimônio Protegido, Sucessão Planejada">
+    <meta property="og:description"
+        content="Estratégia patrimonial para hoje e para as próximas gerações. Especialistas em direito sucessório, tributário e societário.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+
+    <title>R & CB Advogados - Patrimônio Protegido, Sucessão Planejada</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <img src="assets/images/logo.png" alt="R & CB Advogados - Logo" loading="eager">
+                </a>
+                <nav>
+                    <a href="#home" class="active">Início</a>
+                    <a href="#sobre">Quem Somos</a>
+                    <a href="#servicos">Áreas de Atuação</a>
+                    <a href="#socios">Sócios</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+        <a href="#home">Início</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#servicos">Áreas de Atuação</a>
+        <a href="#socios">Sócios</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image" data-aos="fade-down" data-aos-delay="100">
+                    <img src="assets/images/medalhao.webp" alt="Medalhão R & CB Advogados" loading="eager">
+                </div>
+                <div class="hero-pretitle" data-aos="fade-up" data-aos-delay="200">Estratégia Patrimonial</div>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">Patrimônio protegido,<br>sucessão
+                    planejada.</h1>
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="400">Estratégia patrimonial para hoje e
+                    para as próximas gerações.</p>
+                <a href="#" class="btn-primary" onclick="openWhatsAppForm(); return false;" data-aos="fade-up"
+                    data-aos-delay="500">FALE COM UM ESPECIALISTA AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>Quem Somos</h2>
+                    <p>Roriz & Castelo Branco Advogados nasceu da parceria de Davi Castelo Branco Moreira e Leonardo
+                        Macedo Lustosa Roriz, que decidiram, ainda jovens, unir trajetórias para construir uma prática
+                        orientada por ética, rigor técnico e proximidade com o cliente.</p>
+                    <p>O escritório concilia a tradição e a solenidade próprias do Direito com a atualização constante e
+                        os avanços tecnológicos que qualificam a advocacia contemporânea.</p>
+                    <p>Com atuação dedicada ao Direito Patrimonial especialmente em planejamento sucessório, integramos
+                        também as frentes tributária, imobiliária, de propriedade intelectual e de direito digital. Cada
+                        caso é conduzido com atendimento reservado, soluções sob medida e participação direta dos
+                        sócios, do diagnóstico à implementação e ao acompanhamento.</p>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="assets/images/medalhao.webp" alt="R & CB Advogados - Escritório" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-luxury" id="servicos">
+        <div class="container">
+            <div class="luxury-section-header">
+                <div class="section-pretitle">Nossas Especialidades</div>
+                <h2 class="section-title">Áreas de Atuação</h2>
+                <p class="section-description">
+                    Oferecemos soluções jurídicas abrangentes e estratégicas, desenvolvidas por especialistas 
+                    com profundo conhecimento técnico e visão de negócios em cada área de atuação.
+                </p>
+            </div>
+            <div class="services-grid-luxury">
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Direito Sucessório</h4>
+                            <div class="service-category">Planejamento Patrimonial</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Organização e transferência do patrimônio com segurança jurídica e redução de burocracias. Estruturação técnica para proteção e continuidade do legado familiar.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('Planejamento Sucessório'); return false;">Planejamento Sucessório</li>
+                            <li onclick="openServiceDetailModal('Inventário e Partilha'); return false;">Inventário e Partilha</li>
+                            <li onclick="openServiceDetailModal('Testamentos'); return false;">Testamentos</li>
+                            <li onclick="openServiceDetailModal('Holding Familiar'); return false;">Holding Familiar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Direito de Família</h4>
+                            <div class="service-category">Assessoria Especializada</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Resolução de questões familiares com sensibilidade, ética e foco na proteção dos envolvidos. Atendimento personalizado para cada situação familiar.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('Divórcio e Separação'); return false;">Divórcio e Separação</li>
+                            <li onclick="openServiceDetailModal('Guarda e Pensão'); return false;">Guarda e Pensão</li>
+                            <li onclick="openServiceDetailModal('Regime de Bens'); return false;">Regime de Bens</li>
+                            <li onclick="openServiceDetailModal('União Estável'); return false;">União Estável</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Planejamento Civil</h4>
+                            <div class="service-category">Estruturação Técnica</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Estruturação técnica para segurança de bens e conformidade em todas as esferas civis. Proteção patrimonial com soluções jurídicas estratégicas.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('Proteção Patrimonial'); return false;">Proteção Patrimonial</li>
+                            <li onclick="openServiceDetailModal('Contratos Civis'); return false;">Contratos Civis</li>
+                            <li onclick="openServiceDetailModal('Direito Imobiliário'); return false;">Direito Imobiliário</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Direito Tributário</h4>
+                            <div class="service-category">Otimização Fiscal</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Minimização legal de encargos e otimização fiscal para preservação de capital familiar. Gestão tributária estratégica e planejamento fiscal personalizado.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('Planejamento Tributário'); return false;">Planejamento Tributário</li>
+                            <li onclick="openServiceDetailModal('Recuperação de Créditos'); return false;">Recuperação de Créditos</li>
+                            <li onclick="openServiceDetailModal('Consultoria Fiscal'); return false;">Consultoria Fiscal</li>
+                            <li onclick="openServiceDetailModal('Defesa em Execuções Fiscais'); return false;">Defesa em Execuções Fiscais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Direito Societário</h4>
+                            <div class="service-category">Governança Corporativa</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Governança corporativa e estruturação de holdings para proteção e continuidade dos negócios. Assessoria completa em questões societárias.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('Constituição de Empresas'); return false;">Constituição de Empresas</li>
+                            <li onclick="openServiceDetailModal('Holding Patrimonial'); return false;">Holding Patrimonial</li>
+                            <li onclick="openServiceDetailModal('Reestruturação Societária'); return false;">Reestruturação Societária</li>
+                            <li onclick="openServiceDetailModal('Acordos de Acionistas'); return false;">Acordos de Acionistas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-luxury-card">
+                    <div class="service-luxury-header">
+                        <div class="service-luxury-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="service-title-area">
+                            <h4>Direito Digital</h4>
+                            <div class="service-category">Proteção Digital</div>
+                        </div>
+                    </div>
+                    <div class="service-luxury-description">
+                        Assessoria especializada na proteção de dados e ativos intelectuais no ambiente digital. Soluções jurídicas para o mundo digital.
+                    </div>
+                    <div class="service-features">
+                        <ul>
+                            <li onclick="openServiceDetailModal('LGPD e Proteção de Dados'); return false;">LGPD e Proteção de Dados</li>
+                            <li onclick="openServiceDetailModal('Propriedade Intelectual'); return false;">Propriedade Intelectual</li>
+                            <li onclick="openServiceDetailModal('Contratos Digitais'); return false;">Contratos Digitais</li>
+                            <li onclick="openServiceDetailModal('Compliance Digital'); return false;">Compliance Digital</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Section -->
+    <section class="text-section">
+        <div class="container">
+            <div class="text-content" data-aos="fade-up">
+                <p>Cada família e cada empresa são únicas. Prestamos atendimento reservado e soluções sob medida, com
+                    participação direta dos sócios. Unimos tradição jurídica e atualização permanente para planejar a
+                    sucessão, organizar a governança patrimonial e estruturar, com segurança, as frentes tributária,
+                    imobiliária, de propriedade intelectual e de direito digital.</p>
+                <p>Conduzimos cada demanda com ética, transparência e previsibilidade. Do diagnóstico à implementação,
+                    trabalhamos com linguagem clara, documentação robusta e cronogramas definidos assegurando análise
+                    técnica consistente e acompanhamento próximo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="socios">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-pretitle">Nossa Liderança</div>
+                <h2 class="section-title">Os Sócios</h2>
+                <p class="section-description">Conheça os sócios fundadores que lideram o R & CB Advogados com
+                    expertise, dedicação e compromisso inabalável com resultados excepcionais.</p>
+            </div>
+            <div class="team-grid">
+                <!-- Davi Castelo Branco -->
+                <div class="team-card" id="davi-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <div class="team-image">
+                                <img src="assets/images/davi.webp" alt="Davi Castelo Branco - Sócio Fundador"
+                                    loading="lazy">
+                            </div>
+                            <div class="team-info">
+                                <span class="team-position">Sócio Fundador</span>
+                                <h5>Davi Castelo Branco</h5>
+                                <p>Especialista em Planejamento Patrimonial e Direito Sucessório. Atua na organização e
+                                    proteção de bens com soluções estratégicas para famílias.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <div class="team-back-header">
+                                <h5>Davi Castelo Branco</h5>
+                                <span class="team-position">Sócio Fundador</span>
+                            </div>
+                            <div class="team-back-content">
+                                <h6>ÁREAS DE ATUAÇÃO</h6>
+                                <ul>
+                                    <li><strong>Planejamento Patrimonial</strong></li>
+                                    <li><strong>Direito Sucessório</strong></li>
+                                    <li><strong>Direito Imobiliário</strong></li>
+                                    <li>Organização, proteção e perpetuação de bens</li>
+                                    <li>Soluções jurídicas estratégicas para patrimônio familiar</li>
+                                </ul>
+                            </div>
+                            <button class="btn-back" onclick="flipCard('davi-card')">← Voltar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leonardo Roriz -->
+                <div class="team-card" id="leonardo-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <div class="team-image">
+                                <img src="assets/images/leonardo.webp" alt="Leonardo Roriz - Sócio Fundador"
+                                    loading="lazy">
+                            </div>
+                            <div class="team-info">
+                                <span class="team-position">Sócio Fundador</span>
+                                <h5>Leonardo Roriz</h5>
+                                <p>Especialista em Direito Digital e Propriedade Intelectual. Oferece assessoria
+                                    estratégica na proteção de direitos e defesa técnica.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <div class="team-back-header">
+                                <h5>Leonardo Roriz</h5>
+                                <span class="team-position">Sócio Fundador</span>
+                            </div>
+                            <div class="team-back-content">
+                                <h6>ÁREAS DE ATUAÇÃO</h6>
+                                <ul>
+                                    <li><strong>Direito Digital</strong></li>
+                                    <li><strong>Propriedade Intelectual</strong></li>
+                                    <li><strong>Direito Penal</strong></li>
+                                    <li>Assessoria estratégica na proteção de direitos</li>
+                                    <li>Defesa técnica e soluções jurídicas</li>
+                                </ul>
+                            </div>
+                            <button class="btn-back" onclick="flipCard('leonardo-card')">← Voltar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container" data-aos="fade-up">
+            <h2>Agende sua reunião</h2>
+            <p>Nosso escritório está preparado para receber você em um ambiente reservado, confortável e com estrutura
+                completa para tratar dos seus assuntos com seriedade, ética e atenção total aos detalhes.</p>
+            <a href="#" class="btn-primary" onclick="openModal('agendamento'); return false;">AGENDAR AGORA</a>
+        </div>
+    </section>
+
+    <!-- Contact Section - Location -->
+    <section class="contact-location" id="localizacao">
+        <div class="container">
+            <div class="location-header" data-aos="fade-up">
+                <h2 class="location-title">Onde estamos localizados?</h2>
+            </div>
+            <div class="location-map-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="location-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.390585141703!2d-34.8988!3d-8.0642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18bbd83507d9%3A0xc0f1f1f1f1f1f1f1!2sRua%20Viscondessa%20do%20Livramento%2C%20113%20-%20Paissandu%2C%20Recife%20-%20PE%2C%2052010-060!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" title="Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE, 52010-060"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="location-address" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="address-text">Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE, 52010-060</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Form -->
+    <section class="contact-form-section" id="contato">
+        <div class="container">
+            <div class="contact-form-grid">
+                <!-- Left Side - Contact Info -->
+                <div class="contact-info-side" data-aos="fade-right">
+                    <h2 class="contact-info-title">Gostaria de saber mais sobre nossos serviços?</h2>
+                    <p class="contact-info-description">Entre em contato conosco e descubra como podemos ajudar a preservar o seu legado.</p>
+                    
+                    <div class="contact-channels-box">
+                        <h3 class="channels-title">Canais de Atendimento</h3>
+                        <p class="channels-intro">Estamos disponíveis nos seguintes canais para melhor atendê-lo:</p>
+                        
+                        <div class="channel-item">
+                            <h4 class="channel-label">E-mail</h4>
+                            <p class="channel-value"><a href="mailto:contato@rorizcastelobrancoadv.com">contato@rorizcastelobrancoadv.com</a></p>
+                        </div>
+                        
+                        <div class="channel-item">
+                            <h4 class="channel-label">TELEFONE</h4>
+                            <p class="channel-value"><a href="tel:+5581994461187">(55) 81 99446-1187</a></p>
+                        </div>
+                        
+                        <div class="channel-item">
+                            <h4 class="channel-label">WHATSAPP</h4>
+                            <p class="channel-value"><a href="https://wa.me/5581994461187" target="_blank">(55) 81 99446-1187</a></p>
+                        </div>
+                        
+                        <div class="channel-item">
+                            <h4 class="channel-label">REDES SOCIAIS</h4>
+                            <div class="contact-social-icons">
+                                <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.facebook.com/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Contact Form -->
+                <div class="contact-form-side" data-aos="fade-left">
+                    <div class="contact-form-card">
+                        <h3 class="form-title">Preencha os campos abaixo e retornaremos o mais breve possível.</h3>
+                        <form id="contactFormInline" class="contact-form-inline" onsubmit="handleInlineFormSubmit(event); return false;">
+                            <div class="form-group">
+                                <label for="nomeInline">Nome <span class="required">*</span></label>
+                                <input type="text" id="nomeInline" name="nome" required placeholder="Insira seu nome completo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="empresaInline">Empresa <span class="required">*</span></label>
+                                <input type="text" id="empresaInline" name="empresa" required placeholder="Insira o nome da sua empresa">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emailInline">E-mail <span class="required">*</span></label>
+                                <input type="email" id="emailInline" name="email" required placeholder="email@dominio.com.br">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="assuntoInline">Área de Interesse <span class="required">*</span></label>
+                                <select id="assuntoInline" name="assunto" required>
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="direito-sucessorio">Direito Sucessório</option>
+                                    <option value="direito-familia">Direito de Família</option>
+                                    <option value="planejamento-civil">Planejamento Civil</option>
+                                    <option value="direito-tributario">Direito Tributário</option>
+                                    <option value="direito-societario">Direito Societário</option>
+                                    <option value="direito-digital">Direito Digital</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagemInline">Mensagem</label>
+                                <textarea id="mensagemInline" name="mensagem" placeholder="Descreva brevemente como podemos te auxiliar"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-form-submit">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modal -->
+    <div class="service-modal-overlay" id="serviceModal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <h3 id="serviceModalTitle">Título do Serviço</h3>
+                <button class="service-modal-close" onclick="closeServiceModal()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="service-modal-body">
+                <p id="serviceModalDescription">Descrição do serviço.</p>
+                <ul id="serviceModalList"></ul>
+            </div>
+            <div class="service-modal-actions">
+                <a href="#" class="btn-primary" onclick="openModal('contato'); closeServiceModal(); return false;">Falar
+                    com Especialista</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div class="service-detail-modal-overlay" id="serviceDetailModal">
+        <div class="service-detail-modal-content">
+            <div class="service-detail-modal-header">
+                <h3 id="serviceDetailTitle">Título do Serviço</h3>
+                <button class="service-detail-modal-close" onclick="closeServiceDetailModal()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="service-detail-modal-body">
+                <p id="serviceDetailDescription">Descrição detalhada do serviço.</p>
+            </div>
+            <div class="service-detail-modal-actions">
+                <a href="#" class="btn-primary" onclick="closeServiceDetailModal(); openModal('contato'); return false;">Falar com Especialista</a>
+                <button class="btn-secondary" onclick="closeServiceDetailModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Fale Conosco</h2>
+                <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo"
+                            autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(81) 99999-9999"
+                            autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Enviar</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Form Modal -->
+    <div class="modal-overlay" id="whatsappModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Fale Conosco via WhatsApp</h2>
+                <button class="modal-close" onclick="closeWhatsAppForm()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="whatsappForm">
+                    <div class="form-group">
+                        <label for="wName">Nome Completo <span class="required">*</span></label>
+                        <input type="text" id="wName" name="wName" required placeholder="Seu nome"
+                            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="wEmail">E-mail <span class="required">*</span></label>
+                        <input type="email" id="wEmail" name="wEmail" required placeholder="seu@email.com"
+                            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="wPhone">WhatsApp (com DDD) <span class="required">*</span></label>
+                        <input type="tel" id="wPhone" name="wPhone" required placeholder="(81) 99192-4497"
+                            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div class="form-actions"
+                        style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                        <button type="submit" class="btn-primary">Enviar ao WhatsApp</button>
+                        <button type="button" class="btn-cancel" onclick="closeWhatsAppForm()"
+                            style="background: #ccc; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h5>R & CB Advogados</h5>
+                        <p>Roriz & Castelo Branco Advogados</p>
+                        <p>Estratégia patrimonial para hoje e para as próximas gerações.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Escritório</h5>
+                        <a href="#sobre">Quem Somos</a>
+                        <a href="#servicos">Áreas de Atuação</a>
+                        <a href="#socios">Sócios</a>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Contato</h5>
+                        <p><strong>Telefone:</strong> <a href="tel:+5581994461187">(81) 99446-1187</a></p>
+                        <p><strong>E-mail:</strong> <a
+                                href="mailto:contato@rorizcastelobrancoadv.com">contato@rorizcastelobrancoadv.com</a>
+                        </p>
+                        <p><strong>Endereço:</strong> Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE,
+                            52010-060
+                        </p>
+                        <p><strong>Horário:</strong> 9h às 18h</p>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Redes Sociais</h5>
+                        <div class="contact-social">
+                            <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank"
+                                rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/rorizcastelobrancoadv/" target="_blank"
+                                rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.facebook.com/rorizcastelobrancoadv/" target="_blank"
+                                rel="noopener noreferrer" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2025 R & CB Advogados. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button class="btn-top" id="btnTop" aria-label="Voltar ao topo">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <!-- AOS Animation Library -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <!-- Main JavaScript -->
+        <script src="js/main.js"></script>
+</body>
+
+</html>
