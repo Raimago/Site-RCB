@@ -2161,7 +2161,7 @@ footer {
 /* Tablets and small screens */
 @media (max-width: 768px) {
     .container {
-        padding: 0 18px;
+        padding: 0 24px;
     }
 
     nav {
@@ -2215,58 +2215,71 @@ footer {
         height: 42px;
     }
 
+    /* ===== HERO SECTION - MOBILE ===== */
     .hero {
-        padding: 80px 18px 40px;
-        min-height: 85vh;
-        margin-bottom: 40px;
+        padding: 100px 24px 60px;
+        min-height: 100vh;
+        margin-bottom: 0;
     }
 
     .hero-image {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .hero-image img {
-        max-width: 150px;
+        max-width: 140px;
     }
 
     .hero-pretitle {
-        font-size: 0.7rem;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
     }
 
     .hero-title {
-        font-size: 2rem;
-        margin-bottom: 16px;
-        line-height: 1.2;
+        font-size: 2.2rem;
+        margin-bottom: 24px;
+        line-height: 1.25;
     }
 
     .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 30px;
+        font-size: 1rem;
+        margin-bottom: 40px;
+        line-height: 1.7;
     }
 
     .btn-primary {
-        padding: 12px 28px;
-        font-size: 0.75rem;
-        margin-bottom: 30px;
+        padding: 16px 32px;
+        font-size: 0.8rem;
+        margin-bottom: 40px;
         white-space: normal;
         line-height: 1.4;
     }
 
-    .section-title {
-        font-size: 1.8rem;
+    /* ===== SECTION HEADERS - MOBILE ===== */
+    .section-header,
+    .luxury-section-header {
+        margin-bottom: 50px;
     }
 
     .section-pretitle {
-        font-size: 0.7rem;
-        letter-spacing: 2px;
+        font-size: 0.75rem;
+        letter-spacing: 2.5px;
+        margin-bottom: 16px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
     }
 
     .section-description {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.8;
     }
 
+    /* ===== ALL SECTIONS - MOBILE ===== */
     .about,
     .services,
     .services-luxury,
@@ -2276,12 +2289,13 @@ footer {
     .contact-form-section,
     .text-section,
     .cta {
-        padding: 50px 0;
+        padding: 70px 0;
     }
 
+    /* ===== ABOUT SECTION - MOBILE ===== */
     .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
     }
 
     .about-image {
@@ -2289,373 +2303,99 @@ footer {
     }
 
     .about-image img {
-        max-width: 100%;
+        max-width: 85%;
+        margin: 0 auto;
+        display: block;
     }
 
-    .contact-form-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .contact-form-side {
-        position: static;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .location-title {
+    .about-text h2 {
         font-size: 2rem;
+        margin-bottom: 28px;
+        line-height: 1.2;
     }
 
-    .location-map-container iframe {
-        height: 400px;
-    }
-
-    .address-text {
-        font-size: 1.2rem;
-    }
-
-    .location-navigation-buttons {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 30px;
-        padding: 0 20px;
-    }
-    
-    .btn-navigation {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
+    .about-text p {
         font-size: 0.95rem;
+        margin-bottom: 24px;
+        line-height: 1.8;
     }
 
-    .section-header {
-        margin-bottom: 35px;
-    }
-
+    /* ===== SERVICES SECTION - MOBILE ===== */
     .services-grid-luxury {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 32px;
+        margin-top: 50px;
     }
 
     .service-luxury-card {
-        padding: 32px 26px;
+        padding: 36px 28px;
+    }
+
+    .service-luxury-header {
+        margin-bottom: 24px;
     }
 
     .service-luxury-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
     }
 
     .service-title-area h4 {
-        font-size: 1.3rem;
+        font-size: 1.35rem;
+    }
+
+    .service-category {
+        font-size: 0.8rem;
+        margin-top: 6px;
+    }
+
+    .service-luxury-description {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 24px;
+    }
+
+    .service-features {
+        margin-top: 20px;
+    }
+
+    .service-features li {
+        padding: 12px 0 12px 24px;
+        font-size: 0.9rem;
+        margin: 6px 0;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .service-card {
-        padding: 28px 22px;
-    }
-
-    .service-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 16px;
-    }
-
-    .service-card h4 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-    }
-
-    .service-card p {
-        font-size: 0.85rem;
-    }
-
-    .about-text h2 {
-        font-size: 1.8rem;
-        margin-bottom: 18px;
-    }
-
-    .about-text p {
-        font-size: 0.9rem;
-        margin-bottom: 16px;
-    }
-
-    .team-card {
-        height: auto;
-        min-height: auto;
-    }
-
-    .team-image {
-        height: 500px;
-        flex-shrink: 0;
-    }
-
-    .team-image img {
-        object-fit: cover;
-        object-position: center top;
-        width: 100%;
-        height: 100%;
-    }
-
-    .team-info {
-        padding: 12px 18px 40px;
-        flex-shrink: 0;
-    }
-
-    .team-info h5 {
-        font-size: 1.2rem;
-        margin-bottom: 6px;
-    }
-
-    .team-info p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        margin-bottom: 0;
-    }
-
-    .team-position {
-        font-size: 0.7rem;
-        margin-bottom: 5px;
-    }
-
-    .team-position {
-        font-size: 0.75rem;
-    }
-
-    .team-back-header h5 {
-        font-size: 1.1rem;
-    }
-
-    .team-card-back {
-        padding: 22px;
-    }
-
-    .cta h2 {
-        font-size: 1.8rem;
-        margin-bottom: 18px;
-    }
-
-    .cta p {
-        font-size: 0.9rem;
-        margin-bottom: 28px;
-    }
-
-    .contact-info h3 {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-    }
-
-    .contact-info h4 {
-        font-size: 0.95rem;
-        margin-top: 20px;
-    }
-
-    .contact-info p {
-        font-size: 0.9rem;
-    }
-
-    .map-container {
-        height: 300px;
-    }
-
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
 
-    .footer-section h5 {
-        font-size: 1rem;
-        margin-bottom: 12px;
+    .service-card {
+        padding: 32px 26px;
     }
 
-    .footer-section p,
-    .footer-section a {
-        font-size: 0.85rem;
+    .service-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 20px;
     }
 
-    .text-content p {
-        font-size: 0.9rem;
-    }
-
-    /* Modal responsive */
-    .modal-content {
-        max-width: 95%;
-        width: 95%;
-        margin: 10px;
-        max-height: 95vh;
-    }
-
-    .modal-header {
-        padding: 14px 16px;
-    }
-
-    .modal-header h2 {
-        font-size: 1.1rem;
-    }
-
-    .modal-close {
-        width: 28px;
-        height: 28px;
+    .service-card h4 {
         font-size: 1.2rem;
-        top: 10px;
-        right: 10px;
+        margin-bottom: 16px;
     }
 
-    .modal-body {
-        padding: 18px 16px;
-    }
-
-    .form-group {
-        margin-bottom: 14px;
-    }
-
-    .form-group label {
-        font-size: 0.8rem;
-        margin-bottom: 5px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 10px 12px;
+    .service-card p {
         font-size: 0.9rem;
+        line-height: 1.7;
     }
 
-    .form-group textarea {
-        min-height: 80px;
-    }
-
-    .form-actions {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 18px;
-    }
-
-    .btn-submit,
-    .btn-cancel {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-
-    .btn-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
-    }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    .hero {
-        padding: 70px 15px 30px;
-        min-height: auto;
-    }
-
-    .hero-title {
-        font-size: 1.7rem;
-        line-height: 1.3;
-    }
-
-    .hero-image img {
-        max-width: 120px;
-    }
-
-    .hero-description {
-        font-size: 0.85rem;
-    }
-
-    .btn-primary {
-        font-size: 0.7rem;
-        padding: 10px 24px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.4;
-    }
-
-    /* Quebra de linha para títulos longos */
-    .hero-title,
-    .section-title,
-    .about-text h2 {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-    
-    .service-luxury-description,
-    .hero-description,
-    .section-description {
-        text-align: justify;
-        word-spacing: -0.05em;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-        line-height: 1.3;
-    }
-
-    .section-pretitle {
-        font-size: 0.65rem;
-    }
-
-    .section-description {
-        font-size: 0.85rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .about-text h2 {
-        font-size: 1.6rem;
-        line-height: 1.3;
-    }
-
-    .about-text p {
-        font-size: 0.85rem;
-    }
-
-    .cta h2 {
-        font-size: 1.6rem;
-        line-height: 1.3;
-    }
-
-    .contact-info h3 {
-        font-size: 1.4rem;
-    }
-
-    .contact-form-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .contact-channels-box {
-        padding: 20px 15px;
-    }
-
-    .contact-form-card {
-        padding: 25px 18px;
-    }
-
+    /* ===== TEAM SECTION - MOBILE ===== */
     .team-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 40px;
+        margin-top: 50px;
     }
 
     .team-card {
@@ -2676,181 +2416,787 @@ footer {
     }
 
     .team-info {
-        padding: 10px 15px 38px;
+        padding: 24px 24px 50px;
         flex-shrink: 0;
     }
 
     .team-info h5 {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
+        font-size: 1.35rem;
+        margin-bottom: 12px;
     }
 
     .team-info p {
-        font-size: 0.8rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        line-height: 1.7;
         margin-bottom: 0;
     }
 
     .team-position {
-        font-size: 0.65rem;
-        margin-bottom: 4px;
+        font-size: 0.75rem;
+        margin-bottom: 10px;
     }
 
-    .team-position {
-        font-size: 0.7rem;
-        margin-bottom: 6px;
+    .team-back-header {
+        margin-bottom: 30px;
+        padding-bottom: 24px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .team-back-header h5 {
+        font-size: 1.3rem;
     }
 
-    .contact-social a {
-        width: 38px;
-        height: 38px;
+    .team-card-back {
+        padding: 28px;
+    }
+
+    .team-back-content ul li {
+        padding: 14px 0 14px 28px;
+        font-size: 0.95rem;
+    }
+
+    /* ===== CTA SECTION - MOBILE ===== */
+    .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    .cta p {
+        font-size: 0.95rem;
+        margin-bottom: 36px;
+        line-height: 1.8;
+    }
+
+    /* ===== LOCATION SECTION - MOBILE ===== */
+    .location-header {
+        margin-bottom: 40px;
     }
 
     .location-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .location-map-wrapper {
+        margin-bottom: 32px;
     }
 
     .location-map-container iframe {
-        height: 300px;
+        height: 350px;
     }
 
     .address-text {
-        font-size: 0.9rem;
-        padding: 0 10px;
-        line-height: 1.4;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        padding: 0 16px;
     }
 
     .location-navigation-buttons {
         flex-direction: column;
-        gap: 15px;
-        margin-top: 30px;
-        padding: 0 20px;
+        gap: 16px;
+        margin-top: 32px;
+        padding: 0 24px;
     }
     
     .btn-navigation {
         width: 100%;
         justify-content: center;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .btn-navigation i {
-        font-size: 1.1rem;
+        padding: 16px 28px;
+        font-size: 1rem;
     }
 
-    .service-luxury-card {
-        padding: 24px 20px;
+    /* ===== CONTACT SECTION - MOBILE ===== */
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
-    .service-luxury-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-
-    .service-title-area h4 {
-        font-size: 1.1rem;
-    }
-
-    .service-luxury-description {
-        font-size: 0.85rem;
-    }
-
-    .service-features ul li {
-        font-size: 0.8rem;
+    .contact-form-side {
+        position: static;
     }
 
     .contact-info-title {
-        font-size: 1.5rem;
-        margin-bottom: 16px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
         line-height: 1.3;
     }
 
     .contact-info-description {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin-bottom: 36px;
+        line-height: 1.8;
+    }
+
+    .contact-channels-box {
+        padding: 32px 24px;
+    }
+
+    .channels-title {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+    }
+
+    .channels-intro {
+        font-size: 0.95rem;
         margin-bottom: 28px;
         line-height: 1.7;
     }
 
-    .contact-channels-box {
-        padding: 22px 18px;
-    }
-
-    .channels-title {
-        font-size: 1rem;
-        margin-bottom: 12px;
-    }
-
-    .channels-intro {
-        font-size: 0.88rem;
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
-
     .channel-item {
-        margin-bottom: 18px;
+        margin-bottom: 24px;
     }
 
     .channel-label {
-        font-size: 0.82rem;
-        margin-bottom: 5px;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
     }
 
     .channel-value {
-        font-size: 0.92rem;
-        line-height: 1.5;
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
     .contact-social-icons {
-        gap: 10px;
-        margin-top: 6px;
+        gap: 14px;
+        margin-top: 12px;
     }
 
     .contact-social-icons a {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
+        width: 44px;
+        height: 44px;
     }
 
     .contact-form-card {
-        padding: 22px 18px;
+        padding: 36px 28px;
     }
 
     .form-title {
-        font-size: 0.95rem;
-        margin-bottom: 18px;
-        line-height: 1.5;
+        font-size: 1.1rem;
+        margin-bottom: 28px;
+        line-height: 1.6;
     }
 
     .contact-form-inline .form-group {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .contact-form-inline .form-group label {
-        font-size: 0.82rem;
-        margin-bottom: 6px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 
     .contact-form-inline .form-group input,
     .contact-form-inline .form-group select,
     .contact-form-inline .form-group textarea {
-        padding: 10px 11px;
-        font-size: 0.88rem;
+        padding: 14px 16px;
+        font-size: 1rem;
     }
 
     .contact-form-inline .form-group textarea {
-        min-height: 75px;
+        min-height: 100px;
     }
 
     .btn-form-submit {
-        padding: 12px 20px;
+        padding: 16px 24px;
+        font-size: 1rem;
+        margin-top: 12px;
+    }
+
+    .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+    }
+
+    .contact-info h4 {
+        font-size: 1rem;
+        margin-top: 24px;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    /* ===== TEXT SECTION - MOBILE ===== */
+    .text-section {
+        padding: 60px 0;
+    }
+
+    .text-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .text-content p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ===== FOOTER - MOBILE ===== */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .footer-section h5 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* ===== MODAL - MOBILE ===== */
+    .modal-content {
+        max-width: 95%;
+        width: 95%;
+        margin: 10px;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: 18px 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1.3rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal-body {
+        padding: 24px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
         font-size: 0.85rem;
-        margin-top: 6px;
+        margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .form-group textarea {
+        min-height: 90px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+
+    .btn-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* ===== HERO SECTION - SMALL MOBILE ===== */
+    .hero {
+        padding: 90px 20px 50px;
+        min-height: 100vh;
+    }
+
+    .hero-image {
+        margin-bottom: 28px;
+    }
+
+    .hero-image img {
+        max-width: 110px;
+    }
+
+    .hero-pretitle {
+        font-size: 0.7rem;
+        letter-spacing: 2.5px;
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+        line-height: 1.25;
+        margin-bottom: 22px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+        margin-bottom: 36px;
+        line-height: 1.7;
+    }
+
+    .btn-primary {
+        font-size: 0.75rem;
+        padding: 14px 28px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    /* ===== SECTION HEADERS - SMALL MOBILE ===== */
+    .section-header,
+    .luxury-section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-pretitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        line-height: 1.25;
+        margin-bottom: 18px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .section-description {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
+    /* ===== ALL SECTIONS - SMALL MOBILE ===== */
+    .about,
+    .services,
+    .services-luxury,
+    .team,
+    .contact,
+    .contact-location,
+    .contact-form-section,
+    .text-section,
+    .cta {
+        padding: 60px 0;
+    }
+
+    /* ===== ABOUT SECTION - SMALL MOBILE ===== */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image img {
+        max-width: 90%;
+    }
+
+    .about-text h2 {
+        font-size: 1.7rem;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.75;
+        margin-bottom: 20px;
+    }
+
+    /* ===== SERVICES SECTION - SMALL MOBILE ===== */
+    .services-grid-luxury {
+        gap: 28px;
+        margin-top: 40px;
+    }
+
+    .service-luxury-card {
+        padding: 30px 22px;
+    }
+
+    .service-luxury-header {
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .service-luxury-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+
+    .service-title-area h4 {
+        font-size: 1.2rem;
+    }
+
+    .service-category {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+
+    .service-luxury-description {
+        font-size: 0.9rem;
+        line-height: 1.75;
+        margin-bottom: 20px;
+    }
+
+    .service-features {
+        margin-top: 18px;
+    }
+
+    .service-features li {
+        padding: 10px 0 10px 22px;
+        font-size: 0.85rem;
+        margin: 5px 0;
+    }
+
+    /* ===== TEAM SECTION - SMALL MOBILE ===== */
+    .team-grid {
+        gap: 36px;
+        margin-top: 40px;
+    }
+
+    .team-card {
+        height: auto;
+        min-height: auto;
+    }
+
+    .team-image {
+        height: 420px;
+        flex-shrink: 0;
+    }
+
+    .team-image img {
+        object-fit: cover;
+        object-position: center top;
+        width: 100%;
+        height: 100%;
+    }
+
+    .team-info {
+        padding: 20px 20px 45px;
+        flex-shrink: 0;
+    }
+
+    .team-info h5 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    .team-info p {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 0;
+    }
+
+    .team-position {
+        font-size: 0.72rem;
+        margin-bottom: 8px;
+    }
+
+    .team-back-header {
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+    }
+
+    .team-back-header h5 {
+        font-size: 1.2rem;
+    }
+
+    .team-card-back {
+        padding: 24px 20px;
+    }
+
+    .team-back-content ul li {
+        padding: 12px 0 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    /* ===== CTA SECTION - SMALL MOBILE ===== */
+    .cta h2 {
+        font-size: 1.7rem;
+        line-height: 1.25;
+        margin-bottom: 22px;
+    }
+
+    .cta p {
+        font-size: 0.9rem;
+        margin-bottom: 32px;
+        line-height: 1.75;
+    }
+
+    /* ===== LOCATION SECTION - SMALL MOBILE ===== */
+    .location-header {
+        margin-bottom: 36px;
+    }
+
+    .location-title {
+        font-size: 1.6rem;
+    }
+
+    .location-map-wrapper {
+        margin-bottom: 28px;
+    }
+
+    .location-map-container iframe {
+        height: 280px;
+    }
+
+    .address-text {
+        font-size: 1rem;
+        padding: 0 12px;
+        line-height: 1.5;
+    }
+
+    .location-navigation-buttons {
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 28px;
+        padding: 0 16px;
+    }
+    
+    .btn-navigation {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-navigation i {
+        font-size: 1.15rem;
+    }
+
+    /* ===== CONTACT SECTION - SMALL MOBILE ===== */
+    .contact-form-grid {
+        gap: 40px;
+    }
+
+    .contact-info-title {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+        line-height: 1.3;
+    }
+
+    .contact-info-description {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+        line-height: 1.75;
+    }
+
+    .contact-channels-box {
+        padding: 28px 20px;
+    }
+
+    .channels-title {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+    }
+
+    .channels-intro {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
+        line-height: 1.7;
+    }
+
+    .channel-item {
+        margin-bottom: 22px;
+    }
+
+    .channel-label {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .channel-value {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .contact-social-icons {
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .contact-social-icons a {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .contact-form-card {
+        padding: 28px 22px;
+    }
+
+    .form-title {
+        font-size: 1rem;
+        margin-bottom: 24px;
+        line-height: 1.6;
+    }
+
+    .contact-form-inline .form-group {
+        margin-bottom: 18px;
+    }
+
+    .contact-form-inline .form-group label {
+        font-size: 0.88rem;
+        margin-bottom: 8px;
+    }
+
+    .contact-form-inline .form-group input,
+    .contact-form-inline .form-group select,
+    .contact-form-inline .form-group textarea {
+        padding: 13px 14px;
+        font-size: 0.95rem;
+    }
+
+    .contact-form-inline .form-group textarea {
+        min-height: 90px;
+    }
+
+    .btn-form-submit {
+        padding: 15px 22px;
+        font-size: 0.92rem;
+        margin-top: 10px;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 22px;
+    }
+
+    .contact-info h4 {
+        font-size: 0.95rem;
+        margin-top: 22px;
+    }
+
+    .contact-info p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+
+    /* ===== TEXT SECTION - SMALL MOBILE ===== */
+    .text-section {
+        padding: 50px 0;
+    }
+
+    .text-content p {
+        font-size: 0.92rem;
+        line-height: 1.75;
+        margin-bottom: 18px;
+    }
+
+    /* ===== FOOTER - SMALL MOBILE ===== */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-section h5 {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+
+    .contact-social a {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* ===== MODAL - SMALL MOBILE ===== */
+    .modal-content {
+        margin: 8px;
+    }
+
+    .modal-header {
+        padding: 16px 18px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .modal-close {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .modal-body {
+        padding: 22px 18px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 13px;
+        font-size: 0.92rem;
+    }
+
+    .form-group textarea {
+        min-height: 85px;
+    }
+
+    .form-actions {
+        margin-top: 22px;
+        gap: 11px;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        padding: 13px 22px;
+        font-size: 0.92rem;
+    }
+
+    .btn-top {
+        bottom: 18px;
+        right: 18px;
+        width: 48px;
+        height: 48px;
     }
 }
 
