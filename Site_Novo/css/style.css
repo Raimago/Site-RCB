@@ -1069,6 +1069,55 @@ header.scrolled .menu-toggle span {
     line-height: 1.4;
 }
 
+/* Location Navigation Buttons */
+.location-navigation-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-navigation {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.btn-navigation i {
+    font-size: 1.3rem;
+}
+
+.btn-waze {
+    background: linear-gradient(135deg, #33CCFF 0%, #0099CC 100%);
+    color: var(--white);
+}
+
+.btn-waze:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(51, 204, 255, 0.4);
+    border-color: #0099CC;
+}
+
+.btn-gmaps {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%);
+    color: var(--white);
+}
+
+.btn-gmaps:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
+    border-color: #4285F4;
+}
+
 /* ==========================================================================
    Contact Section (Dark) - Legacy
    ========================================================================== */
@@ -2077,6 +2126,13 @@ footer {
         opacity: 1 !important;
     }
 
+    /* Garantir visibilidade de service cards */
+    .service-luxury-card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
     header {
         padding: 14px 0;
     }
@@ -2128,6 +2184,8 @@ footer {
         padding: 12px 28px;
         font-size: 0.75rem;
         margin-bottom: 30px;
+        white-space: normal;
+        line-height: 1.4;
     }
 
     .section-title {
@@ -2192,6 +2250,20 @@ footer {
 
     .address-text {
         font-size: 1.2rem;
+    }
+
+    .location-navigation-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+    
+    .btn-navigation {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 0.95rem;
     }
 
     .section-header {
@@ -2446,6 +2518,23 @@ footer {
         padding: 10px 24px;
         white-space: normal;
         text-align: center;
+        line-height: 1.4;
+    }
+
+    /* Quebra de linha para títulos longos */
+    .hero-title,
+    .section-title,
+    .about-text h2 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .service-luxury-description,
+    .hero-description,
+    .section-description {
+        text-align: justify;
+        word-spacing: -0.05em;
     }
 
     .section-title {
@@ -2566,6 +2655,24 @@ footer {
         font-size: 0.9rem;
         padding: 0 10px;
         line-height: 1.4;
+    }
+
+    .location-navigation-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+    
+    .btn-navigation {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-navigation i {
+        font-size: 1.1rem;
     }
 
     .service-luxury-card {

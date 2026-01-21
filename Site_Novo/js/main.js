@@ -611,14 +611,16 @@
     // ==========================================================================
     function initAOS() {
         if (typeof AOS !== 'undefined') {
+            const isMobile = window.innerWidth <= 768;
             AOS.init({
-                duration: 1000,
+                duration: isMobile ? 600 : 1000,
                 easing: 'ease-out-cubic',
                 once: true,
                 mirror: false,
-                offset: 80,
+                offset: isMobile ? 20 : 80,
                 delay: 0,
-                anchorPlacement: 'top-bottom'
+                anchorPlacement: isMobile ? 'top-center' : 'top-bottom',
+                disable: window.innerWidth < 480 ? true : false
             });
         }
     }
@@ -753,18 +755,21 @@
         const serviceCards = document.querySelectorAll('.service-luxury-card');
         
         if (serviceCards.length === 0) return;
+        
+        const isMobile = window.innerWidth <= 768;
 
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: isMobile ? 0.05 : 0.15,
+            rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
+                    const delay = isMobile ? 0 : index * 100;
                     setTimeout(() => {
                         entry.target.classList.add('animate');
-                    }, index * 100); // Stagger animation
+                    }, delay);
                     observer.unobserve(entry.target);
                 }
             });
@@ -855,5 +860,16 @@
     } else {
         init();
     }
+
+    // Re-initialize AOS on resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }, 250);
+    });
 
 })();
