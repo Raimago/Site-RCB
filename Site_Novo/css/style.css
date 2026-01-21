@@ -1163,25 +1163,36 @@ header.scrolled .menu-toggle span {
 }
 
 .btn-waze {
-    background: linear-gradient(135deg, #33CCFF 0%, #0099CC 100%);
+    background: var(--gold-gradient);
     color: var(--white);
+}
+
+.btn-waze i {
+    color: #33CCFF;
 }
 
 .btn-waze:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(51, 204, 255, 0.4);
-    border-color: #0099CC;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
+    border-color: var(--accent-gold);
 }
 
 .btn-gmaps {
-    background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%);
+    background: var(--gold-gradient);
     color: var(--white);
+}
+
+.btn-gmaps i {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .btn-gmaps:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
-    border-color: #4285F4;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
+    border-color: var(--accent-gold);
 }
 
 /* ==========================================================================
