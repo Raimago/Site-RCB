@@ -311,14 +311,8 @@
             const cardInner = card.querySelector('.team-card-inner');
 
             cardInner.addEventListener('click', function (e) {
-                // Don't flip if clicking the back button
-                if (e.target.classList.contains('btn-back') || e.target.closest('.btn-back')) {
-                    return;
-                }
-                // Only flip if not already flipped
-                if (!card.classList.contains('flipped')) {
-                    card.classList.add('flipped');
-                }
+                // Toggle flip state - click anywhere to flip/unflip
+                card.classList.toggle('flipped');
             });
         });
     }
@@ -781,6 +775,68 @@
     }
 
     // ==========================================================================
+    // Parallax Effect
+    // ==========================================================================
+    function initParallax() {
+        const parallaxElements = document.querySelectorAll('[data-parallax]');
+        
+        if (parallaxElements.length === 0) return;
+        
+        // Check if device prefers reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Disable parallax on mobile for performance
+        const isMobile = window.innerWidth <= 768;
+        
+        if (prefersReducedMotion || isMobile) {
+            return;
+        }
+        
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            
+            parallaxElements.forEach(el => {
+                const speed = parseFloat(el.dataset.parallax) || 0.5;
+                const rect = el.parentElement.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Only apply parallax when element is in viewport
+                if (rect.bottom > 0 && rect.top < windowHeight) {
+                    const yPos = -(scrollY * speed);
+                    el.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                }
+            });
+            
+            ticking = false;
+        }
+        
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Initial update
+        updateParallax();
+        
+        // Re-check on resize
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile) {
+                // Reset transforms on mobile
+                parallaxElements.forEach(el => {
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    }
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
     function init() {
@@ -790,6 +846,7 @@
         initServiceCardsAnimation();
         initAOS();
         initHoverEffects();
+        initParallax();
 
         // Initial scroll check
         handleScroll();
