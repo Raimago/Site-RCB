@@ -660,15 +660,20 @@
                 currentX += (targetX - currentX) * 0.1;
                 currentY += (targetY - currentY) * 0.1;
 
-                // Apply transform
-                const rotateX = currentY * 0.05; // Max 5 degrees
-                const rotateY = currentX * 0.05; // Max 5 degrees
-                const translateZ = Math.abs(currentX) * 0.1 + Math.abs(currentY) * 0.1;
+                // Apply transform - combine 3D parallax with hover effect
+                const rotateX = currentY * 0.03; // Max 3 degrees (more subtle)
+                const rotateY = currentX * 0.03; // Max 3 degrees (more subtle)
+                const translateZ = Math.abs(currentX) * 0.05 + Math.abs(currentY) * 0.05;
+                
+                // Add translateY for hover effect (only when hovering)
+                const translateY = isHovering ? -8 : 0; // -8px for service cards, -10px for team cards
+                const hoverY = card.classList.contains('team-card') ? -10 : -8;
 
                 card.style.transform = `
                     perspective(1000px)
                     rotateX(${-rotateX}deg)
                     rotateY(${rotateY}deg)
+                    translateY(${hoverY}px)
                     translateZ(${translateZ}px)
                 `;
 
@@ -700,9 +705,9 @@
                 const mouseX = e.clientX - centerX;
                 const mouseY = e.clientY - centerY;
 
-                // Normalize to -1 to 1 range
-                targetX = (mouseX / (rect.width / 2)) * 20; // Max 20px movement
-                targetY = (mouseY / (rect.height / 2)) * 20; // Max 20px movement
+                // Normalize to -1 to 1 range (reduced for more subtle effect)
+                targetX = (mouseX / (rect.width / 2)) * 15; // Max 15px movement (more subtle)
+                targetY = (mouseY / (rect.height / 2)) * 15; // Max 15px movement (more subtle)
             });
         });
     }
