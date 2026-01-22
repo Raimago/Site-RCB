@@ -366,7 +366,7 @@
             if (content) {
                 content.style.animation = 'modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             }
-            
+
             setTimeout(() => {
                 contactModal.classList.remove('active');
                 document.body.style.overflow = '';
@@ -409,7 +409,7 @@
     // ==========================================================================
     function openServiceDetailModal(serviceName) {
         const serviceData = individualServiceDescriptions[serviceName];
-        
+
         if (!serviceData) {
             // Se não encontrar descrição específica, abre modal de contato
             openModal('contato');
@@ -420,7 +420,7 @@
         if (detailModal) {
             document.getElementById('serviceDetailTitle').textContent = serviceData.title;
             document.getElementById('serviceDetailDescription').textContent = serviceData.description;
-            
+
             detailModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -434,7 +434,7 @@
             if (content) {
                 content.style.animation = 'modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             }
-            
+
             setTimeout(() => {
                 detailModal.classList.remove('active');
                 document.body.style.overflow = '';
@@ -452,7 +452,7 @@
             if (content) {
                 content.style.animation = 'modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             }
-            
+
             setTimeout(() => {
                 serviceModal.classList.remove('active');
                 document.body.style.overflow = '';
@@ -470,7 +470,7 @@
             if (content) {
                 content.style.animation = 'modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             }
-            
+
             setTimeout(() => {
                 contactModal.classList.remove('active');
                 document.body.style.overflow = '';
@@ -496,41 +496,41 @@
     // ==========================================================================
     function handleInlineFormSubmit(event) {
         event.preventDefault();
-        
+
         const form = event.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        
+
         // Create WhatsApp message
         let message = '*CONTATO - R & CB ADVOGADOS*\n\n';
         message += `*Nome:* ${data.nome}\n`;
         message += `*Empresa:* ${data.empresa}\n`;
         message += `*E-mail:* ${data.email}\n`;
-        
+
         if (data.assunto) {
             const assuntoFormatted = data.assunto
                 .replace(/-/g, ' ')
                 .replace(/\b\w/g, l => l.toUpperCase());
             message += `*Área de Interesse:* ${assuntoFormatted}\n`;
         }
-        
+
         if (data.mensagem) {
             message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
         }
-        
+
         message += `_Este contato foi feito através do site oficial._`;
-        
+
         // Encode message for URL
         const encodedMessage = encodeURIComponent(message);
         const whatsappNumber = '5581994461187';
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
+
         // Open WhatsApp
         window.open(whatsappUrl, '_blank');
-        
+
         // Reset form
         form.reset();
-        
+
         // Show success message
         alert('Redirecionando para o WhatsApp...');
     }
@@ -606,17 +606,105 @@
     function initAOS() {
         if (typeof AOS !== 'undefined') {
             const isMobile = window.innerWidth <= 768;
+
+            // Adjust timing for mobile - faster and earlier trigger
             AOS.init({
-                duration: isMobile ? 500 : 800,
+                duration: isMobile ? 300 : 600,      // Faster on mobile
                 easing: 'ease-out-cubic',
-                once: false,
-                mirror: true,
-                offset: isMobile ? 30 : 100,
-                delay: 0,
+                once: true,                          // Animate only once
+                mirror: false,
+                offset: isMobile ? 10 : 80,          // Much smaller offset on mobile
+                delay: 0,                            // No global delay
                 anchorPlacement: 'top-bottom',
                 disable: false
             });
+
+            // On mobile, reduce all individual data-aos-delay values
+            if (isMobile) {
+                document.querySelectorAll('[data-aos-delay]').forEach(el => {
+                    const currentDelay = parseInt(el.getAttribute('data-aos-delay')) || 0;
+                    // Reduce delay to 1/5 of original, max 30ms
+                    el.setAttribute('data-aos-delay', Math.min(Math.floor(currentDelay / 5), 30));
+                });
+            }
         }
+    }
+
+    // ==========================================================================
+    // 3D Parallax effect on cards following mouse movement
+    // ==========================================================================
+    function init3DParallax() {
+        const cards = document.querySelectorAll('.service-luxury-card, .team-card');
+        
+        // Disable on mobile/touch devices
+        if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+            return;
+        }
+
+        cards.forEach(card => {
+            let isHovering = false;
+            let currentX = 0;
+            let currentY = 0;
+            let targetX = 0;
+            let targetY = 0;
+
+            // Smooth animation using requestAnimationFrame
+            function animate() {
+                if (!isHovering) {
+                    // Reset to center when not hovering
+                    targetX = 0;
+                    targetY = 0;
+                }
+
+                // Smooth interpolation
+                currentX += (targetX - currentX) * 0.1;
+                currentY += (targetY - currentY) * 0.1;
+
+                // Apply transform
+                const rotateX = currentY * 0.05; // Max 5 degrees
+                const rotateY = currentX * 0.05; // Max 5 degrees
+                const translateZ = Math.abs(currentX) * 0.1 + Math.abs(currentY) * 0.1;
+
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${-rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateZ(${translateZ}px)
+                `;
+
+                if (isHovering || Math.abs(currentX) > 0.01 || Math.abs(currentY) > 0.01) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            card.addEventListener('mouseenter', () => {
+                isHovering = true;
+                card.style.transition = 'none';
+                animate();
+            });
+
+            card.addEventListener('mouseleave', () => {
+                isHovering = false;
+                card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+                animate();
+            });
+
+            card.addEventListener('mousemove', (e) => {
+                if (!isHovering) return;
+
+                const rect = card.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // Calculate mouse position relative to card center
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+
+                // Normalize to -1 to 1 range
+                targetX = (mouseX / (rect.width / 2)) * 20; // Max 20px movement
+                targetY = (mouseY / (rect.height / 2)) * 20; // Max 20px movement
+            });
+        });
     }
 
     // ==========================================================================
@@ -747,9 +835,9 @@
     // ==========================================================================
     function initServiceCardsAnimation() {
         const serviceCards = document.querySelectorAll('.service-luxury-card');
-        
+
         if (serviceCards.length === 0) return;
-        
+
         const isMobile = window.innerWidth <= 768;
 
         const observerOptions = {
@@ -779,51 +867,51 @@
     // ==========================================================================
     function initParallax() {
         const parallaxElements = document.querySelectorAll('[data-parallax]');
-        
+
         if (parallaxElements.length === 0) return;
-        
+
         // Check if device prefers reduced motion
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
+
         // Disable parallax on mobile for performance
         const isMobile = window.innerWidth <= 768;
-        
+
         if (prefersReducedMotion || isMobile) {
             return;
         }
-        
+
         let ticking = false;
-        
+
         function updateParallax() {
             const scrollY = window.scrollY;
-            
+
             parallaxElements.forEach(el => {
                 const speed = parseFloat(el.dataset.parallax) || 0.5;
                 const rect = el.parentElement.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                
+
                 // Only apply parallax when element is in viewport
                 if (rect.bottom > 0 && rect.top < windowHeight) {
                     const yPos = -(scrollY * speed);
                     el.style.transform = `translate3d(0, ${yPos}px, 0)`;
                 }
             });
-            
+
             ticking = false;
         }
-        
+
         function onScroll() {
             if (!ticking) {
                 requestAnimationFrame(updateParallax);
                 ticking = true;
             }
         }
-        
+
         window.addEventListener('scroll', onScroll, { passive: true });
-        
+
         // Initial update
         updateParallax();
-        
+
         // Re-check on resize
         window.addEventListener('resize', () => {
             const newIsMobile = window.innerWidth <= 768;
@@ -847,6 +935,7 @@
         initAOS();
         initHoverEffects();
         initParallax();
+        init3DParallax();
 
         // Initial scroll check
         handleScroll();
@@ -920,7 +1009,7 @@
 
     // Re-initialize AOS on resize
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             if (typeof AOS !== 'undefined') {
