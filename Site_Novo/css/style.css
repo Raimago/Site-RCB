@@ -943,8 +943,8 @@ header.scrolled .menu-toggle span {
 
 /* Only show on hover for devices that support it */
 @media (hover: hover) and (pointer: fine) {
-    .team-card:hover::before {
-        opacity: 0.8;
+.team-card:hover::before {
+    opacity: 0.8;
     }
 }
 
@@ -1157,10 +1157,14 @@ header.scrolled .menu-toggle span {
     transition: all var(--transition-fast);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 2px solid transparent;
+    min-width: 240px;
+    width: 240px;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.btn-navigation i {
-    font-size: 1.3rem;
+.btn-navigation i,
+.btn-navigation-logo {
     width: 32px;
     height: 32px;
     display: inline-flex;
@@ -1169,15 +1173,17 @@ header.scrolled .menu-toggle span {
     background: var(--white);
     border-radius: 6px;
     flex-shrink: 0;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.btn-navigation i {
+    font-size: 1.3rem;
 }
 
 .btn-waze {
     background: var(--gold-gradient);
     color: var(--white);
-}
-
-.btn-waze i {
-    color: #33CCFF;
 }
 
 .btn-waze:hover {
@@ -1189,11 +1195,6 @@ header.scrolled .menu-toggle span {
 .btn-gmaps {
     background: var(--gold-gradient);
     color: var(--white);
-}
-
-.btn-gmaps i {
-    background: var(--white);
-    color: #4285F4;
 }
 
 .btn-gmaps:hover {
@@ -2568,6 +2569,13 @@ footer {
         justify-content: center;
         padding: 16px 28px;
         font-size: 1rem;
+        min-width: auto;
+    }
+    
+    .btn-navigation i,
+    .btn-navigation-logo {
+        width: 28px;
+        height: 28px;
     }
 
     /* ===== CONTACT SECTION - MOBILE ===== */
@@ -3103,10 +3111,17 @@ footer {
         justify-content: center;
         padding: 14px 24px;
         font-size: 0.95rem;
+        min-width: auto;
     }
     
     .btn-navigation i {
         font-size: 1.15rem;
+    }
+    
+    .btn-navigation i,
+    .btn-navigation-logo {
+        width: 26px;
+        height: 26px;
     }
 
     /* ===== CONTACT SECTION - SMALL MOBILE ===== */
