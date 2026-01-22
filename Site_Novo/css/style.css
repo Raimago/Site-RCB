@@ -591,16 +591,16 @@ header.scrolled .menu-toggle span {
     background: var(--white);
     padding: 45px 38px;
     border: 1px solid var(--glass-border);
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
-    opacity: 0;
-    transform: translateX(-40px);
+    border-radius: 8px;
 }
 
-.service-luxury-card.animate {
-    opacity: 1;
-    transform: translateX(0);
+.service-luxury-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-gold);
 }
 
 .service-luxury-card::before {
@@ -806,12 +806,13 @@ header.scrolled .menu-toggle span {
     min-height: 680px;
     height: auto;
     perspective: 1500px;
-    transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .team-card:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-    border-color: var(--accent-gold-light);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-gold);
 }
 
 .team-card-inner {

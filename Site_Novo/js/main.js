@@ -607,14 +607,14 @@
         if (typeof AOS !== 'undefined') {
             const isMobile = window.innerWidth <= 768;
             AOS.init({
-                duration: isMobile ? 600 : 1000,
+                duration: isMobile ? 500 : 800,
                 easing: 'ease-out-cubic',
-                once: true,
-                mirror: false,
-                offset: isMobile ? 20 : 80,
+                once: false,
+                mirror: true,
+                offset: isMobile ? 30 : 100,
                 delay: 0,
-                anchorPlacement: isMobile ? 'top-center' : 'top-bottom',
-                disable: window.innerWidth < 480 ? true : false
+                anchorPlacement: 'top-bottom',
+                disable: false
             });
         }
     }
