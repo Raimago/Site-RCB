@@ -2414,7 +2414,7 @@ footer {
     /* ===== TEAM SECTION - MOBILE ===== */
     .team-grid {
         grid-template-columns: 1fr;
-        gap: 100px;
+        gap: 60px;
         margin-top: 60px;
     }
 
@@ -2423,6 +2423,9 @@ footer {
         min-height: auto !important;
         overflow: visible !important;
         perspective: none !important;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .team-card-inner {
@@ -2944,7 +2947,7 @@ footer {
 
     /* ===== TEAM SECTION - SMALL MOBILE ===== */
     .team-grid {
-        gap: 80px;
+        gap: 50px;
         margin-top: 50px;
     }
 
@@ -2953,6 +2956,9 @@ footer {
         min-height: auto !important;
         overflow: visible !important;
         perspective: none !important;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .team-card-inner {
