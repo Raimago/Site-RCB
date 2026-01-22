@@ -2342,12 +2342,15 @@ footer {
     /* ===== SERVICES SECTION - MOBILE ===== */
     .services-grid-luxury {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 60px;
         margin-top: 60px;
     }
 
     .service-luxury-card {
         padding: 40px 32px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .service-luxury-header {
@@ -2900,12 +2903,15 @@ footer {
 
     /* ===== SERVICES SECTION - SMALL MOBILE ===== */
     .services-grid-luxury {
-        gap: 36px;
+        gap: 50px;
         margin-top: 50px;
     }
 
     .service-luxury-card {
         padding: 36px 26px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .service-luxury-header {
