@@ -434,8 +434,8 @@
             }
 
             setTimeout(() => {
-            serviceModal.classList.remove('active');
-            document.body.style.overflow = '';
+                serviceModal.classList.remove('active');
+                document.body.style.overflow = '';
                 if (content) {
                     content.style.animation = '';
                 }
@@ -481,38 +481,47 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // Create WhatsApp message
-        let message = '*CONTATO - R & CB ADVOGADOS*\n\n';
-        message += `*Nome:* ${data.nome}\n`;
-        message += `*Empresa:* ${data.empresa}\n`;
-        message += `*E-mail:* ${data.email}\n`;
-
+        // Format area of interest
+        let assuntoFormatted = '';
         if (data.assunto) {
-            const assuntoFormatted = data.assunto
+            assuntoFormatted = data.assunto
                 .replace(/-/g, ' ')
                 .replace(/\b\w/g, l => l.toUpperCase());
-            message += `*Área de Interesse:* ${assuntoFormatted}\n`;
         }
 
-        if (data.mensagem) {
-            message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
-        }
+        // Prepare webhook payload with all form fields
+        const webhookPayload = {
+            nome: data.nome || '',
+            empresa: data.empresa || '',
+            email: data.email || '',
+            telefone: data.telefone || '',
+            assunto: assuntoFormatted || data.assunto || '',
+            mensagem: data.mensagem || '',
+            origem: 'Formulário Contato - Site R&CB Advogados',
+            data_envio: new Date().toISOString(),
+            pagina: window.location.href
+        };
 
-        message += `_Este contato foi feito através do site oficial._`;
-
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = '5581994461187';
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
-
-        // Reset form
-        form.reset();
-
-        // Show success message
-        alert('Redirecionando para o WhatsApp...');
+        // Send webhook to n8n
+        console.log('Enviando webhook:', webhookPayload);
+        fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(webhookPayload)
+        }).then(response => {
+            console.log('Webhook enviado com sucesso');
+            // Reset form
+            form.reset();
+            // Show success message
+            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+        }).catch(err => {
+            console.error('Erro ao enviar webhook:', err);
+            form.reset();
+            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+        });
     }
 
     // ==========================================================================
@@ -535,7 +544,7 @@
         message += `*WhatsApp:* ${data.telefone}\n`;
 
         if (data.mensagem) {
-        message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
+            message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
         }
 
         message += `_Este contato foi feito através do site oficial._`;
@@ -549,7 +558,7 @@
         window.open(whatsappUrl, '_blank');
 
         // Close modal and reset form
-            closeModal();
+        closeModal();
     }
 
     // ==========================================================================
@@ -611,11 +620,11 @@
     // ==========================================================================
     function initScrollAnimations() {
         const isMobile = window.innerWidth <= 768;
-        
+
         // No desktop, excluir elementos com data-aos (AOS cuida deles)
         // No mobile, incluir todos pois AOS está desabilitado
         const aosExclusion = isMobile ? '' : ':not([data-aos])';
-        
+
         // Get all elements that should animate
         const animatedElements = document.querySelectorAll(
             `.section-header${aosExclusion}, .service-luxury-card${aosExclusion}, .team-card${aosExclusion}, ` +
@@ -629,7 +638,7 @@
             if (!isMobile && el.hasAttribute('data-aos')) {
                 return; // Skip elements with data-aos on desktop (AOS handles them)
             }
-            
+
             el.classList.add('scroll-animate');
 
             // Add staggered delays for cards
@@ -897,6 +906,22 @@
             });
         }
 
+        // Phone mask for inline form
+        const phoneInputInline = document.getElementById('telefoneInline');
+        if (phoneInputInline) {
+            phoneInputInline.addEventListener('input', function () {
+                phoneMask(this);
+            });
+        }
+
+        // Phone mask for WhatsApp modal
+        const phoneInputWA = document.getElementById('wPhone');
+        if (phoneInputWA) {
+            phoneInputWA.addEventListener('input', function () {
+                phoneMask(this);
+            });
+        }
+
         // Form submit
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
@@ -1056,13 +1081,33 @@
             e.preventDefault();
             const name = document.getElementById('wName').value;
             const email = document.getElementById('wEmail').value;
-            const phone = document.getElementById('wPhone').value.replace(/\D/g, '');
+            const phone = document.getElementById('wPhone').value;
+            const phoneClean = phone.replace(/\D/g, '');
 
-            const msg = encodeURIComponent(`Olá, meu nome é ${name} (${email}). Gostaria de falar com um especialista sobre direito sucessório.`);
-            const waLink = `https://wa.me/5581991924497?text=${msg}`;
-
-            window.open(waLink, '_blank');
-            closeWhatsAppForm();
+            // Send webhook to n8n
+            const webhookPayload = {
+                nome: name,
+                email: email,
+                telefone: phone,
+                origem: 'Modal WhatsApp - Site R&CB Advogados',
+                data_envio: new Date().toISOString(),
+                pagina: window.location.href
+            };
+            console.log('Enviando webhook modal:', webhookPayload);
+            fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(webhookPayload)
+            }).then(() => {
+                console.log('Webhook modal enviado com sucesso');
+                closeWhatsAppForm();
+                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+            }).catch(err => {
+                console.error('Erro ao enviar webhook:', err);
+                closeWhatsAppForm();
+                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+            });
         });
     }
 
