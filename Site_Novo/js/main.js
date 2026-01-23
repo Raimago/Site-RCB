@@ -494,7 +494,7 @@
             nome: data.nome || '',
             empresa: data.empresa || '',
             email: data.email || '',
-            telefone: data.telefone || '',
+            telefone: (data.telefone || '').replace(/\\D/g, ''),
             assunto: assuntoFormatted || data.assunto || '',
             mensagem: data.mensagem || '',
             origem: 'Formulário Contato - Site R&CB Advogados',
@@ -506,7 +506,6 @@
         console.log('Enviando webhook:', webhookPayload);
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
-            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -538,7 +537,7 @@
         const webhookPayload = {
             nome: data.nome || '',
             email: data.email || '',
-            telefone: data.telefone || '',
+            telefone: (data.telefone || '').replace(/\D/g, ''),
             mensagem: data.mensagem || '',
             origem: 'Modal Contato - Site R&CB Advogados',
             data_envio: new Date().toISOString(),
@@ -549,7 +548,6 @@
         console.log('Enviando webhook modal contato:', webhookPayload);
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
-            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(webhookPayload)
         }).then(() => {
@@ -1090,7 +1088,7 @@
             const webhookPayload = {
                 nome: name,
                 email: email,
-                telefone: phone,
+                telefone: phone.replace(/\D/g, ''),
                 origem: 'Modal WhatsApp - Site R&CB Advogados',
                 data_envio: new Date().toISOString(),
                 pagina: window.location.href
@@ -1098,7 +1096,6 @@
             console.log('Enviando webhook modal:', webhookPayload);
             fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(webhookPayload)
             }).then(() => {
