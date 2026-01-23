@@ -321,42 +321,17 @@
     // Contact Modal
     // ==========================================================================
     function openModal(type) {
-        /* WhatsApp Redirect Logic */
-        if (true) {
-            openWhatsAppForm();
-            return;
-        }
-
+        const contactModal = document.getElementById('contactModal');
         const modalTitle = document.getElementById('modalTitle');
-        const dataGroup = document.getElementById('dataAgendamentoGroup');
-        const horarioGroup = document.getElementById('horarioAgendamentoGroup');
-        const assuntoGroup = document.getElementById('assuntoGroup');
-        const dataInput = document.getElementById('dataAgendamento');
 
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        if (dataInput) {
-            dataInput.min = today;
-        }
-
-        if (type === 'agendamento') {
-            modalTitle.textContent = 'Agendar Reunião';
-            dataGroup.style.display = 'block';
-            horarioGroup.style.display = 'block';
-            assuntoGroup.style.display = 'none';
-            document.getElementById('dataAgendamento').required = true;
-            document.getElementById('horarioAgendamento').required = true;
-        } else {
+        if (modalTitle) {
             modalTitle.textContent = 'Fale com um Especialista';
-            dataGroup.style.display = 'none';
-            horarioGroup.style.display = 'none';
-            assuntoGroup.style.display = 'block';
-            document.getElementById('dataAgendamento').required = false;
-            document.getElementById('horarioAgendamento').required = false;
         }
 
-        contactModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        if (contactModal) {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     // ==========================================================================
