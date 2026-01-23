@@ -889,14 +889,6 @@
             });
         }
 
-        // Phone mask for WhatsApp modal
-        const phoneInputWA = document.getElementById('wPhone');
-        if (phoneInputWA) {
-            phoneInputWA.addEventListener('input', function () {
-                phoneMask(this);
-            });
-        }
-
         // Form submit
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
@@ -1021,73 +1013,9 @@
         document.body.classList.add('loaded');
     }
 
-    // ==========================================================================
     // Expose functions to global scope (for onclick handlers in HTML)
     // ==========================================================================
-    // ==========================================================================
-    // WhatsApp Form Modal
-    // ==========================================================================
-    function openWhatsAppForm() {
-        const modal = document.getElementById('whatsappModal');
-        if (modal) {
-            // Close other modals
-            closeModal();
-            closeServiceModal();
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    function closeWhatsAppForm() {
-        const modal = document.getElementById('whatsappModal');
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            const form = document.getElementById('whatsappForm');
-            if (form) form.reset();
-        }
-    }
-
-    // WhatsApp Form Submit
-    const waForm = document.getElementById('whatsappForm');
-    if (waForm) {
-        waForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('wName').value;
-            const email = document.getElementById('wEmail').value;
-            const phone = document.getElementById('wPhone').value;
-            const phoneClean = phone.replace(/\D/g, '');
-
-            // Send webhook to n8n
-            const webhookPayload = {
-                nome: name,
-                email: email,
-                telefone: phone.replace(/\D/g, ''),
-                origem: 'Modal WhatsApp - Site R&CB Advogados',
-                data_envio: new Date().toISOString(),
-                pagina: window.location.href
-            };
-            console.log('Enviando webhook modal:', webhookPayload);
-            fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(webhookPayload)
-            }).then(() => {
-                console.log('Webhook modal enviado com sucesso');
-                closeWhatsAppForm();
-                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-            }).catch(err => {
-                console.error('Erro ao enviar webhook:', err);
-                closeWhatsAppForm();
-                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-            });
-        });
-    }
-
     window.openModal = openModal;
-    window.openWhatsAppForm = openWhatsAppForm;
-    window.closeWhatsAppForm = closeWhatsAppForm;
     window.closeModal = closeModal;
     window.flipCard = flipCard;
     window.closeServiceModal = closeServiceModal;
