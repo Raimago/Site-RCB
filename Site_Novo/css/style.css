@@ -2618,7 +2618,7 @@ footer::before {
     }
 
     .team-card {
-        height: 600px !important;
+        height: 680px !important;
         overflow: hidden !important;
         perspective: 1500px !important;
         margin-bottom: 20px;
@@ -2655,7 +2655,7 @@ footer::before {
     }
 
     .team-image {
-        height: 380px;
+        height: 360px;
         flex-shrink: 0;
     }
 
@@ -2667,9 +2667,10 @@ footer::before {
     }
 
     .team-info {
-        padding: 40px 8% 50px !important;
+        padding: 36px 8% 50px !important;
         flex-shrink: 0;
         flex-grow: 1;
+        min-height: 320px;
     }
 
     .team-info h5 {
@@ -3159,7 +3160,7 @@ footer::before {
     }
 
     .team-card {
-        height: 580px !important;
+        height: 650px !important;
         overflow: hidden !important;
         perspective: 1500px !important;
         margin-bottom: 15px;
@@ -3196,7 +3197,7 @@ footer::before {
     }
 
     .team-image {
-        height: 350px;
+        height: 330px;
         flex-shrink: 0;
     }
 
@@ -3208,8 +3209,9 @@ footer::before {
     }
 
     .team-info {
-        padding: 36px 8% 45px !important;
+        padding: 32px 8% 45px !important;
         flex-shrink: 0;
+        min-height: 320px;
     }
 
     .team-info h5 {
