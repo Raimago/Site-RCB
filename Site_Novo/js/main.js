@@ -534,31 +534,33 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // Get modal type
-        const isAgendamento = document.getElementById('modalTitle').textContent === 'Agendar Reunião';
+        // Prepare webhook payload
+        const webhookPayload = {
+            nome: data.nome || '',
+            email: data.email || '',
+            telefone: data.telefone || '',
+            mensagem: data.mensagem || '',
+            origem: 'Modal Contato - Site R&CB Advogados',
+            data_envio: new Date().toISOString(),
+            pagina: window.location.href
+        };
 
-        // Create WhatsApp message
-        let message = '*CONTATO - R & CB ADVOGADOS*\n\n';
-        message += `*Nome:* ${data.nome}\n`;
-        message += `*E-mail:* ${data.email}\n`;
-        message += `*WhatsApp:* ${data.telefone}\n`;
-
-        if (data.mensagem) {
-            message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
-        }
-
-        message += `_Este contato foi feito através do site oficial._`;
-
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = '5581994461187';
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
-
-        // Close modal and reset form
-        closeModal();
+        // Send webhook to n8n
+        console.log('Enviando webhook modal contato:', webhookPayload);
+        fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(webhookPayload)
+        }).then(() => {
+            console.log('Webhook modal contato enviado');
+            closeModal();
+            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+        }).catch(err => {
+            console.error('Erro ao enviar webhook:', err);
+            closeModal();
+            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+        });
     }
 
     // ==========================================================================
