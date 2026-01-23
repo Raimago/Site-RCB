@@ -3821,54 +3821,138 @@ body.loaded {
    ========================================================================== */
 @media (max-width: 1024px) {
     .contact-form-card.contact-form-card {
-        padding: 36px 15% !important;
+        padding: 36px 18% !important;
     }
 
     .service-luxury-card.service-luxury-card {
-        padding: 42px 15% !important;
+        padding: 42px 18% !important;
     }
 
     .team-info.team-info {
-        padding: 38px 15% 50px !important;
+        padding: 38px 18% 50px !important;
     }
 
     .team-card-back.team-card-back {
-        padding: 38px 15% !important;
+        padding: 38px 18% !important;
     }
 }
 
 @media (max-width: 768px) {
     .contact-form-card.contact-form-card {
-        padding: 32px 12% !important;
+        padding: 32px 16% !important;
     }
 
     .service-luxury-card.service-luxury-card {
-        padding: 38px 12% !important;
+        padding: 38px 16% !important;
     }
 
     .team-info.team-info {
-        padding: 34px 12% 45px !important;
+        padding: 34px 16% 45px !important;
     }
 
     .team-card-back.team-card-back {
-        padding: 34px 12% !important;
+        padding: 34px 16% !important;
     }
 }
 
 @media (max-width: 480px) {
     .contact-form-card.contact-form-card {
-        padding: 30px 10% !important;
+        padding: 30px 14% !important;
     }
 
     .service-luxury-card.service-luxury-card {
-        padding: 34px 10% !important;
+        padding: 34px 14% !important;
     }
 
     .team-info.team-info {
-        padding: 30px 10% 45px !important;
+        padding: 30px 14% 45px !important;
     }
 
     .team-card-back.team-card-back {
-        padding: 30px 10% !important;
+        padding: 30px 14% !important;
+    }
+}
+
+/* ==========================================================================
+   MOBILE TYPOGRAPHY OPTIMIZATION
+   ========================================================================== */
+
+/* Tablet/Large Mobile - 768px */
+@media (max-width: 768px) {
+
+    /* Parágrafos - alinhamento melhor para leitura mobile */
+    .about-text p,
+    .section-description,
+    .text-content p,
+    .team-info p,
+    .service-luxury-description {
+        text-align: left !important;
+        line-height: 1.85 !important;
+    }
+
+    /* Footer - touch targets maiores (mínimo 44px) */
+    .footer-section a {
+        display: inline-block;
+        padding: 10px 0;
+        min-height: 44px;
+        line-height: 24px;
+    }
+
+    /* Título do formulário - mais espaço */
+    .contact-info-title {
+        font-size: 1.6rem;
+        line-height: 1.35;
+    }
+}
+
+/* Small Mobile - 480px */
+@media (max-width: 480px) {
+
+    /* Labels de formulário maiores e mais legíveis */
+    .form-group label,
+    .contact-form-inline .form-group label {
+        font-size: 15px !important;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    /* Inputs com 16px para evitar zoom automático no iOS */
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .contact-form-inline .form-group input,
+    .contact-form-inline .form-group select,
+    .contact-form-inline .form-group textarea {
+        font-size: 16px !important;
+    }
+
+    /* Parágrafos ainda mais legíveis em telas pequenas */
+    .about-text p,
+    .text-content p {
+        font-size: 0.95rem;
+        line-height: 1.9 !important;
+    }
+
+    /* Título do formulário ajustado */
+    .contact-info-title {
+        font-size: 1.45rem;
+        line-height: 1.3;
+        padding-top: 5px;
+    }
+
+    /* Form title interno */
+    .form-title {
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+
+    /* Footer links mais espaçados */
+    .footer-section a {
+        padding: 12px 0;
+        font-size: 0.95rem;
+    }
+
+    .footer-section p {
+        line-height: 1.8;
     }
 }
