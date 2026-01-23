@@ -359,26 +359,6 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeModal() {
-        if (contactModal) {
-            // Adiciona animação de saída
-            const content = contactModal.querySelector('.modal-content');
-            if (content) {
-                content.style.animation = 'modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards';
-            }
-
-            setTimeout(() => {
-                contactModal.classList.remove('active');
-                document.body.style.overflow = '';
-                const form = document.getElementById('contactForm');
-                if (form) form.reset();
-                if (content) {
-                    content.style.animation = '';
-                }
-            }, 300);
-        }
-    }
-
     // ==========================================================================
     // Service Modal
     // ==========================================================================
@@ -454,8 +434,8 @@
             }
 
             setTimeout(() => {
-                serviceModal.classList.remove('active');
-                document.body.style.overflow = '';
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
                 if (content) {
                     content.style.animation = '';
                 }
@@ -555,7 +535,7 @@
         message += `*WhatsApp:* ${data.telefone}\n`;
 
         if (data.mensagem) {
-            message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
+        message += `\n*Mensagem:*\n${data.mensagem}\n\n`;
         }
 
         message += `_Este contato foi feito através do site oficial._`;
@@ -569,7 +549,7 @@
         window.open(whatsappUrl, '_blank');
 
         // Close modal and reset form
-        closeModal();
+            closeModal();
     }
 
     // ==========================================================================
@@ -601,33 +581,109 @@
     }
 
     // ==========================================================================
-    // Initialize AOS with smooth settings
+    // Initialize AOS (desktop only) and Custom Scroll Animations
     // ==========================================================================
     function initAOS() {
-        if (typeof AOS !== 'undefined') {
-            const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 768;
 
-            // Adjust timing for mobile - faster and earlier trigger
+        // Initialize custom scroll animations for ALL devices
+        initScrollAnimations();
+
+        // AOS only on desktop
+        if (typeof AOS !== 'undefined' && !isMobile) {
             AOS.init({
-                duration: isMobile ? 300 : 600,      // Faster on mobile
-                easing: 'ease-out-cubic',
-                once: true,                          // Animate only once
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
                 mirror: false,
-                offset: isMobile ? 10 : 80,          // Much smaller offset on mobile
-                delay: 0,                            // No global delay
+                offset: 120,
+                delay: 0,
                 anchorPlacement: 'top-bottom',
                 disable: false
             });
+        } else if (typeof AOS !== 'undefined') {
+            AOS.init({ disable: true });
+        }
+    }
 
-            // On mobile, reduce all individual data-aos-delay values
-            if (isMobile) {
-                document.querySelectorAll('[data-aos-delay]').forEach(el => {
-                    const currentDelay = parseInt(el.getAttribute('data-aos-delay')) || 0;
-                    // Reduce delay to 1/5 of original, max 30ms
-                    el.setAttribute('data-aos-delay', Math.min(Math.floor(currentDelay / 5), 30));
+    // ==========================================================================
+    // Custom Scroll Animations (Like TGT Example Site - works on mobile!)
+    // ==========================================================================
+    function initScrollAnimations() {
+        const isMobile = window.innerWidth <= 768;
+        
+        // No desktop, excluir elementos com data-aos (AOS cuida deles)
+        // No mobile, incluir todos pois AOS está desabilitado
+        const aosExclusion = isMobile ? '' : ':not([data-aos])';
+        
+        // Get all elements that should animate
+        const animatedElements = document.querySelectorAll(
+            `.section-header${aosExclusion}, .service-luxury-card${aosExclusion}, .team-card${aosExclusion}, ` +
+            `.contact-location${aosExclusion}, .contact-form-section${aosExclusion}, .about-content${aosExclusion}`
+        );
+
+        // Add scroll-animate class to all elements
+        // (já filtrados pelo seletor, mas adicionando verificação extra por segurança)
+        animatedElements.forEach((el, index) => {
+            // Verificação extra: no desktop, não processar elementos com data-aos
+            if (!isMobile && el.hasAttribute('data-aos')) {
+                return; // Skip elements with data-aos on desktop (AOS handles them)
+            }
+            
+            el.classList.add('scroll-animate');
+
+            // Add staggered delays for cards
+            if (el.classList.contains('service-luxury-card') || el.classList.contains('team-card')) {
+                const delayClass = `delay-${(index % 3) + 1}`;
+                el.classList.add(delayClass);
+            }
+        });
+
+        // Function to check and animate elements
+        function animateOnScroll() {
+            const viewportHeight = window.innerHeight;
+            const scrollTop = window.scrollY;
+
+            document.querySelectorAll('.scroll-animate:not(.animate)').forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+                // rect.top já é relativo ao viewport, não precisa somar scrollTop
+                const elementTop = rect.top;
+                const elementBottom = rect.bottom;
+
+                // Trigger quando elemento está 100px antes de sair do viewport
+                if (elementTop < (viewportHeight - 100) && elementBottom > 0) {
+                    // Small delay for staggered effect
+                    const isCard = el.classList.contains('service-luxury-card') ||
+                        el.classList.contains('team-card');
+                    const delay = isCard ? (index % 6) * 80 : 0;
+
+                    setTimeout(() => {
+                        el.classList.add('animate');
+                    }, delay);
+                }
+            });
+        }
+
+        // Throttle function for better performance
+        let ticking = false;
+        function throttledAnimateOnScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    animateOnScroll();
+                    ticking = false;
                 });
+                ticking = true;
             }
         }
+
+        // Listen for scroll events (throttled)
+        window.addEventListener('scroll', throttledAnimateOnScroll, { passive: true });
+
+        // Run on page load
+        animateOnScroll();
+
+        // Run again after a short delay (for elements already in view)
+        setTimeout(animateOnScroll, 100);
     }
 
     // ==========================================================================
@@ -635,81 +691,94 @@
     // ==========================================================================
     function init3DParallax() {
         const cards = document.querySelectorAll('.service-luxury-card, .team-card');
-        
+
         // Disable on mobile/touch devices
         if (window.innerWidth <= 768 || 'ontouchstart' in window) {
             return;
         }
 
         cards.forEach(card => {
-            let isHovering = false;
-            let currentX = 0;
-            let currentY = 0;
-            let targetX = 0;
-            let targetY = 0;
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            // Smooth animation using requestAnimationFrame
-            function animate() {
-                if (!isHovering) {
-                    // Reset to center when not hovering
-                    targetX = 0;
-                    targetY = 0;
-                }
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-                // Smooth interpolation
-                currentX += (targetX - currentX) * 0.1;
-                currentY += (targetY - currentY) * 0.1;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
 
-                // Apply transform - combine 3D parallax with hover effect
-                const rotateX = currentY * 0.03; // Max 3 degrees (more subtle)
-                const rotateY = currentX * 0.03; // Max 3 degrees (more subtle)
-                const translateZ = Math.abs(currentX) * 0.05 + Math.abs(currentY) * 0.05;
-                
-                // Add translateY for hover effect (only when hovering)
-                const translateY = isHovering ? -8 : 0; // -8px for service cards, -10px for team cards
-                const hoverY = card.classList.contains('team-card') ? -10 : -8;
-
-                card.style.transform = `
-                    perspective(1000px)
-                    rotateX(${-rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(${hoverY}px)
-                    translateZ(${translateZ}px)
-                `;
-
-                if (isHovering || Math.abs(currentX) > 0.01 || Math.abs(currentY) > 0.01) {
-                    requestAnimationFrame(animate);
-                }
-            }
-
-            card.addEventListener('mouseenter', () => {
-                isHovering = true;
-                card.style.transition = 'none';
-                animate();
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                card.style.transition = 'transform 0.1s ease-out';
             });
 
             card.addEventListener('mouseleave', () => {
-                isHovering = false;
-                card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-                animate();
-            });
-
-            card.addEventListener('mousemove', (e) => {
-                if (!isHovering) return;
-
-                const rect = card.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-
-                // Calculate mouse position relative to card center
-                const mouseX = e.clientX - centerX;
-                const mouseY = e.clientY - centerY;
-
-                // Normalize to -1 to 1 range (reduced for more subtle effect)
-                targetX = (mouseX / (rect.width / 2)) * 15; // Max 15px movement (more subtle)
-                targetY = (mouseY / (rect.height / 2)) * 15; // Max 15px movement (more subtle)
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                card.style.transition = 'transform 0.5s ease-out';
             });
         });
+    }
+
+    // ==========================================================================
+    // 3D Card Hover Effect - Additional cards and modals
+    // ==========================================================================
+    function init3DCardHover() {
+        // Disable on mobile/touch devices
+        if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+            return;
+        }
+
+        // Apply to additional card types if they exist
+        const additionalCards = document.querySelectorAll('.preco-card-modern, .depoimento-card, .conteudo-item, .bonus-item-modern, .preco-card');
+
+        additionalCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                card.style.transition = 'transform 0.1s ease-out';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                card.style.transition = 'transform 0.5s ease-out';
+            });
+        });
+
+        // Efeito 3D no formulário também
+        const modalContent = document.querySelector('.modal-content');
+        const modalWrapper = document.querySelector('.modal-wrapper');
+
+        if (modalContent && modalWrapper) {
+            modalWrapper.addEventListener('mousemove', (e) => {
+                const rect = modalWrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 30; // Mais sutil que os cards
+                const rotateY = (centerX - x) / 30;
+
+                modalContent.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                modalContent.style.transition = 'transform 0.1s ease-out';
+            });
+
+            modalWrapper.addEventListener('mouseleave', () => {
+                modalContent.style.transform = 'translateY(-8px) perspective(1000px) rotateX(0) rotateY(0)';
+                modalContent.style.transition = 'transform 0.5s ease-out';
+            });
+        }
     }
 
     // ==========================================================================
@@ -929,6 +998,7 @@
         });
     }
 
+
     // ==========================================================================
     // Initialize
     // ==========================================================================
@@ -941,6 +1011,7 @@
         initHoverEffects();
         initParallax();
         init3DParallax();
+        init3DCardHover();
 
         // Initial scroll check
         handleScroll();

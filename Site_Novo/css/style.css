@@ -2,6 +2,13 @@
    R & CB Advogados - Design System
    ========================================================================== */
 
+/* Custom Property for Animated Gradient Border */
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 /* ==========================================================================
    CSS Variables - Design Tokens
    ========================================================================== */
@@ -144,6 +151,53 @@ textarea {
         height: 100%;
         background-attachment: scroll;
     }
+}
+
+/* ==========================================================================
+   Custom Scroll Animations (Like TGT Example Site)
+   Works on both mobile and desktop
+   ========================================================================== */
+
+/* Elements that animate on scroll - start hidden */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Animated state - when element enters viewport */
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Team cards should always be visible (content inside has own animations) */
+.team-card.scroll-animate,
+.team-card.scroll-animate.animate {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* No desktop, elementos com data-aos não devem ter scroll-animate aplicado */
+/* Mas se tiverem por algum motivo, garantir que não fiquem invisíveis */
+@media (min-width: 769px) {
+    [data-aos].scroll-animate {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Staggered delays for grid items */
+.scroll-animate.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.scroll-animate.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.scroll-animate.delay-3 {
+    transition-delay: 0.3s;
 }
 
 /* ==========================================================================
@@ -533,11 +587,14 @@ header.scrolled .menu-toggle span {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 /* Stylized image container */
 .about-image img {
-    width: 100%;
+    width: auto;
     max-width: 350px;
     height: auto;
     border-radius: 0;
@@ -545,6 +602,8 @@ header.scrolled .menu-toggle span {
     filter: drop-shadow(0 0 30px rgba(184, 134, 11, 0.15));
     /* Gold glow */
     opacity: 0.9;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Decorative background element behind image */
@@ -580,6 +639,9 @@ header.scrolled .menu-toggle span {
     color: var(--text-muted);
 }
 
+/* ==========================================================================
+   Services Grid - Original Layout
+   ========================================================================== */
 .services-grid-luxury {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -591,9 +653,9 @@ header.scrolled .menu-toggle span {
     background: var(--white);
     padding: 45px 38px;
     border: 1px solid var(--glass-border);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
-                box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-                border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -680,6 +742,8 @@ header.scrolled .menu-toggle span {
     margin-bottom: 6px;
     color: var(--primary-black);
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 3;
 }
 
 .service-luxury-card:hover .service-title-area h4 {
@@ -692,6 +756,8 @@ header.scrolled .menu-toggle span {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    position: relative;
+    z-index: 3;
 }
 
 .service-luxury-description {
@@ -806,14 +872,12 @@ header.scrolled .menu-toggle span {
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    min-height: 680px;
-    height: auto;
+    height: 650px;
+    width: 100%;
     perspective: 1500px;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-                box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-                border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .team-card:hover {
@@ -825,7 +889,6 @@ header.scrolled .menu-toggle span {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 580px;
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     transform-style: preserve-3d;
 }
@@ -839,7 +902,6 @@ header.scrolled .menu-toggle span {
     position: absolute;
     width: 100%;
     height: 100%;
-    min-height: 580px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
@@ -847,6 +909,7 @@ header.scrolled .menu-toggle span {
 .team-card-front {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .team-card-back {
@@ -857,6 +920,8 @@ header.scrolled .menu-toggle span {
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .team-image {
@@ -1275,55 +1340,121 @@ header.scrolled .menu-toggle span {
 }
 
 /* ==========================================================================
-   Footer (Dark)
+   Footer - Elegant Dark Design
    ========================================================================== */
 footer {
-    background: #000000;
-    /* Pitch black for footer */
-    border-top: 1px solid rgba(184, 134, 11, 0.2);
-    padding: 80px 0 30px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    border-top: 1px solid rgba(184, 134, 11, 0.3);
+    padding: 80px 0 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    gap: 50px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-section h5 {
     color: var(--white);
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 25px;
     position: relative;
     display: inline-block;
+    letter-spacing: 0.5px;
 }
 
 .footer-section h5::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 0;
-    width: 30px;
-    height: 1px;
-    background: var(--accent-gold);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold) 0%, transparent 100%);
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 60px;
-    padding-top: 30px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
+.footer-section p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 8px;
 }
 
+.footer-section p strong {
+    color: var(--accent-gold);
+    font-weight: 500;
+}
 
+.footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 2;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
 
 .footer-section a:hover {
     color: var(--accent-gold);
+    transform: translateX(5px);
+}
+
+/* Social Icons in Footer */
+.footer-section .contact-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-section .contact-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(184, 134, 11, 0.1);
+    border: 1px solid rgba(184, 134, 11, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-section .contact-social a:hover {
+    background: var(--accent-gold);
+    color: var(--dark);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(184, 134, 11, 0.3);
 }
 
 .footer-bottom {
+    padding: 25px 0;
     text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--gray-light);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -1396,21 +1527,25 @@ footer {
 }
 
 .contact-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.contact-info-side {
-    color: var(--white);
+.contact-info-above {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .contact-info-title {
     font-size: 2.2rem;
     font-family: var(--font-serif);
     color: var(--white);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.3;
 }
@@ -1418,8 +1553,12 @@ footer {
 .contact-info-description {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 45px;
+    margin-bottom: 0;
     line-height: 1.8;
+}
+
+.contact-form-side {
+    width: 100%;
 }
 
 .contact-channels-box {
@@ -1507,8 +1646,8 @@ footer {
 }
 
 .contact-form-side {
-    position: sticky;
-    top: 100px;
+    position: relative;
+    width: 100%;
 }
 
 .contact-form-card {
@@ -2125,6 +2264,21 @@ footer {
     pointer-events: auto;
 }
 
+/* Garantir que cards dos sócios sejam visíveis mesmo antes do AOS animar */
+@media (min-width: 769px) {
+    .team-card[data-aos] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* AOS vai adicionar a classe aos-animate, mas garantimos visibilidade antes */
+    .team-card[data-aos]:not(.aos-animate) {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
 /* ==========================================================================
    Responsive Design
    ========================================================================== */
@@ -2133,7 +2287,7 @@ footer {
 @media (max-width: 1200px) {
     .container {
         max-width: 100%;
-        padding: 0 25px;
+        padding: 0 20px;
     }
 }
 
@@ -2187,12 +2341,29 @@ footer {
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Padding aumentado para mobile */
+    .contact-form-card {
+        padding: 36px 28px !important;
+    }
+
+    .service-luxury-card {
+        padding: 40px 30px !important;
+    }
+
+    .team-info {
+        padding: 36px 30px 50px !important;
+    }
+
+    .team-card-back {
+        padding: 36px 30px !important;
+    }
 }
 
 /* Tablets and small screens */
 @media (max-width: 768px) {
     .container {
-        padding: 0 24px;
+        padding: 0 20px;
     }
 
     nav {
@@ -2329,16 +2500,27 @@ footer {
     .about-content {
         grid-template-columns: 1fr;
         gap: 60px;
+        text-align: center;
+        justify-items: center;
     }
 
     .about-image {
         order: -1;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
     }
 
     .about-image img {
-        max-width: 85%;
-        margin: 0 auto;
-        display: block;
+        max-width: 280px !important;
+        width: 70% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
     }
 
     .about-text h2 {
@@ -2361,7 +2543,7 @@ footer {
     }
 
     .service-luxury-card {
-        padding: 40px 32px;
+        padding: 42px 32px !important;
         margin-bottom: 20px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -2436,28 +2618,27 @@ footer {
     }
 
     .team-card {
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        perspective: none !important;
+        height: 600px !important;
+        overflow: hidden !important;
+        perspective: 1500px !important;
         margin-bottom: 20px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .team-card-inner {
-        height: auto !important;
-        min-height: auto !important;
+        height: 100% !important;
         position: relative !important;
-        transform-style: flat !important;
+        transform-style: preserve-3d !important;
     }
 
     .team-card-front,
     .team-card-back {
-        position: relative !important;
-        min-height: auto !important;
-        height: auto !important;
-        backface-visibility: visible !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
     }
 
     .team-card-front {
@@ -2466,20 +2647,15 @@ footer {
     }
 
     .team-card-back {
-        display: none !important;
+        transform: rotateY(180deg) !important;
     }
 
-    .team-card.flipped .team-card-front {
-        display: none !important;
-    }
-
-    .team-card.flipped .team-card-back {
-        display: block !important;
-        position: relative !important;
+    .team-card.flipped .team-card-inner {
+        transform: rotateY(180deg) !important;
     }
 
     .team-image {
-        height: 450px;
+        height: 380px;
         flex-shrink: 0;
     }
 
@@ -2491,7 +2667,7 @@ footer {
     }
 
     .team-info {
-        padding: 36px 32px 50px;
+        padding: 40px 8% 50px !important;
         flex-shrink: 0;
         flex-grow: 1;
     }
@@ -2524,7 +2700,7 @@ footer {
     }
 
     .team-card-back {
-        padding: 36px 32px;
+        padding: 40px 8% !important;
     }
 
     .team-back-content ul li {
@@ -2592,23 +2768,27 @@ footer {
 
     /* ===== CONTACT SECTION - MOBILE ===== */
     .contact-form-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 60px;
     }
 
     .contact-form-side {
         position: static;
+        width: 100%;
+    }
+
+    .contact-info-above {
+        text-align: center;
     }
 
     .contact-info-title {
         font-size: 1.8rem;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         line-height: 1.3;
     }
 
     .contact-info-description {
         font-size: 1rem;
-        margin-bottom: 36px;
+        margin-bottom: 0;
         line-height: 1.8;
     }
 
@@ -2652,7 +2832,7 @@ footer {
     }
 
     .contact-form-card {
-        padding: 36px 28px;
+        padding: 40px 8% !important;
     }
 
     .form-title {
@@ -2929,7 +3109,7 @@ footer {
     }
 
     .service-luxury-card {
-        padding: 36px 26px;
+        padding: 38px 30px !important;
         margin-bottom: 15px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -2979,28 +3159,27 @@ footer {
     }
 
     .team-card {
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        perspective: none !important;
+        height: 580px !important;
+        overflow: hidden !important;
+        perspective: 1500px !important;
         margin-bottom: 15px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .team-card-inner {
-        height: auto !important;
-        min-height: auto !important;
+        height: 100% !important;
         position: relative !important;
-        transform-style: flat !important;
+        transform-style: preserve-3d !important;
     }
 
     .team-card-front,
     .team-card-back {
-        position: relative !important;
-        min-height: auto !important;
-        height: auto !important;
-        backface-visibility: visible !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
     }
 
     .team-card-front {
@@ -3009,20 +3188,15 @@ footer {
     }
 
     .team-card-back {
-        display: none !important;
+        transform: rotateY(180deg) !important;
     }
 
-    .team-card.flipped .team-card-front {
-        display: none !important;
-    }
-
-    .team-card.flipped .team-card-back {
-        display: block !important;
-        position: relative !important;
+    .team-card.flipped .team-card-inner {
+        transform: rotateY(180deg) !important;
     }
 
     .team-image {
-        height: 400px;
+        height: 350px;
         flex-shrink: 0;
     }
 
@@ -3034,7 +3208,7 @@ footer {
     }
 
     .team-info {
-        padding: 32px 26px 45px;
+        padding: 36px 8% 45px !important;
         flex-shrink: 0;
     }
 
@@ -3066,7 +3240,7 @@ footer {
     }
 
     .team-card-back {
-        padding: 30px 24px;
+        padding: 36px 8% !important;
     }
 
     .team-back-content ul li {
@@ -3138,18 +3312,18 @@ footer {
 
     /* ===== CONTACT SECTION - SMALL MOBILE ===== */
     .contact-form-grid {
-        gap: 40px;
+        gap: 48px;
     }
 
     .contact-info-title {
         font-size: 1.6rem;
-        margin-bottom: 18px;
+        margin-bottom: 12px;
         line-height: 1.3;
     }
 
     .contact-info-description {
         font-size: 0.95rem;
-        margin-bottom: 32px;
+        margin-bottom: 0;
         line-height: 1.75;
     }
 
@@ -3194,7 +3368,7 @@ footer {
     }
 
     .contact-form-card {
-        padding: 28px 22px;
+        padding: 36px 8% !important;
     }
 
     .form-title {
@@ -3533,6 +3707,66 @@ body.loaded {
     background: var(--accent-gold);
 }
 
+/* ==========================================================================
+   Animated Gradient Border for Cards
+   ========================================================================== */
+@keyframes gradient-rotate {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+/* Animated border wrapper - apply to parent of card */
+.animated-border-card {
+    --gradient-angle: 0deg;
+    --border-size: 3px;
+
+    position: relative;
+    background:
+        linear-gradient(var(--white), var(--white)) padding-box,
+        conic-gradient(from var(--gradient-angle),
+            rgba(184, 134, 11, 0.8) 0%,
+            rgba(139, 105, 20, 0.2) 25%,
+            rgba(184, 134, 11, 0.8) 50%,
+            rgba(139, 105, 20, 0.2) 75%,
+            rgba(184, 134, 11, 0.8) 100%) border-box;
+    border: var(--border-size) solid transparent;
+    border-radius: 12px;
+    animation: gradient-rotate 4s linear infinite;
+}
+
+/* Animated border version for team cards */
+.animated-border-card-dark {
+    --gradient-angle: 0deg;
+    --border-size: 4px;
+
+    position: relative;
+    border: var(--border-size) solid transparent;
+    border-radius: 12px;
+    background:
+        linear-gradient(var(--ivory), var(--ivory)) padding-box,
+        conic-gradient(from var(--gradient-angle),
+            rgba(184, 134, 11, 1) 0%,
+            rgba(139, 105, 20, 0.3) 25%,
+            rgba(184, 134, 11, 1) 50%,
+            rgba(139, 105, 20, 0.3) 75%,
+            rgba(184, 134, 11, 1) 100%) border-box;
+    animation: gradient-rotate 4s linear infinite;
+    overflow: hidden;
+}
+
+/* Glow effect on hover */
+.animated-border-card:hover,
+.animated-border-card-dark:hover {
+    box-shadow:
+        0 0 20px rgba(184, 134, 11, 0.3),
+        0 0 40px rgba(184, 134, 11, 0.1);
+}
+
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
 
@@ -3543,5 +3777,98 @@ body.loaded {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   FINAL MOBILE OVERRIDES - BRASÃO CENTRALIZADO
+   ========================================================================== */
+@media (max-width: 768px) {
+    .about .container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .about-content {
+        text-align: center !important;
+    }
+
+    .about-image {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    .about-image::before {
+        display: none !important;
+    }
+
+    .about-image img {
+        max-width: 250px !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   MOBILE PADDING FIXES - Força aplicação com maior especificidade
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .contact-form-card.contact-form-card {
+        padding: 36px 15% !important;
+    }
+
+    .service-luxury-card.service-luxury-card {
+        padding: 42px 15% !important;
+    }
+
+    .team-info.team-info {
+        padding: 38px 15% 50px !important;
+    }
+
+    .team-card-back.team-card-back {
+        padding: 38px 15% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-card.contact-form-card {
+        padding: 32px 12% !important;
+    }
+
+    .service-luxury-card.service-luxury-card {
+        padding: 38px 12% !important;
+    }
+
+    .team-info.team-info {
+        padding: 34px 12% 45px !important;
+    }
+
+    .team-card-back.team-card-back {
+        padding: 34px 12% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-card.contact-form-card {
+        padding: 30px 10% !important;
+    }
+
+    .service-luxury-card.service-luxury-card {
+        padding: 34px 10% !important;
+    }
+
+    .team-info.team-info {
+        padding: 30px 10% 45px !important;
+    }
+
+    .team-card-back.team-card-back {
+        padding: 30px 10% !important;
     }
 }
