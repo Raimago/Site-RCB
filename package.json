@@ -4,7 +4,7 @@
   "description": "Site R & CB Advogados - Patrimônio Protegido, Sucessão Planejada",
   "main": "Site_Novo/index.html",
   "scripts": {
-    "start": "cd Site_Novo && npx http-server . -p $PORT -a 0.0.0.0 --cors"
+    "start": "cd Site_Novo && npx http-server . -p 8080 -a 0.0.0.0 --cors -c-1"
   },
   "keywords": [
     "advogados",
@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "pocketbase": "^0.26.6"
   }
 }
