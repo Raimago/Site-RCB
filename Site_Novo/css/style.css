@@ -5771,14 +5771,18 @@ body.loaded {
     .services-slider {
         width: 100% !important;
         margin: 0 !important;
-        padding: 20px 10px !important;
-        /* Smaller safe zone */
-        overflow: visible !important;
+        padding: 40px 0 !important;
+        /* Vertical padding only, horz handled by Swiper */
+        overflow: hidden !important;
+        /* Hide side peaks if user wants NO overflow, but 'visible' is better for peek. Stick to visible for now? User said 'not covering whole screen'. */
     }
 
     .service-luxury-card {
         transform: none !important;
-        /* Disable hover transform on mobile to prevent overflow */
+        max-width: 100%;
+        /* Let Swiper control width via slidesPerView */
+        margin: 0 auto;
+        /* Ensure centering within slide */
     }
 }
 

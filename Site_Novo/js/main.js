@@ -1392,24 +1392,20 @@ window.handleEbookDownload = function () {
 function initServicesSwiper() {
     if (typeof Swiper !== 'undefined') {
         const swiper = new Swiper('.services-slider', {
-            slidesPerView: 'auto', // Better for coverflow
-            centeredSlides: true, // Crucial for coverflow 3D focus
-            spaceBetween: 40,
-            loop: true,
-            speed: 5000, // Slow constant speed
+            // Default configuration (Mobile First)
             effect: 'coverflow',
             coverflowEffect: {
-                rotate: 0, // No rotation, just depth/scale
+                rotate: 0,
                 stretch: 0,
                 depth: 100,
                 modifier: 2,
-                slideShadows: false, // Cleaner look
+                slideShadows: false,
             },
-            autoplay: {
-                delay: 0, // Continuous
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true, // Keep this feature
-            },
+            slidesPerView: 1.15, // Show part of the next slide on mobile
+            spaceBetween: 20,
+            centeredSlides: true, // Center the active slide
+            loop: false, // Avoid issues with few slides
+            grabCursor: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -1419,26 +1415,25 @@ function initServicesSwiper() {
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                // Mobile
-                640: {
-                    slidesPerView: 1, // Full width on mobile
-                    effect: 'slide', // Disable coverflow on mobile for simplicity? Or keep it? Let's keep slide for safety
-                    centeredSlides: false,
+                // Mobile adjustments
+                320: {
+                    slidesPerView: 1.15,
+                    spaceBetween: 15,
+                    centeredSlides: true
                 },
-                // Tablet
+                // Tablets
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 30,
-                    effect: 'coverflow',
-                    centeredSlides: true,
+                    centeredSlides: false
                 },
                 // Desktop
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 40,
-                    effect: 'coverflow',
                     centeredSlides: true,
-                },
+                    loop: true // Enable loop for desktop visual effect
+                }
             }
         });
     }
