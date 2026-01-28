@@ -1184,7 +1184,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 }); // Reduced threshold to ensure it triggers easier
 
         counters.forEach(counter => observer.observe(counter));
     }

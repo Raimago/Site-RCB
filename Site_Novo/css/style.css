@@ -1080,11 +1080,21 @@ header.scrolled .menu-toggle span {
     margin-top: 24px;
     position: relative;
     z-index: 2;
+    text-align: left;
+    /* Align list items to the left */
+    display: inline-block;
+    /* Wrap tight around content if centering parent */
+    width: 100%;
+    /* Ensure it takes full width of parent for padding calculation */
 }
 
 .service-features ul {
     list-style: none;
     padding: 0;
+    margin: 0 auto;
+    /* Center the list block itself if needed, but text inside is left */
+    max-width: 280px;
+    /* Limit width to keep it centered-looking but aligned left */
 }
 
 .service-features li {
@@ -1097,6 +1107,8 @@ header.scrolled .menu-toggle span {
     transition: all 0.3s ease;
     border-radius: 6px;
     margin: 4px 0;
+    text-align: left;
+    /* Ensure text is left aligned */
 }
 
 .service-features li::before {
@@ -1105,6 +1117,8 @@ header.scrolled .menu-toggle span {
     left: 0;
     color: var(--accent-gold);
     font-size: 11px;
+    top: 10px;
+    /* Align with first line of text */
 }
 
 .service-features li:hover {
