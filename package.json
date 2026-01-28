@@ -4,7 +4,7 @@
   "description": "Site R & CB Advogados - Patrimônio Protegido, Sucessão Planejada",
   "main": "Site_Novo/index.html",
   "scripts": {
-    "start": "cd Site_Novo && npx http-server . -p 8080 -a 0.0.0.0 --cors -c-1"
+    "start": "cd Site_Novo && npx http-server . -p 3000 -a 0.0.0.0 --cors -c-1"
   },
   "keywords": [
     "advogados",
@@ -14,7 +14,7 @@
   "author": "R & CB Advogados",
   "license": "MIT",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "http-server": "^14.1.1"
