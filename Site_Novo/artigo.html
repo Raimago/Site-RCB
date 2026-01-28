@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="R & CB Advogados - Escritório especializado em planejamento patrimonial, direito sucessório, tributário, societário e digital. Patrimônio protegido, sucessão planejada.">
+    <meta name="keywords"
+        content="advogados, direito patrimonial, planejamento sucessório, holding familiar, inventário, Recife, Pernambuco">
+    <meta name="author" content="R & CB Advogados">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media (Dynamic Content will update these via JS if possible, but serverside is better) -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="R & CB Advogados - Blog">
+    <meta property="og:description" content="Artigo jurídico especializado.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+
+    <title>Blog - R & CB Advogados</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=20260123v5">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <img src="assets/images/logo.png" alt="R & CB Advogados - Logo" loading="eager">
+                </a>
+                <nav>
+                    <a href="index.html">Início</a>
+                    <a href="index.html#sobre">Quem Somos</a>
+                    <a href="index.html#servicos">Áreas de Atuação</a>
+                    <a href="index.html#socios">Sócios</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+        <a href="index.html">Início</a>
+        <a href="index.html#sobre">Quem Somos</a>
+        <a href="index.html#servicos">Áreas de Atuação</a>
+        <a href="index.html#socios">Sócios</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><span class="active" id="breadcrumb-title">Artigo</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <div class="article-header" data-aos="fade-up">
+                <div class="article-meta">
+                    <span class="article-category" id="post-category">Categoria</span>
+                    <span class="article-date"><i class="far fa-calendar-alt"></i> <span
+                            id="post-date">...</span></span>
+                </div>
+                <!-- Loading State -->
+                <div id="loading-title">
+                    <i class="fas fa-spinner fa-spin"></i> Carregando artigo...
+                </div>
+                <h1 class="article-title" id="post-title" style="display: none;"></h1>
+                <p class="article-subtitle" id="post-excerpt"></p>
+                <div class="article-author-mini">
+                    <img src="assets/images/davi.webp" alt="Autor" id="author-img">
+                    <div class="author-info">
+                        <strong>Por <span id="post-author">R & CB Advogados</span></strong>
+                        <span>Especialistas em Direito</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- Article Content Layout -->
+    <section class="article-content-area">
+        <div class="container">
+            <div class="article-grid">
+                <!-- Main Content -->
+                <article class="article-body" data-aos="fade-up">
+                    <figure class="article-featured-image">
+                        <img src="assets/images/bg-hero.webp" alt="Imagem Principal" id="post-image">
+                        <figcaption id="image-caption"></figcaption>
+                    </figure>
+
+                    <div class="article-text" id="post-content">
+                        <!-- Content will be injected here -->
+                        <div style="text-align: center; padding: 50px; color: #666;">
+                            <p>Buscando conteúdo...</p>
+                        </div>
+                    </div>
+
+                    <!-- Share Buttons -->
+                    <div class="article-share">
+                        <span>Compartilhe:</span>
+                        <a href="#" class="share-btn whatsapp" id="share-whatsapp" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn linkedin" id="share-linkedin" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="share-btn facebook" id="share-facebook" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn copy-link" id="share-copy" title="Copiar Link"><i
+                                class="fas fa-link"></i></a>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="article-sidebar">
+                    <!-- Author Widget -->
+                    <div class="sidebar-widget author-widget">
+                        <h3>Sobre o Autor</h3>
+                        <div class="widget-content">
+                            <img src="assets/images/davi.webp" alt="Davi Castelo Branco">
+                            <h4>R & CB Advogados</h4>
+                            <p>Especialistas em Planejamento Sucessório e Proteção Patrimonial. Ajudamos famílias a
+                                perpetuarem seu legado com segurança jurídica.</p>
+                            <a href="#contato" class="btn-text">Agendar Consulta <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Ebook Widget (CTA) -->
+                    <div class="sidebar-widget cta-widget">
+                        <div class="widget-content">
+                            <i class="fas fa-book-open"></i>
+                            <h4>Guia Completo de Proteção Patrimonial</h4>
+                            <p>Baixe nosso ebook gratuito e aprenda os 5 passos para blindar seu patrimônio.</p>
+                            <button onclick="openModal('contato')" class="btn-primary btn-sm">Baixar Agora</button>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget categories-widget">
+                        <h3>Categorias</h3>
+                        <ul class="category-list">
+                            <li><a href="blog.html">Ver Todos os Artigos <i class="fas fa-arrow-right"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <div class="container">
+            <h3 class="related-title">Você também pode gostar</h3>
+            <div class="related-grid" id="related-posts-container">
+                <!-- Populated via JS -->
+                <p style="grid-column: 1/-1; text-align: center; color: #888;">Carregando sugestões...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-text">
+                    <h3>Receba insights jurídicos exclusivos</h3>
+                    <p>Junte-se a mais de 5.000 empresários e receba nossas análises semanais sobre proteção
+                        patrimonial.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit" class="btn-primary">Inscrever-se</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta parallax-section">
+        <div class="parallax-bg" data-parallax="0.4"
+            style="background: linear-gradient(135deg, rgba(192, 179, 153, 0.15) 0%, rgba(153, 93, 39, 0.1) 100%);">
+        </div>
+        <div class="container parallax-content" data-aos="fade-up">
+            <h2>Proteja o Futuro da Sua Família</h2>
+            <p class="cta-urgency"><i class="fas fa-exclamation-circle"></i> Você sabia que famílias podem perder até
+                40% do patrimônio em impostos e burocracias sem o planejamento adequado?</p>
+            <p>Nosso escritório está preparado para receber você em um ambiente reservado, confortável e com estrutura
+                completa para tratar dos seus assuntos com seriedade, ética e atenção total aos detalhes.</p>
+            <a href="#" class="btn-primary btn-pulse" onclick="openModal('agendamento'); return false;">AGENDAR
+                CONSULTORIA GRATUITA</a>
+        </div>
+    </section>
+
+    <!-- Contact Section - Location -->
+    <section class="contact-location" id="localizacao">
+        <div class="container">
+            <div class="location-header" data-aos="fade-up">
+                <h2 class="location-title">Onde estamos localizados?</h2>
+            </div>
+            <div class="location-map-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="location-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.390585141703!2d-34.8988!3d-8.0642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18bbd83507d9%3A0xc0f1f1f1f1f1f1f1!2sRua%20Viscondessa%20do%20Livramento%2C%20113%20-%20Paissandu%2C%20Recife%20-%20PE%2C%2052010-060!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy"
+                        title="Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE, 52010-060"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="location-address" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="address-text">Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE, 52010-060</h2>
+            </div>
+            <div class="location-navigation-buttons" data-aos="fade-up" data-aos-delay="400">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Form -->
+    <section class="contact-form-section" id="contato">
+        <div class="container">
+            <div class="contact-form-grid">
+                <!-- Contact Info Above Form -->
+                <div class="contact-info-above" data-aos="fade-up">
+                    <h2 class="contact-info-title">Gostaria de saber mais sobre nossos serviços?</h2>
+                    <p class="contact-info-description">Entre em contato conosco e descubra como podemos ajudar a
+                        preservar o seu legado.</p>
+                </div>
+
+                <!-- Contact Form Section -->
+                <div class="contact-form-side" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-form-card">
+                        <h3 class="form-title">Preencha os campos abaixo e retornaremos o mais breve possível.</h3>
+                        <form id="contactFormInline" class="contact-form-inline"
+                            onsubmit="handleInlineFormSubmit(event); return false;">
+                            <div class="form-group">
+                                <label for="nomeInline">Nome <span class="required">*</span></label>
+                                <input type="text" id="nomeInline" name="nome" required
+                                    placeholder="Insira seu nome completo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="empresaInline">Empresa <span class="required">*</span></label>
+                                <input type="text" id="empresaInline" name="empresa" required
+                                    placeholder="Insira o nome da sua empresa">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emailInline">E-mail <span class="required">*</span></label>
+                                <input type="email" id="emailInline" name="email" required
+                                    placeholder="email@dominio.com.br">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefoneInline">Telefone/WhatsApp <span class="required">*</span></label>
+                                <input type="tel" id="telefoneInline" name="telefone" required
+                                    placeholder="(81) 99999-9999">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="assuntoInline">Área de Interesse <span class="required">*</span></label>
+                                <select id="assuntoInline" name="assunto" required>
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="direito-sucessorio">Direito Sucessório</option>
+                                    <option value="direito-familia">Direito de Família</option>
+                                    <option value="planejamento-civil">Planejamento Civil</option>
+                                    <option value="direito-tributario">Direito Tributário</option>
+                                    <option value="direito-societario">Direito Societário</option>
+                                    <option value="direito-digital">Direito Digital</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagemInline">Mensagem</label>
+                                <textarea id="mensagemInline" name="mensagem"
+                                    placeholder="Descreva brevemente como podemos te auxiliar"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-form-submit">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Fale Conosco</h2>
+                <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo"
+                            autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(81) 99999-9999"
+                            autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Enviar</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>R & CB Advogados</h5>
+                    <p>Roriz & Castelo Branco Advogados</p>
+                    <p>Estratégia patrimonial para hoje e para as próximas gerações.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Escritório</h5>
+                    <a href="#sobre">Quem Somos</a>
+                    <a href="#servicos">Áreas de Atuação</a>
+                    <a href="#socios">Sócios</a>
+                </div>
+                <div class="footer-section">
+                    <h5>Contato</h5>
+                    <p><strong>Telefone:</strong> <a href="tel:+5581994461187">(81) 99446-1187</a></p>
+                    <p><strong>E-mail:</strong> <a
+                            href="mailto:contato@rorizcastelobrancoadv.com">contato@rorizcastelobrancoadv.com</a>
+                    </p>
+                    <p><strong>Horário:</strong> 9h às 18h</p>
+                </div>
+                <!-- ... Social Icons ... -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <button class="whatsapp-float" id="whatsappFloat" onclick="openModal('contato')"
+        aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale Conosco</span>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- PocketBase Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pocketbase/0.25.0/pocketbase.umd.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/blog-service.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                document.getElementById('post-title').textContent = 'Artigo não encontrado';
+                document.getElementById('loading-title').style.display = 'none';
+                document.getElementById('post-title').style.display = 'block';
+                return;
+            }
+
+            const post = await BlogService.getPostBySlug(slug);
+
+            if (!post) {
+                document.getElementById('post-title').textContent = 'Artigo não encontrado ou removido.';
+                document.getElementById('loading-title').style.display = 'none';
+                document.getElementById('post-title').style.display = 'block';
+                return;
+            }
+
+            // Populate Fields
+            document.title = `${post.title} - R & CB Advogados`;
+
+            // Meta tags (Simulando SEO básico em client-side)
+            document.querySelector('meta[property="og:title"]').content = post.title;
+            document.querySelector('meta[property="og:description"]').content = post.excerpt || '';
+
+            document.getElementById('breadcrumb-title').textContent = post.title.substring(0, 30) + '...';
+            document.getElementById('post-category').textContent = post.category || 'Artigo';
+            document.getElementById('post-date').textContent = BlogService.formatDate(post.date || post.created);
+
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-excerpt').textContent = post.excerpt || '';
+
+            // Images
+            const mainImg = BlogService.getImageUrl(post, post.cover);
+            document.getElementById('post-image').src = mainImg;
+            document.querySelector('meta[property="og:image"]').content = mainImg;
+
+            // Content (HTML Safe?) - Assuming PocketBase editor returns safe HTML or we trust Admin input
+            document.getElementById('post-content').innerHTML = post.content || '<p>Sem conteúdo.</p>';
+
+            // Show UI
+            // Show UI
+            document.getElementById('loading-title').style.display = 'none';
+            document.getElementById('post-title').style.display = 'block'; // FORCE DISPLAY
+            document.getElementById('post-title').style.display = 'block';
+
+            // Share Links
+            const currentUrl = encodeURIComponent(window.location.href);
+            const titleEnc = encodeURIComponent(post.title);
+
+            document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${titleEnc}%20${currentUrl}`;
+            document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+            document.getElementById('share-copy').addEventListener('click', (e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copiado!');
+            });
+
+            // Load Related (Simulado: Pega outros posts recentes)
+            // Ideally we filter by category, but getting recent posts is a good fallback
+            const related = await BlogService.getPosts(1, 4);
+            const relatedContainer = document.getElementById('related-posts-container');
+            relatedContainer.innerHTML = '';
+
+            related.items
+                .filter(p => p.id !== post.id) // Exclude current
+                .slice(0, 3) // Take max 3
+                .forEach(p => {
+                    const rImg = BlogService.getImageUrl(p, p.cover);
+                    relatedContainer.innerHTML += `
+                        <div class="related-card">
+                            <div class="related-img">
+                                <img src="${rImg}" alt="${p.title}">
+                                <span class="category-tag">${p.category || 'Blog'}</span>
+                            </div>
+                            <div class="related-content">
+                                <h4><a href="artigo.html?slug=${p.slug}">${p.title}</a></h4>
+                                <span class="date">${BlogService.formatDate(p.date || p.created)}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+        });
+    </script>
+</body>
+
+</html>

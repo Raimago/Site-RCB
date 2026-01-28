@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - R & CB Advogados</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Quill.js (Rich Text Editor) -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #995d27;
+            /* Gold */
+            --primary-dark: #7a4a1f;
+            --bg: #f4f6f8;
+            --text: #2c3e50;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding-bottom: 50px;
+        }
+
+        /* Login Layout */
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+        }
+
+        .login-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box img {
+            max-width: 150px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            width: auto;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Dashboard Layout */
+        .admin-header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Post List */
+        .post-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .post-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-published {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-draft {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Editor */
+        .editor-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #editor {
+            height: 400px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Spinner */
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #fff;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .alert.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div id="login-view" class="login-wrapper">
+        <div class="login-box">
+            <img src="assets/images/logo.png" alt="Logo">
+            <h2>Área Administrativa</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Faça login para gerenciar o blog.</p>
+
+            <div id="login-error" class="alert error">Email ou senha incorretos.</div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email de Admin</label>
+                    <input type="email" id="email" required placeholder="admin@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="password" required placeholder="Sua senha">
+                </div>
+                <button type="submit" class="btn">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. MAIN DASHBOARD -->
+    <div id="dashboard-view" class="hidden">
+        <header class="admin-header">
+            <h3>R & CB - Painel de Controle</h3>
+            <button onclick="logout()" class="btn btn-sm btn-outline">Sair <i class="fas fa-sign-out-alt"></i></button>
+        </header>
+
+        <div class="admin-container">
+            <!-- List View -->
+            <div id="list-section">
+                <div class="dashboard-controls">
+                    <h2>Seus Artigos</h2>
+                    <button onclick="openEditor()" class="btn btn-sm"><i class="fas fa-plus"></i> Novo Artigo</button>
+                </div>
+
+                <div id="posts-list" class="post-list">
+                    <!-- Posts injected here -->
+                    <p>Carregando artigos...</p>
+                </div>
+            </div>
+
+            <!-- Editor View -->
+            <div id="editor-section" class="hidden">
+                <div class="dashboard-controls">
+                    <h2><span id="editor-title-mode">Novo Artigo</span></h2>
+                    <button onclick="closeEditor()" class="btn btn-sm btn-outline">Cancelar</button>
+                </div>
+
+                <div class="editor-container">
+                    <form id="post-form">
+                        <input type="hidden" id="post-id">
+
+                        <div class="form-group">
+                            <label>Título do Artigo</label>
+                            <input type="text" id="input-title" required
+                                placeholder="Ex: A Importância do Planejamento Sucessório" onkeyup="generateSlug()">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Slug (URL Amigável)</label>
+                            <input type="text" id="input-slug" required placeholder="ex-a-importancia-do-planejamento">
+                            <small style="color: #666;">Isso aparecerá na barra de endereço.</small>
+                        </div>
+
+                        <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select id="input-category" required>
+                                    <option value="Planejamento Sucessório">Planejamento Sucessório</option>
+                                    <option value="Holding Familiar">Holding Familiar</option>
+                                    <option value="Direito Tributário">Direito Tributário</option>
+                                    <option value="Direito Societário">Direito Societário</option>
+                                    <option value="Direito Imobiliário">Direito Imobiliário</option>
+                                    <option value="Direito Digital">Direito Digital</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Data de Publicação</label>
+                                <input type="date" id="input-date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Imagem de Capa</label>
+                            <input type="file" id="input-cover" accept="image/*">
+                            <small id="current-cover-name"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Resumo (aparece na listagem)</label>
+                            <input type="text" id="input-excerpt" maxlength="200"
+                                placeholder="Breve descrição do artigo...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Conteúdo Completo</label>
+                            <!-- Quill Toolbar container -->
+                            <div id="quill-editor"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" id="input-published" style="width: auto;">
+                                <strong>Publicar imediatamente?</strong>
+                            </label>
+                        </div>
+
+                        <div id="form-message" class="alert"></div>
+
+                        <button type="submit" class="btn" id="btn-save">SALVAR ARTIGO</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Container -->
+    <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;"></div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pocketbase/0.25.0/pocketbase.umd.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="js/config.js"></script>
+
+    <script>
+        // --- CONFIG ---
+        const pb = new PocketBase(window.APP_CONFIG.PB_URL);
+        let quill; // Editor instance
+
+        // --- TOAST SYSTEM ---
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+
+            let icon = '<i class="fas fa-info-circle"></i>';
+            if (type === 'success') icon = '<i class="fas fa-check-circle" style="color:var(--success)"></i>';
+            if (type === 'error') icon = '<i class="fas fa-exclamation-circle" style="color:var(--danger)"></i>';
+
+            toast.innerHTML = `${icon} <span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            // Auto remove
+            setTimeout(() => {
+                toast.style.animation = 'fadeOut 0.5s forwards';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Init Quill
+            quill = new Quill('#quill-editor', {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [2, 3, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        ['blockquote', 'code-block'],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                        ['link', 'clean']
+                    ]
+                }
+            });
+
+            checkAuth();
+
+            // Set default date
+            document.getElementById('input-date').valueAsDate = new Date();
+        });
+
+        // --- AUTH ---
+        function checkAuth() {
+            if (pb.authStore.isValid && pb.authStore.isAdmin) {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+        }
+
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const btn = e.target.querySelector('button');
+            const errorDiv = document.getElementById('login-error');
+
+            btn.textContent = 'Entrando...';
+            errorDiv.style.display = 'none';
+
+            try {
+                await pb.admins.authWithPassword(email, pass);
+                showDashboard();
+                showToast('Login realizado com sucesso!', 'success');
+            } catch (err) {
+                console.error(err);
+                let msg = 'Erro desconhecido.';
+                if (err.status === 0) msg = 'Erro de Conexão. Verifique a internet.';
+                else if (err.status === 400) msg = 'Email ou senha incorretos.';
+                else msg = err.message || JSON.stringify(err);
+
+                errorDiv.textContent = msg;
+                errorDiv.style.display = 'block';
+                btn.textContent = 'ENTRAR';
+                showToast('Falha ao entrar.', 'error');
+            }
+        });
+
+        function logout() {
+            pb.authStore.clear();
+            window.location.reload();
+        }
+
+        // --- NAVIGATION ---
+        function showLogin() {
+            document.getElementById('login-view').classList.remove('hidden');
+            document.getElementById('dashboard-view').classList.add('hidden');
+        }
+
+        function showDashboard() {
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.remove('hidden');
+            loadPosts();
+        }
+
+        function openEditor(postId = null) {
+            document.getElementById('list-section').classList.add('hidden');
+            document.getElementById('editor-section').classList.remove('hidden');
+
+            // Limpar/Preencher Form
+            const form = document.getElementById('post-form');
+            form.reset();
+            quill.setContents([]);
+            document.getElementById('post-id').value = '';
+            document.getElementById('input-date').valueAsDate = new Date();
+            document.getElementById('current-cover-name').textContent = ''; // Clear cover name
+
+            if (postId) {
+                document.getElementById('editor-title-mode').textContent = 'Editar Artigo';
+                loadPostForEdit(postId);
+            } else {
+                document.getElementById('editor-title-mode').textContent = 'Novo Artigo';
+            }
+        }
+
+        function closeEditor() {
+            document.getElementById('editor-section').classList.add('hidden');
+            document.getElementById('list-section').classList.remove('hidden');
+        }
+
+        // --- CRUD POSTS ---
+        async function loadPosts() {
+            const listEl = document.getElementById('posts-list');
+            listEl.innerHTML = '<div class="spinner"></div> Carregando...';
+
+            try {
+                // MUDANÇA: Removendo o sort '-created' pois o diagnóstico mostrou que ele estava causando o erro 400.
+                // Agora deve carregar a lista normalmente.
+                const posts = await pb.collection('posts').getList(1, 50);
+
+                // Let's do client side sort to be safe
+                posts.items.sort((a, b) => new Date(b.created) - new Date(a.created));
+
+                if (posts.items.length === 0) {
+                    listEl.innerHTML = '<p style="text-align: center; color: #888; padding: 2rem;">Nenhum artigo encontrado. Crie o primeiro!</p>';
+                    return;
+                }
+
+                renderPosts(posts.items);
+
+            } catch (err) {
+                console.error("Erro ao carregar posts:", err);
+                let msg = err.message;
+                if (err.status === 400) msg = "Erro na requisição (400). Tente recarregar.";
+
+                listEl.innerHTML = `<p style="color:red; text-align:center;">Erro ao carregar posts.<br><small>${msg}</small></p>`;
+                showToast('Erro ao carregar lista de posts.', 'error');
+            }
+        }
+
+        function renderPosts(items) {
+            const listEl = document.getElementById('posts-list');
+
+            // Removendo debug visual
+            const itemsHtml = items.map(post => `
+                <div class="post-item">
+                    <div class="post-info">
+                        <h3>${post.title || '<span style="color:#999; font-style:italic;">(Sem Título)</span>'}</h3>
+                        <div class="post-meta">
+                            <span class="status-badge ${post.published ? 'status-published' : 'status-draft'}">
+                                ${post.published ? 'Publicado' : 'Rascunho'}
+                            </span>
+                            <span><i class="far fa-calendar"></i> ${(() => {
+                    try {
+                        const d = new Date(post.date || post.created);
+                        return isNaN(d.getTime()) ? 'Data Inválida' : d.toLocaleDateString();
+                    } catch { return '...'; }
+                })()}</span>
+                            <span>${post.category || 'Geral'}</span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button onclick="openEditor('${post.id}')" class="btn btn-sm btn-outline" title="Editar"><i class="fas fa-edit"></i></button>
+                        <button onclick="deletePost('${post.id}')" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash"></i></button>
+                        <a href="artigo.html?slug=${post.slug}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" title="Ver no Site"><i class="fas fa-eye"></i></a>
+                    </div>
+                </div>
+            `).join('');
+
+            listEl.innerHTML = itemsHtml;
+        }
+
+        async function loadPostForEdit(id) {
+            try {
+                const post = await pb.collection('posts').getOne(id);
+
+                document.getElementById('post-id').value = post.id;
+                document.getElementById('input-title').value = post.title;
+                document.getElementById('input-slug').value = post.slug;
+                document.getElementById('input-category').value = post.category || '';
+                document.getElementById('input-excerpt').value = post.excerpt || '';
+                if (post.date) document.getElementById('input-date').value = post.date.split('T')[0];
+                document.getElementById('input-published').checked = post.published;
+
+                // HTML Content to Quill
+                const delta = quill.clipboard.convert(post.content);
+                quill.setContents(delta, 'silent');
+
+                if (post.cover) {
+                    document.getElementById('current-cover-name').innerHTML = `<i class="fas fa-image"></i> Capa atual: <a href="${pb.files.getUrl(post, post.cover)}" target="_blank" rel="noopener noreferrer">${post.cover}</a>`;
+                } else {
+                    document.getElementById('current-cover-name').textContent = '';
+                }
+
+            } catch (err) {
+                showToast('Erro ao carregar detalhes do post.', 'error');
+                closeEditor();
+            }
+        }
+
+        document.getElementById('post-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = document.getElementById('btn-save');
+            const id = document.getElementById('post-id').value;
+
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner"></div> Salvando...';
+
+            // MUDANÇA CRÍTICA: ESTRATÉGIA HÍBRIDA
+            // Se NÃO tiver arquivo, mandamos JSON puro (Mais confiável para texto).
+            // Se TIVER arquivo, somos obrigados a usar FormData.
+
+            const fileInput = document.getElementById('input-cover');
+            const hasFile = fileInput.files.length > 0;
+
+            let payload;
+
+            // Coleta de dados básicos
+            const dateInput = document.getElementById('input-date').value;
+            const dateVal = dateInput ? new Date(dateInput).toISOString() : "";
+
+            if (hasFile) {
+                // MODO FORMDATA (Com Arquivo)
+                payload = new FormData();
+                payload.append('title', document.getElementById('input-title').value);
+                payload.append('slug', document.getElementById('input-slug').value);
+                payload.append('category', document.getElementById('input-category').value);
+                payload.append('excerpt', document.getElementById('input-excerpt').value);
+                payload.append('content', document.querySelector('.ql-editor').innerHTML);
+                payload.append('published', document.getElementById('input-published').checked.toString());
+                if (dateVal) payload.append('date', dateVal);
+                payload.append('cover', fileInput.files[0]);
+            } else {
+                // MODO JSON (Sem Arquivo - Mais seguro para dados de texto)
+                payload = {
+                    "title": document.getElementById('input-title').value,
+                    "slug": document.getElementById('input-slug').value,
+                    "category": document.getElementById('input-category').value,
+                    "excerpt": document.getElementById('input-excerpt').value,
+                    "content": document.querySelector('.ql-editor').innerHTML,
+                    "published": document.getElementById('input-published').checked,
+                    "date": dateVal
+                };
+            }
+
+            try {
+                let record;
+                if (id) {
+                    record = await pb.collection('posts').update(id, payload);
+                    showToast('Artigo atualizado com sucesso!', 'success');
+                } else {
+                    record = await pb.collection('posts').create(payload);
+                    showToast('Artigo criado com sucesso!', 'success');
+                }
+
+                console.log("Registro Salvo (Resposta do Servidor):", record);
+
+                // Validação visual imediata no console
+                if (!record.title) {
+                    alert('ALERTA DE DEBUG: O servidor retornou o post sem título! Verifique se os nomes dos campos no PocketBase são exatamente: title, slug, content...');
+                }
+
+                loadPosts();
+                closeEditor();
+
+            } catch (err) {
+                console.error("Erro no envio:", err);
+
+                // Tratamento detalhado de erro de validação (400)
+                let errorMsg = err.message || 'Erro ao salvar.';
+
+                if (err.data && typeof err.data === 'object') {
+                    // PocketBase retorna erros de campo em err.data.data
+                    // ex: { title: { code: "validation_required", message: "Cannot be blank" } }
+                    const validationErrors = err.data.data || err.data;
+                    const fieldMessages = Object.entries(validationErrors)
+                        .map(([field, error]) => `${field}: ${error.message || error.code || error}`)
+                        .join('\n');
+
+                    if (fieldMessages) {
+                        errorMsg = `Erro de Validação:\n${fieldMessages}`;
+                    }
+                }
+
+                alert(errorMsg); // Usar alert aqui para garantir que o usuário veja o erro detalhadamente (toast some rápido)
+                showToast('Falha ao salvar. Verifique o alerta.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'SALVAR ARTIGO';
+            }
+        });
+
+        async function deletePost(id) {
+            if (!confirm('Tem certeza que deseja apagar este artigo para sempre?')) return;
+
+            try {
+                await pb.collection('posts').delete(id);
+                showToast('Artigo removido.', 'success');
+                loadPosts();
+            } catch (err) {
+                console.error(err);
+                showToast('Erro ao deletar artigo.', 'error');
+            }
+        }
+
+        // Use title to gen slug
+        function generateSlug() {
+            const title = document.getElementById('input-title').value;
+            const slug = title.toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+                .replace(/[^a-z0-9\s-]/g, '') // Remove caracteres especiais
+                .replace(/\s+/g, '-') // Espaço para hífen
+                .replace(/-+/g, '-'); // Remove hifens duplicados
+
+            document.getElementById('input-slug').value = slug;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Global Alignment Standards
+   ========================================================================== */
+.section-header,
+.why-choose-header,
+.location-header {
+    text-align: center !important;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enforce vertical rhythm */
+.section-description {
+    margin-bottom: 40px;
+    /* Standard spacing */
+}
+
+/* Card titles center */
+.service-luxury-card h4,
+.why-choose-card h4 {
+    text-align: center;
+}
+
+/* Footer Grid Enforcement */
+.footer-content {
+    display: grid;
+    /* Strict 12-column logic: 4 + 2 + 4 + 2 roughly */
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    gap: 40px;
+    /* Consistent gap */
+    text-align: left;
+    /* Footer stays left for readability */
+}
+
+/* Mobile Alignment Override */
+@media (max-width: 768px) {
+
+    .section-header,
+    .why-choose-header,
+    .location-header {
+        text-align: center !important;
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+        text-align: center;
+        /* Center footer on mobile */
+    }
+
+    .footer-section {
+        align-items: center;
+        /* Center flex items */
+    }
+}

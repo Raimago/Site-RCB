@@ -21,58 +21,58 @@
     // Service Details Data
     // ==========================================================================
     const serviceDetails = {
-        'Direito Sucessório': {
-            description: 'Organização e transferência do patrimônio com segurança jurídica e redução de burocracias.',
+        'Planejamento Sucessório & Holdings': {
+            description: 'Arquitetura sucessória avançada para famílias e empresas, garantindo a perpetuidade do patrimônio e a redução drástica de custos de inventário.',
             items: [
-                'Planejamento sucessório estratégico',
-                'Inventários judiciais e extrajudiciais',
-                'Testamentos e doações',
-                'Holdings familiares'
+                'Constituição de Holdings Familiares e Patrimoniais',
+                'Planejamento sucessório com reserva de usufruto',
+                'Testamentos estratégicos',
+                'Invenários extrajudiciais complexos'
             ]
         },
-        'Direito de Família': {
-            description: 'Resolução de questões familiares com sensibilidade, ética e foco na proteção dos envolvidos.',
+        'Direito de Família Patrimonial': {
+            description: 'Atuação focada exclusivamente nos aspectos patrimoniais das relações familiares, com sigilo absoluto e segurança jurídica.',
             items: [
-                'Divórcio e partilha de bens',
-                'Pensão alimentícia',
-                'Guarda e regime de convivência',
-                'Pactos antenupciais'
+                'Pactos antenupciais estratégicos',
+                'Alteração de regime de bens',
+                'Divórcios de alta complexidade patrimonial',
+                'Partilha de bens e participações societárias'
             ]
         },
-        'Planejamento Civil': {
-            description: 'Estruturação técnica para segurança de bens e conformidade em todas as esferas civis.',
+        'Proteção Patrimonial': {
+            description: 'Estruturação de mecanismos legais para a blindagem de ativos contra riscos empresariais e civis, preservando o legado conquistado.',
             items: [
-                'Contratos personalizados',
-                'Responsabilidade civil',
-                'Gestão de riscos contratuais',
-                'Assessoria em negócios imobiliários'
+                'Blindagem patrimonial lícita',
+                'Segregação de riscos empresariais',
+                'Estruturação de fundos exclusivos (FIP/FIDC)',
+                'Due diligence patrimonial'
             ]
         },
-        'Direito Tributário': {
-            description: 'Minimização legal de encargos e otimização fiscal para preservação de capital familiar.',
+        'Eficiência Tributária': {
+            description: 'Inteligência fiscal aplicada à gestão e transmissão de bens, visando a máxima eficiência e conformidade legal.',
             items: [
-                'Planejamento tributário nacional e internacional',
-                'Consultoria em impostos sobre sucessão (ITCMD)',
-                'Defesa em processos administrativos fiscais',
-                'Recuperação de créditos tributários'
+                'Planejamento tributário sucessório (ITCMD)',
+                'Otimização de ganho de capital imobiliário',
+                'Recuperação de créditos fiscais',
+                'Defesa em autuações fiscais de grandes contribuintes'
             ]
         },
-        'Direito Societário': {
-            description: 'Governança corporativa e estruturação de holdings para proteção e continuidade dos negócios.',
+        'Governança Corporativa': {
+            description: 'Profissionalização da gestão familiar e criação de regras claras para a sucessão no controle das empresas.',
             items: [
-                'Constituição de empresas e holdings',
-                'Acordos de acionistas/quotistas',
-                'Fusões e aquisições (M&A)',
-                'Dissolução de sociedades e exclusão de sócios'
+                'Acordos de sócios e acionistas',
+                'Criação de conselhos consultivos',
+                'Protocolos familiares',
+                'Mediação de conflitos societários'
             ]
         },
-        'Direito Digital': {
-            description: 'Assessoria especializada na proteção de dados e ativos intelectuais no ambiente digital.',
+        'Herança Digital & Ativos': {
+            description: 'Proteção legal para novos e antigos ativos, desde propriedade intelectual até criptoativos e contas digitais.',
             items: [
-                'Adequação à LGPD',
-                'Termos de uso e políticas de privacidade',
-                'Proteção de propriedade intelectual online',
-                'Combate a crimes digitais e vazamento de dados'
+                'Planejamento sucessório de ativos digitais',
+                'Proteção de marca e propriedade intelectual',
+                'Contratos de tecnologia e inovação',
+                'Adequação patrimonial à LGPD'
             ]
         }
     };
@@ -98,16 +98,16 @@
             description: 'Constituição e estruturação de holding familiar para centralizar o controle patrimonial, facilitar a gestão de bens, otimizar a tributação e simplificar a sucessão. Solução estratégica para proteção e perpetuação do patrimônio familiar através de gerações.'
         },
         'Divórcio e Separação': {
-            title: 'Divórcio e Separação',
-            description: 'Assessoria completa em processos de divórcio consensual ou litigioso, incluindo partilha de bens, definição de guarda de filhos e pensão alimentícia. Atuamos com sensibilidade e profissionalismo para resolver questões familiares de forma eficiente e respeitosa.'
+            title: 'Divórcio & Partilha Estratégica',
+            description: 'Condução de divórcios de alta complexidade com foco na proteção do patrimônio e na justa divisão de bens. Atuamos na blindagem de ativos e na negociação de partilhas que envolvem empresas, imóveis e investimentos.'
         },
         'Guarda e Pensão': {
-            title: 'Guarda e Pensão',
-            description: 'Assessoria jurídica especializada em questões relacionadas à guarda de menores, regime de convivência e fixação de pensão alimentícia. Buscamos sempre o melhor interesse da criança, garantindo seus direitos e bem-estar através de acordos ou processos judiciais quando necessário.'
+            title: 'Proteção Financeira de Herdeiros',
+            description: 'Gestão jurídica de pensões e guarda com foco na garantia do futuro financeiro e educacional dos herdeiros. Estabelecemos bases sólidas para a preservação do padrão de vida e segurança econômica dos filhos.'
         },
         'Regime de Bens': {
-            title: 'Regime de Bens',
-            description: 'Consultoria e elaboração de pactos antenupciais para definição do regime de bens no casamento ou união estável. Orientamos sobre as diferentes modalidades (comunhão universal, parcial, separação total) e suas implicações patrimoniais e sucessórias.'
+            title: 'Pactos & Regime de Bens',
+            description: 'Planejamento matrimonial estratégico (Pactos Antenupciais) para definir regras claras de sucessão e incomunicabilidade de bens. Fundamental para quem possui patrimônio prévio ou participação societária.'
         },
         'União Estável': {
             title: 'União Estável',
@@ -142,8 +142,8 @@
             description: 'Defesa técnica em processos de execução fiscal movidos pela Fazenda Pública, buscando a anulação ou redução de débitos tributários. Atuamos com estratégias defensivas eficazes para proteger os interesses do contribuinte em todas as instâncias.'
         },
         'Constituição de Empresas': {
-            title: 'Constituição de Empresas',
-            description: 'Assessoria completa na constituição de empresas, incluindo escolha do tipo societário adequado, elaboração de contratos sociais, registro e obtenção de licenças. Garantimos que a empresa seja constituída de forma adequada às necessidades do negócio.'
+            title: 'Arquitetura Societária',
+            description: 'Constituição de veículos jurídicos (SPEs, Offshores, Holdings) desenhados sob medida para a estratégia de negócio e proteção dos sócios. Foco em eficiência tributária e governança desde a fundação.'
         },
         'Holding Patrimonial': {
             title: 'Holding Patrimonial',
@@ -179,7 +179,9 @@
     // Header Scroll Effect
     // ==========================================================================
     function handleScroll() {
-        if (window.scrollY > 100) {
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        if (scrollY > 100) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
@@ -187,7 +189,7 @@
 
         // Back to top button visibility
         if (btnTop) {
-            if (window.scrollY > 500) {
+            if (scrollY > 500) {
                 btnTop.classList.add('visible');
             } else {
                 btnTop.classList.remove('visible');
@@ -280,10 +282,11 @@
         const navLinks = document.querySelectorAll('nav a, .mobile-nav a');
 
         let current = '';
+        const scrollY = window.scrollY || window.pageYOffset;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (window.scrollY >= (sectionTop - 200)) {
+            if (scrollY >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
             }
         });
@@ -293,6 +296,22 @@
             if (link.getAttribute('href') === '#' + current) {
                 link.classList.add('active');
             }
+        });
+    }
+
+    // ==========================================================================
+    // Unified Scroll Handler (performance)
+    // ==========================================================================
+    let scrollTicking = false;
+
+    function handleScrollAll() {
+        if (scrollTicking) return;
+
+        scrollTicking = true;
+        window.requestAnimationFrame(() => {
+            handleScroll();
+            updateActiveNav();
+            scrollTicking = false;
         });
     }
 
@@ -310,10 +329,12 @@
         document.querySelectorAll('.team-card').forEach(card => {
             const cardInner = card.querySelector('.team-card-inner');
 
-            cardInner.addEventListener('click', function (e) {
-                // Toggle flip state - click anywhere to flip/unflip
-                card.classList.toggle('flipped');
-            });
+            if (cardInner) {
+                cardInner.addEventListener('click', function (e) {
+                    // Toggle flip state - click anywhere to flip/unflip
+                    card.classList.toggle('flipped');
+                });
+            }
         });
     }
 
@@ -478,24 +499,29 @@
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook:', webhookPayload);
+        console.log('Enviando webhook (formulário inline):', webhookPayload);
+
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(webhookPayload)
-        }).then(response => {
-            console.log('Webhook enviado com sucesso');
-            // Reset form
-            form.reset();
-            // Show success message
-            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-        }).catch(err => {
-            console.error('Erro ao enviar webhook:', err);
-            form.reset();
-            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-        });
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
+                }
+
+                // Reset form
+                form.reset();
+                // Show success message
+                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+            })
+            .catch(err => {
+                console.error('Erro ao enviar webhook (formulário inline):', err);
+                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+            });
     }
 
     // ==========================================================================
@@ -508,32 +534,51 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
+        // Determine origin based on form ID
+        let origin = 'Modal Contato - Site R&CB Advogados';
+        if (form.id === 'footerContactForm') {
+            origin = 'Rodapé - Site R&CB Advogados';
+        }
+
         // Prepare webhook payload
         const webhookPayload = {
             nome: data.nome || '',
             email: data.email || '',
             telefone: (data.telefone || '').replace(/\D/g, ''),
             mensagem: data.mensagem || '',
-            origem: 'Modal Contato - Site R&CB Advogados',
+            origem: origin,
             data_envio: new Date().toISOString(),
             pagina: window.location.href
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook modal contato:', webhookPayload);
+        console.log('Enviando webhook (modal contato):', webhookPayload);
+
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(webhookPayload)
-        }).then(() => {
-            console.log('Webhook modal contato enviado');
-            closeModal();
-            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-        }).catch(err => {
-            console.error('Erro ao enviar webhook:', err);
-            closeModal();
-            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
-        });
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
+                }
+
+                closeModal();
+                // Show custom success modal
+                if (typeof openSuccessModal === 'function') {
+                    openSuccessModal();
+                } else {
+                    alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve via WhatsApp.');
+                }
+
+                // Clear form
+                form.reset();
+            })
+            .catch(err => {
+                console.error('Erro ao enviar webhook (modal contato):', err);
+                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+            });
     }
 
     // ==========================================================================
@@ -572,6 +617,9 @@
 
         // Initialize custom scroll animations for ALL devices
         initScrollAnimations();
+
+        // Initialize Swiper for Services Carousel
+        initServicesSwiper();
 
         // AOS only on desktop
         if (typeof AOS !== 'undefined' && !isMobile) {
@@ -805,17 +853,22 @@
     // Event Listeners
     // ==========================================================================
     function initEventListeners() {
-        // Scroll events
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scroll', updateActiveNav);
+        // Scroll events (consolidated for performance)
+        window.addEventListener('scroll', handleScrollAll, { passive: true });
 
-        // Mobile menu
-        if (menuToggle) {
-            menuToggle.addEventListener('click', toggleMobileMenu);
+        // Mobile menu - Re-query elements to ensure they exist
+        const safeMenuToggle = document.getElementById('menuToggle');
+        const safeMobileOverlay = document.getElementById('mobileOverlay');
+
+        if (safeMenuToggle) {
+            safeMenuToggle.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent any default behavior
+                toggleMobileMenu();
+            });
         }
 
-        if (mobileOverlay) {
-            mobileOverlay.addEventListener('click', closeMobileMenu);
+        if (safeMobileOverlay) {
+            safeMobileOverlay.addEventListener('click', closeMobileMenu);
         }
 
         // Close mobile menu when clicking links
@@ -889,10 +942,16 @@
             });
         }
 
-        // Form submit
+        // Form submit - Header Modal
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', handleSubmit);
+        }
+
+        // Form submit - Footer
+        const footerContactForm = document.getElementById('footerContactForm');
+        if (footerContactForm) {
+            footerContactForm.addEventListener('submit', handleSubmit);
         }
     }
 
@@ -992,11 +1051,37 @@
 
 
     // ==========================================================================
+    // Team Card Flip (Click to Flip)
+    // ==========================================================================
+    function initTeamCards() {
+        // Desktop & Mobile Flip Logic
+        document.querySelectorAll('.team-card').forEach(card => {
+            const cardInner = card.querySelector('.team-card-inner');
+
+            if (cardInner) {
+                // Remove existing listeners to prevent duplicates (if any)
+                const newInner = cardInner.cloneNode(true);
+                cardInner.parentNode.replaceChild(newInner, cardInner);
+
+                newInner.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent bubbling issues
+                    // Toggle flip state - click anywhere to flip/unflip
+                    card.classList.toggle('flipped');
+                    console.log('Card flipped:', card.id);
+                });
+            }
+        });
+    }
+
+
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
     function init() {
         initEventListeners();
-        initTeamCards();
+        // initTeamCards(); // Deprecated
+        initTeamCards(); // Flip Cards Restored
         initServiceCards();
         initServiceCardsAnimation();
         initAOS();
@@ -1011,7 +1096,245 @@
 
         // Add loaded class for entrance animations
         document.body.classList.add('loaded');
+
+        // Initialize number counter animation
+        initNumberCounter();
+
+        // Initialize exit intent popup
+        initExitIntent();
+
+        // Initialize phone mask for exit popup
+        initExitPhoneMask();
     }
+
+    // ==========================================================================
+    // Exit Popup Phone Mask
+    // ==========================================================================
+    function initExitPhoneMask() {
+        const phoneInput = document.getElementById('exitTelefone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+
+                if (value.length > 0) {
+                    if (value.length <= 2) {
+                        value = '(' + value;
+                    } else if (value.length <= 7) {
+                        value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
+                    } else {
+                        value = '(' + value.slice(0, 2) + ') ' + value.slice(2, 7) + '-' + value.slice(7);
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+    }
+
+    // ==========================================================================
+    // FAQ Toggle Function
+    // ==========================================================================
+    function toggleFaq(button) {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Toggle current item
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    }
+
+    // ==========================================================================
+    // Number Counter Animation
+    // ==========================================================================
+    function initNumberCounter() {
+        const counters = document.querySelectorAll('[data-count]');
+
+        if (counters.length === 0) return;
+
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        // Use Intersection Observer to trigger animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    // ==========================================================================
+    // Exit Intent Popup
+    // ==========================================================================
+    let exitPopupShown = false;
+
+    function initExitIntent() {
+        // Check if popup was already shown in this session
+        if (sessionStorage.getItem('exitPopupShown')) {
+            exitPopupShown = true;
+            return;
+        }
+
+        // Desktop: Mouse leave detection
+        document.addEventListener('mouseout', function (e) {
+            if (exitPopupShown) return;
+
+            // Check if mouse is leaving through the top of the page
+            if (e.clientY <= 0 && !e.relatedTarget) {
+                showExitPopup();
+            }
+        });
+
+        // Mobile: Scroll up quickly detection (alternative trigger)
+        let lastScrollY = 0;
+        let scrollUpCount = 0;
+
+        window.addEventListener('scroll', function () {
+            if (exitPopupShown) return;
+
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < lastScrollY && currentScrollY < 100) {
+                scrollUpCount++;
+                if (scrollUpCount > 3) {
+                    showExitPopup();
+                }
+            } else {
+                scrollUpCount = 0;
+            }
+
+            lastScrollY = currentScrollY;
+        });
+    }
+
+    function showExitPopup() {
+        if (exitPopupShown) return;
+
+        const popup = document.getElementById('exitPopup');
+        if (popup) {
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            exitPopupShown = true;
+            sessionStorage.setItem('exitPopupShown', 'true');
+        }
+    }
+
+    function closeExitPopup() {
+        const popup = document.getElementById('exitPopup');
+        if (popup) {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function handleExitPopupSubmit(event) {
+        event.preventDefault();
+
+        // Captura os dados do formulário
+        const nome = document.getElementById('exitNome').value.trim();
+        const email = document.getElementById('exitEmail').value.trim();
+        const telefone = document.getElementById('exitTelefone').value.trim();
+
+        // Validação básica
+        if (!nome || !email || !telefone) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        // Prepara o payload do webhook
+        const webhookPayload = {
+            evento: 'download_ebook',
+            origem: 'Formulário Ebook - Exit Intent Popup',
+            ebook: '5 Erros que Destroem Patrimônios Familiares',
+            nome: nome,
+            email: email,
+            telefone: telefone.replace(/\D/g, ''), // Remove caracteres não numéricos
+            data_envio: new Date().toISOString(),
+            pagina: window.location.href,
+            user_agent: navigator.userAgent
+        };
+
+        // Desabilita o botão durante o envio
+        const submitBtn = event.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'ENVIANDO...';
+        submitBtn.disabled = true;
+
+        // Envia webhook para n8n
+        console.log('Enviando webhook ebook:', webhookPayload);
+
+        fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(webhookPayload)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
+                }
+
+                // Mostra mensagem de sucesso
+                alert('Obrigado, ' + nome + '! Você receberá o guia em breve no e-mail: ' + email);
+                // Fecha o popup
+                closeExitPopup();
+                // Limpa o formulário
+                document.getElementById('ebookForm').reset();
+            })
+            .catch(err => {
+                console.error('Erro ao enviar webhook ebook:', err);
+                alert('Ocorreu um erro ao enviar seus dados. Por favor, tente novamente em alguns instantes.');
+            })
+            .finally(() => {
+                // Restaura o botão
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    }
+
+    // Close exit popup on click outside
+    document.addEventListener('click', function (e) {
+        const popup = document.getElementById('exitPopup');
+        if (popup && popup.classList.contains('active')) {
+            if (e.target === popup) {
+                closeExitPopup();
+            }
+        }
+    });
+
+    // Close exit popup on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeExitPopup();
+        }
+    });
 
     // Expose functions to global scope (for onclick handlers in HTML)
     // ==========================================================================
@@ -1022,6 +1345,9 @@
     window.openServiceDetailModal = openServiceDetailModal;
     window.closeServiceDetailModal = closeServiceDetailModal;
     window.handleInlineFormSubmit = handleInlineFormSubmit;
+    window.toggleFaq = toggleFaq;
+    window.closeExitPopup = closeExitPopup;
+    window.handleExitPopupSubmit = handleExitPopupSubmit;
 
     // Run on DOM ready
     if (document.readyState === 'loading') {
@@ -1042,3 +1368,108 @@
     });
 
 })();
+
+/* ==========================================================================
+   Blog Interactions
+   ========================================================================== */
+
+// Make function global for onclick access
+window.handleEbookDownload = function () {
+    // In a real scenario, this would open a modal or trigger a download/lead capture
+    openModal('contactModal'); // Reuse contact modal for now or create a specific one
+
+    // Pre-fill message if possible or just focus
+    const msgArea = document.getElementById('mensagem');
+    if (msgArea) {
+        msgArea.value = "Olá, gostaria de baixar o Guia Completo de Proteção Patrimonial.";
+    }
+};
+
+
+// ==========================================================================
+// Swiper Carousel Initialization
+// ==========================================================================
+function initServicesSwiper() {
+    if (typeof Swiper !== 'undefined') {
+        const swiper = new Swiper('.services-slider', {
+            slidesPerView: 'auto', // Better for coverflow
+            centeredSlides: true, // Crucial for coverflow 3D focus
+            spaceBetween: 40,
+            loop: true,
+            speed: 5000, // Slow constant speed
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 0, // No rotation, just depth/scale
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: false, // Cleaner look
+            },
+            autoplay: {
+                delay: 0, // Continuous
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true, // Keep this feature
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // Mobile
+                640: {
+                    slidesPerView: 1, // Full width on mobile
+                    effect: 'slide', // Disable coverflow on mobile for simplicity? Or keep it? Let's keep slide for safety
+                    centeredSlides: false,
+                },
+                // Tablet
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                    effect: 'coverflow',
+                    centeredSlides: true,
+                },
+                // Desktop
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                    effect: 'coverflow',
+                    centeredSlides: true,
+                },
+            }
+        });
+    }
+}
+
+// Initialize Blog Interactions
+document.addEventListener('DOMContentLoaded', function () {
+    // Newsletter Form Handling
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = this.querySelector('input[type="email"]');
+            const btn = this.querySelector('button');
+
+            if (input && input.value) {
+                // Simulate success
+                const originalText = btn.innerText;
+                btn.innerText = 'Enviado!';
+                btn.style.backgroundColor = '#2ecc71';
+                btn.style.borderColor = '#2ecc71';
+                input.value = '';
+
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                    alert("Obrigado por se inscrever! Em breve você receberá nossos conteúdos exclusivos.");
+                }, 2000);
+            }
+        });
+    });
+});

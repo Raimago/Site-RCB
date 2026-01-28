@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento Sucessório & Holdings | Roriz & Castelo Branco Advogados</title>
+    <meta name="description"
+        content="Especialistas em Planejamento Sucessório, Criação de Holdings Familiares e Testamentos. Proteja seu patrimônio e garanta a perpetuidade do seu legado com segurança jurídica.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=20260128v1">
+    <link rel="stylesheet" href="css/button-effects.css">
+    <link rel="stylesheet" href="css/alignment.css">
+
+    <!-- JSON-LD Schema for LegalService & FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Roriz & Castelo Branco Advogados",
+      "image": "https://rcb.raiarruda.com.br/assets/images/logo-dourada.png",
+      "description": "Especialistas em Planejamento Sucessório e Holdings Familiares.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Viscondessa do Livramento, 113",
+        "addressLocality": "Recife",
+        "addressRegion": "PE",
+        "postalCode": "52010-060",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5581999999999",
+      "priceRange": "$$$",
+      "sameAs": [
+        "https://www.instagram.com/rcbadvogados"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "O que é uma Holding Familiar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Uma Holding Familiar é uma empresa criada para controlar e administrar o patrimônio de um ou mais indivíduos de uma família. O objetivo principal é facilitar a gestão de bens e garantir uma sucessão hereditária mais eficiente e econômica."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Qual a vantagem do Planejamento Sucessório?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A principal vantagem é evitar o custoso e demorado processo de inventário. Além disso, permite a proteção do patrimônio contra riscos e garante que a vontade do patriarca/matriarca seja respeitada na divisão dos bens."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Quanto custa um inventário sem planejamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Um inventário pode consumir até 20% do patrimônio total da família, somando-se impostos (ITCMD), custas judiciais, honorários advocatícios e cartoriais. O planejamento pode reduzir esses custos em até 70%."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* Specific Page Styles */
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(180deg, var(--primary-black) 0%, #2A1A0D 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: url('assets/images/medalhao.webp') center/contain no-repeat;
+            opacity: 0.05;
+            filter: grayscale(1) invert(1);
+        }
+
+        .content-section {
+            padding: 80px 0;
+            background: var(--ivory);
+        }
+
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+
+        .article-body h2 {
+            font-family: var(--font-serif);
+            color: var(--primary-black);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .article-body h3 {
+            color: var(--accent-gold);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cinematic Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo-dourada.png" alt="Roriz & Castelo Branco Advogados">
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="index.html#sobre">O Escritório</a>
+                    <a href="index.html#servicos" class="active">Áreas de Atuação</a>
+                    <a href="index.html#equipe">Sócios</a>
+                    <a href="index.html#contato" class="btn-contact">Contato</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-header">
+        <div class="container">
+            <div class="hero-pretitle">Direito Patrimonial</div>
+            <h1 class="hero-title" data-aos="fade-up">Planejamento Sucessório & Holdings</h1>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="100">
+                Arquitetura jurídica para perpetuar seu legado e proteger sua família.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200" style="margin-top: 40px;">
+                <a href="index.html" class="btn-primary btn-pulse">
+                    <i class="fas fa-arrow-left" style="margin-right: 10px;"></i> Voltar para a Home
+                </a>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" style="margin-top: 40px;">
+                <a href="index.html" class="btn-primary btn-pulse">
+                    <i class="fas fa-arrow-left" style="margin-right: 10px;"></i> Voltar para a Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="article-body" data-aos="fade-up">
+                <h2>O patrimônio que você construiu merece ser preservado.</h2>
+                <p>Muitas famílias dedicam uma vida inteira à construção de um patrimônio sólido, mas negligenciam a
+                    etapa mais crítica: a <strong>transmissão eficiente</strong> desses bens para as próximas gerações.
+                </p>
+                <p>Sem um planejamento adequado, o processo de inventário pode consumir até 20% do patrimônio familiar
+                    em custas judiciais, impostos (ITCMD) e honorários, além de gerar conflitos familiares que podem
+                    destruir o legado construído.</p>
+
+                <h3>A Solução: Holding Familiar</h3>
+                <p>A Holding Familiar não é apenas uma "empresa". É um sistema de organização patrimonial que permite:
+                </p>
+                <ul>
+                    <li><strong>Redução Tributária:</strong> Economia significativa na tributação de aluguéis e na venda
+                        de imóveis.</li>
+                    <li><strong>Evitar o Inventário:</strong> As regras de sucessão são definidas em vida, evitando o
+                        travamento de bens pelo judiciário.</li>
+                    <li><strong>Proteção de Ativos:</strong> Blindagem lícita do patrimônio pessoal contra riscos de
+                        atividades empresariais.</li>
+                </ul>
+
+                <h3>Nossa Metodologia</h3>
+                <p>Atuamos como arquitetos sucessórios. Não vendemos modelos prontos. Realizamos um diagnóstico profundo
+                    da estrutura familiar e patrimonial para desenhar a solução societária ideal (Holding, Doação com
+                    Reserva de Usufruto, Testamento) que atenda aos desejos do patriarca/matriarca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (AI SEO) -->
+    <!-- FAQ Section (AI SEO) -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="hero-pretitle" style="justify-content: center;">Tire suas Dúvidas</div>
+                <h2 class="section-title">Perguntas Frequentes sobre Sucessão</h2>
+                <p class="section-description">Esclareça os principais pontos sobre como proteger seu legado e garantir
+                    o
+                    futuro da sua família.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Qual a vantagem de fazer o Planejamento Sucessório em vida?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A principal vantagem é evitar o inventário, que é um processo caro (consumindo até 40% do
+                            patrimônio), lento e burocrático. Além disso, você decide em vida quem fica com o quê,
+                            evitando conflitos familiares e garantindo que a gestão dos bens permaneça com as pessoas
+                            mais aptas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        O que é uma Holding Familiar e para quem serve?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Holding Familiar é uma empresa criada para ser "cofre" do patrimônio da família. Ela serve
+                            para qualquer família que possua bens (imóveis, investimentos, participações) e deseje
+                            organizá-los, protegê-los e facilitar a transmissão para os herdeiros com enorme economia
+                            tributária.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Posso continuar controlando meus bens após doá-los na Holding?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Através da doação de quotas com reserva de usufruto e cláusulas de administração
+                            permanente, você transfere a propriedade para os filhos, mas mantém 100% do poder de mando,
+                            gestão e rendimentos (aluguéis/dividendos) enquanto viver.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        O Planejamento Sucessório blinda meu patrimônio de dívidas?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, é um dos efeitos. Ao estruturar seu patrimônio em uma Holding, ele passa a ser da pessoa
+                            jurídica, segregando-o dos riscos da pessoa física ou de outras atividades empresariais
+                            operacionais. Isso cria uma camada extra de proteção legal contra reveses futuros.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Quanto custa fazer um Planejamento Sucessório?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O custo varia conforme a complexidade do patrimônio, mas a economia é matemática: enquanto um
+                            inventário costuma custar entre 15% e 40% do valor dos bens, o sistema de Holding Familiar
+                            tem um custo de implantação muito inferior, gerando uma economia média de 70% a 90% nos
+                            gastos comparado ao inventário.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box" data-aos="zoom-in">
+                <h2>Não deixe para resolver depois.</h2>
+                <br>
+                <a href="index.html#contato" class="btn-primary btn-pulse">AGENDAR DIAGNÓSTICO GRATUITO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer Structure here (similar to index.html) -->
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Fale Conosco</h2>
+                <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo"
+                            autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(81) 99999-9999"
+                            autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Enviar</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>R & CB Advogados</h5>
+                    <p>Roriz & Castelo Branco Advogados</p>
+                    <p>Estratégia patrimonial para hoje e para as próximas gerações.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Escritório</h5>
+                    <a href="index.html#sobre">Quem Somos</a>
+                    <a href="index.html#servicos">Áreas de Atuação</a>
+                    <a href="index.html#socios">Sócios</a>
+                </div>
+                <div class="footer-section">
+                    <h5>Contato</h5>
+                    <p><strong>Telefone:</strong> <a href="tel:+5581994461187">(81) 99446-1187</a></p>
+                    <p><strong>E-mail:</strong> <a
+                            href="mailto:contato@rorizcastelobrancoadv.com">contato@rorizcastelobrancoadv.com</a>
+                    </p>
+                    <p><strong>Endereço:</strong> Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE,
+                        52010-060
+                    </p>
+                    <p><strong>Horário:</strong> 9h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Redes Sociais</h5>
+                    <div class="contact-social">
+                        <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank" rel="noopener noreferrer"
+                            rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer"
+                            rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer"
+                            rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025 R & CB Advogados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <button class="whatsapp-float" id="whatsappFloat" onclick="openModal('contato')"
+        aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale Conosco</span>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="btn-top" id="btnTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Override openModal to redirect to home since modals aren't on this page
+        function openModal(modalId) {
+            window.location.href = 'index.html#contato';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Premium Button Effects (Shine + Pulse)
+   ========================================================================== */
+
+/* Defines the pulse animation */
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.7);
+        transform: scale(1);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(184, 134, 11, 0);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(184, 134, 11, 0);
+        transform: scale(1);
+    }
+}
+
+/* Defines the shine animation (glare effect) */
+@keyframes shine-glare {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    20% {
+        left: 100%;
+        opacity: 0.6;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Apply effects to primary buttons */
+.btn-primary.btn-pulse,
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    /* Contains the shine */
+    animation: pulse-gold 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    z-index: 1;
+}
+
+/* The Shine Overlay */
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    z-index: 2;
+    animation: shine-glare 3s infinite ease-in-out;
+    pointer-events: none;
+}
+
+/* Ensure text stays on top */
+.btn-primary span,
+.btn-primary i {
+    position: relative;
+    z-index: 3;
+}
