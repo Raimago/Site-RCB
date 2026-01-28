@@ -442,8 +442,14 @@ header.scrolled .menu-toggle span {
     z-index: 2;
 }
 
-.hero-image {
-    margin-bottom: 28px;
+.services-slider {
+    padding: 40px 20px !important;
+    /* Added safe zone for zoom/shadow */
+    margin: 0 -20px !important;
+    /* Compensate for padding to maintain alignment */
+    width: calc(100% + 40px) !important;
+    overflow: visible !important;
+    /* Ensure shadows aren't clipped */
 }
 
 .hero-image img {
