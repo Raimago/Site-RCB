@@ -57,6 +57,9 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll globally */
+    width: 100%;
 }
 
 /* Smooth scrolling for all elements */
@@ -5762,6 +5765,20 @@ body.loaded {
 
     .blog-title {
         font-size: 2.5rem;
+    }
+
+    /* Fix for Service Slider Overflow on Mobile */
+    .services-slider {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 10px !important;
+        /* Smaller safe zone */
+        overflow: visible !important;
+    }
+
+    .service-luxury-card {
+        transform: none !important;
+        /* Disable hover transform on mobile to prevent overflow */
     }
 }
 
