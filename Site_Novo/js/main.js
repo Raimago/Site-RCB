@@ -722,7 +722,7 @@
     // 3D Parallax effect on cards following mouse movement
     // ==========================================================================
     function init3DParallax() {
-        const cards = document.querySelectorAll('.service-luxury-card, .team-card');
+        const cards = document.querySelectorAll('.team-card');
 
         // Disable on mobile/touch devices
         if (window.innerWidth <= 768 || 'ontouchstart' in window) {

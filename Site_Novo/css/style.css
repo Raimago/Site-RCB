@@ -975,9 +975,9 @@ header.scrolled .menu-toggle span {
 }
 
 .service-luxury-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--luxury-shadow);
-    border-color: transparent;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-gold);
 }
 
 /* ==========================================================================
