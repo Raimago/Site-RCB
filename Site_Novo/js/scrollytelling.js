@@ -15,7 +15,92 @@ document.addEventListener("DOMContentLoaded", (event) => {
     initAboutScrollytelling();
     initServicesScrollytelling();
     initFooterReveal();
+
+    // NEW: Aggressive Global Animations
+    initGlobalAnimations();
 });
+
+/**
+ * GLOBAL AGGRESSIVE ANIMATOR
+ * Target ALL standard elements for high-impact entrance.
+ */
+function initGlobalAnimations() {
+    // 1. Headings: Aggressive Slide from Sides
+    const headings = gsap.utils.toArray('section h2, section h3');
+    headings.forEach((h, i) => {
+        // Alternate directions: Even = Left, Odd = Right
+        const xVal = i % 2 === 0 ? -150 : 150;
+
+        gsap.from(h, {
+            scrollTrigger: {
+                trigger: h,
+                start: "top 85%",
+                toggleActions: "play none none reverse" // Replay on scroll up
+            },
+            x: xVal,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power4.out" // Dramatic ease
+        });
+    });
+
+    // 2. Paragraphs: Staggered Fade Up (Large Distance)
+    const paragraphs = gsap.utils.toArray('section p');
+    ScrollTrigger.batch(paragraphs, {
+        onEnter: batch => gsap.from(batch, {
+            y: 60, // Aggressive 60px lift
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power2.out"
+        }),
+        start: "top 90%"
+    });
+
+    // 3. Buttons: Elastic Pop-In
+    const buttons = gsap.utils.toArray('.btn, .btn-primary, .btn-secondary');
+    buttons.forEach(btn => {
+        gsap.from(btn, {
+            scrollTrigger: {
+                trigger: btn,
+                start: "top 90%",
+                toggleActions: "play none none reverse"
+            },
+            scale: 0.5,
+            opacity: 0,
+            duration: 0.8,
+            ease: "back.out(2)" // Elastic bounce
+        });
+    });
+
+    // 4. Images: Zoom In Effect (Aggressive)
+    const images = gsap.utils.toArray('section img:not(.hero-image img)');
+    images.forEach(img => {
+        gsap.from(img, {
+            scrollTrigger: {
+                trigger: img,
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: 1 // Link to scroll
+            },
+            scale: 0.8, // Start smaller
+            filter: "grayscale(100%)", // Start B&W
+            ease: "none"
+        });
+        // Animate to full color/scale
+        gsap.to(img, {
+            scrollTrigger: {
+                trigger: img,
+                start: "top 80%",
+                end: "center center",
+                scrub: 1
+            },
+            scale: 1,
+            filter: "grayscale(0%)"
+        });
+    });
+}
+
 
 /**
  * 1. Hero Section: Parallax & Pinning
