@@ -1402,11 +1402,11 @@ function initServicesSwiper() {
                 slideShadows: false,
             },
             autoplay: {
-                delay: 2500,
+                delay: 0, // Continuous scroll
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
             },
-            speed: 1000,
+            speed: 5000, // Slow constant speed
             slidesPerView: 1.15, // Show part of the next slide on mobile
             spaceBetween: 20,
             centeredSlides: true, // Center the active slide
