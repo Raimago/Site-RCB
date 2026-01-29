@@ -1401,10 +1401,16 @@ function initServicesSwiper() {
                 modifier: 2,
                 slideShadows: false,
             },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            speed: 1000,
             slidesPerView: 1.15, // Show part of the next slide on mobile
             spaceBetween: 20,
             centeredSlides: true, // Center the active slide
-            loop: false, // Avoid issues with few slides
+            loop: true, // Fixed: Enable loop for infinite scroll
             grabCursor: true,
             pagination: {
                 el: '.swiper-pagination',
@@ -1431,8 +1437,7 @@ function initServicesSwiper() {
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 40,
-                    centeredSlides: true,
-                    loop: true // Enable loop for desktop visual effect
+                    centeredSlides: true
                 }
             }
         });
