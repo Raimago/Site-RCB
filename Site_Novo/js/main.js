@@ -622,16 +622,18 @@
         initServicesSwiper();
 
         // AOS Animation Initialization
+        // FIXED: Disabled on mobile to prevent conflicts with Swiper and layout shifts
         if (typeof AOS !== 'undefined') {
+            const isMobileDevice = window.innerWidth < 992;
             AOS.init({
-                duration: 1200, // Slower, more "grand" feel
-                easing: 'ease-out-quart', // Smoother luxury easing
+                duration: 1200,
+                easing: 'ease-out-quart',
                 once: true,
                 mirror: false,
-                offset: 80, // Trigger slightly earlier but with long duration
+                offset: 80,
                 delay: 0,
                 anchorPlacement: 'top-bottom',
-                disable: false // Enabled on all devices as requested
+                disable: isMobileDevice // Auto-disable on mobile
             });
         }
     }

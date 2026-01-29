@@ -5703,6 +5703,16 @@ body.loaded {
     /* Stay visible after animation */
 }
 
+/* Mobile Safety: Ensure visible if animations disabled or broken */
+@media (max-width: 768px) {
+    .hero-animate {
+        animation-duration: 0.8s !important;
+        /* Faster on mobile */
+        opacity: 0;
+        /* Still animate, but faster */
+    }
+}
+
 /* Specific delays for staggered effect */
 .hero-animate-1 {
     animation: fadeInScaleLuxury 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
