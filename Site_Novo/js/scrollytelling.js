@@ -25,8 +25,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
  * Target ALL standard elements for high-impact entrance.
  */
 function initGlobalAnimations() {
+    // Disable aggressive global animations on mobile to prevent layout breakage
+    if (window.innerWidth < 992) return;
+
     // 1. Headings: Aggressive Slide from Sides
-    const headings = gsap.utils.toArray('section h2, section h3');
+    // Exclude Hero section to avoid conflict with CSS Keyframes
+    const headings = gsap.utils.toArray('section:not(.hero) h2, section:not(.hero) h3');
     headings.forEach((h, i) => {
         // Alternate directions: Even = Left, Odd = Right
         const xVal = i % 2 === 0 ? -150 : 150;
@@ -45,7 +49,8 @@ function initGlobalAnimations() {
     });
 
     // 2. Paragraphs: Staggered Fade Up (Large Distance)
-    const paragraphs = gsap.utils.toArray('section p');
+    // Exclude Hero elements
+    const paragraphs = gsap.utils.toArray('section:not(.hero) p');
     ScrollTrigger.batch(paragraphs, {
         onEnter: batch => gsap.from(batch, {
             y: 60, // Aggressive 60px lift
@@ -58,7 +63,8 @@ function initGlobalAnimations() {
     });
 
     // 3. Buttons: Elastic Pop-In
-    const buttons = gsap.utils.toArray('.btn, .btn-primary, .btn-secondary');
+    // Exclude Hero buttons
+    const buttons = gsap.utils.toArray('section:not(.hero) .btn, section:not(.hero) .btn-primary, section:not(.hero) .btn-secondary');
     buttons.forEach(btn => {
         gsap.from(btn, {
             scrollTrigger: {
@@ -74,7 +80,7 @@ function initGlobalAnimations() {
     });
 
     // 4. Images: Zoom In Effect (Aggressive)
-    const images = gsap.utils.toArray('section img:not(.hero-image img)');
+    const images = gsap.utils.toArray('section:not(.hero) img:not(.hero-image img)');
     images.forEach(img => {
         gsap.from(img, {
             scrollTrigger: {
@@ -176,6 +182,9 @@ function initAboutScrollytelling() {
  * Let's do a subtle "lift" effect updates as user scrolls.
  */
 function initServicesScrollytelling() {
+    // Disable on mobile to avoid preventing Swiper layout
+    if (window.innerWidth < 992) return;
+
     const cards = gsap.utils.toArray('.service-luxury-card');
 
     // Staggered entrance
