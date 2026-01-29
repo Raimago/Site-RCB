@@ -26,6 +26,7 @@
     <link rel="apple-touch-icon" href="assets/images/favicon.png">
 
     <!-- Preconnect for performance -->
+    <link rel="preload" as="image" href="assets/images/medalhao.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -96,22 +97,33 @@
         </div>
         <div class="container parallax-content">
             <div class="hero-content">
-                <div class="hero-image" data-aos="fade-down" data-aos-delay="100">
+                <div class="hero-image hero-animate hero-animate-1">
                     <img src="assets/images/medalhao.webp" alt="Medalhão R & CB Advogados" loading="eager">
                 </div>
-                <div class="hero-pretitle" data-aos="fade-up" data-aos-delay="200">Estratégia Patrimonial & Sucessória
-                </div>
-                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">Proteção, Eficiência e Perpetuidade do
-                    Seu Legado.</h1>
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="400">Especialistas em arquitetura
-                    sucessória, holdings familiares e proteção de ativos para famílias e empresas.</p>
-                <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="500">
-                    <a href="#" class="btn-primary btn-pulse" onclick="openModal('contato'); return false;">AGENDE SUA
-                        CONSULTORIA GRATUITA</a>
-                    <p class="hero-cta-subtext"><i class="fas fa-shield-alt"></i> Atendimento sigiloso e sem compromisso
-                    </p>
+                <h1 class="hero-animate hero-animate-2">
+                    Estratégia Patrimonial para Hoje e para
+                    as <span class="text-gold">Próximas Gerações</span>
+                </h1>
+                <p class="hero-subtitle hero-animate hero-animate-3">
+                    Especialistas em arquitetura sucessória, eficiência tributária e governança corporativa.
+                    Proteja seu legado com quem entende de perpetuidade.
+                </p>
+                <div class="hero-buttons hero-animate hero-animate-4">
+                    <a href="#contato" class="btn-primary btn-pulse" onclick="openModal('agendamento'); return false;">
+                        Agendar Consultoria
+                    </a>
+                    <a href="#sobre" class="btn-secondary">
+                        Conhecer o Escritório
+                    </a>
                 </div>
             </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#sobre">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
         </div>
     </section>
 

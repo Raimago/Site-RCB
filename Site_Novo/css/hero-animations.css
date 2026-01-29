@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Luxury Hero Animations (CSS Keyframes)
+   ========================================================================== */
+
+@keyframes fadeInUpLuxury {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+        /* "Bigger" starting distance */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScaleLuxury {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Base class for hero animations */
+.hero-animate {
+    opacity: 0;
+    /* Hidden by default until animation starts */
+    animation-fill-mode: forwards;
+    /* Stay visible after animation */
+}
+
+/* Specific delays for staggered effect */
+.hero-animate-1 {
+    animation: fadeInScaleLuxury 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    animation-delay: 0.1s;
+    /* Almost instant */
+}
+
+.hero-animate-2 {
+    animation: fadeInUpLuxury 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-animate-3 {
+    animation: fadeInUpLuxury 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-animate-4 {
+    animation: fadeInUpLuxury 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    animation-delay: 0.9s;
+}

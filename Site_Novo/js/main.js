@@ -621,20 +621,18 @@
         // Initialize Swiper for Services Carousel
         initServicesSwiper();
 
-        // AOS only on desktop
-        if (typeof AOS !== 'undefined' && !isMobile) {
+        // AOS Animation Initialization
+        if (typeof AOS !== 'undefined') {
             AOS.init({
-                duration: 800,
-                easing: 'ease-out',
+                duration: 1200, // Slower, more "grand" feel
+                easing: 'ease-out-quart', // Smoother luxury easing
                 once: true,
                 mirror: false,
-                offset: 120,
+                offset: 80, // Trigger slightly earlier but with long duration
                 delay: 0,
                 anchorPlacement: 'top-bottom',
-                disable: false
+                disable: false // Enabled on all devices as requested
             });
-        } else if (typeof AOS !== 'undefined') {
-            AOS.init({ disable: true });
         }
     }
 
