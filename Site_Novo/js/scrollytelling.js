@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 /**
  * GLOBAL AGGRESSIVE ANIMATOR
- * Target ALL standard elements for high-impact entrance.
+ * Target ALL standard elements for high-impact entrance LINKED TO SCROLL.
  */
 function initGlobalAnimations() {
     // Disable aggressive global animations on mobile to prevent layout breakage
     if (window.innerWidth < 992) return;
 
-    // 1. Headings: Aggressive Slide from Sides
-    // Exclude Hero section to avoid conflict with CSS Keyframes
+    // 1. Headings: Aggressive Slide from Sides (Scrubbed)
+    // Exclude Hero section
     const headings = gsap.utils.toArray('section:not(.hero) h2, section:not(.hero) h3');
     headings.forEach((h, i) => {
         // Alternate directions: Even = Left, Odd = Right
@@ -38,72 +38,68 @@ function initGlobalAnimations() {
         gsap.from(h, {
             scrollTrigger: {
                 trigger: h,
-                start: "top 85%",
-                toggleActions: "play none none reverse" // Replay on scroll up
+                start: "top bottom", // Starts when top of element hits bottom of viewport
+                end: "top center",   // Finishes when top of element hits center
+                scrub: 1             // Follows scroll with 1s smoothing
             },
             x: xVal,
             opacity: 0,
-            duration: 1.2,
-            ease: "power4.out" // Dramatic ease
+            ease: "none" // Linear because scroll provides the easing
         });
     });
 
-    // 2. Paragraphs: Staggered Fade Up (Large Distance)
-    // Exclude Hero elements
+    // 2. Paragraphs: Staggered Fade Up (Scrubbed)
+    // Replaced Batch with individual scrubbers for continuous control
     const paragraphs = gsap.utils.toArray('section:not(.hero) p');
-    ScrollTrigger.batch(paragraphs, {
-        onEnter: batch => gsap.from(batch, {
-            y: 60, // Aggressive 60px lift
+    paragraphs.forEach((p) => {
+        gsap.from(p, {
+            scrollTrigger: {
+                trigger: p,
+                start: "top bottom", // Enters viewport
+                end: "top 70%",      // Reaches reading position
+                scrub: 1
+            },
+            y: 60, // Aggressive lift
             opacity: 0,
-            stagger: 0.1,
-            duration: 1,
-            ease: "power2.out"
-        }),
-        start: "top 90%"
+            ease: "none"
+        });
     });
 
-    // 3. Buttons: Elastic Pop-In
-    // Exclude Hero buttons
+    // 3. Buttons: Elastic Scale (Scrubbed)
     const buttons = gsap.utils.toArray('section:not(.hero) .btn, section:not(.hero) .btn-primary, section:not(.hero) .btn-secondary');
     buttons.forEach(btn => {
         gsap.from(btn, {
             scrollTrigger: {
                 trigger: btn,
-                start: "top 90%",
-                toggleActions: "play none none reverse"
+                start: "top bottom-=50",
+                end: "top 80%",
+                scrub: 1
             },
             scale: 0.5,
             opacity: 0,
-            duration: 0.8,
-            ease: "back.out(2)" // Elastic bounce
+            ease: "none"
         });
     });
 
-    // 4. Images: Zoom In Effect (Aggressive)
+    // 4. Images: Zoom In Effect (Scrubbed - Already was, but tuning)
     const images = gsap.utils.toArray('section:not(.hero) img:not(.hero-image img)');
     images.forEach(img => {
-        gsap.from(img, {
-            scrollTrigger: {
-                trigger: img,
-                start: "top 80%",
-                end: "bottom 20%",
-                scrub: 1 // Link to scroll
+        gsap.fromTo(img,
+            {
+                scale: 0.8,
+                filter: "grayscale(100%)"
             },
-            scale: 0.8, // Start smaller
-            filter: "grayscale(100%)", // Start B&W
-            ease: "none"
-        });
-        // Animate to full color/scale
-        gsap.to(img, {
-            scrollTrigger: {
-                trigger: img,
-                start: "top 80%",
-                end: "center center",
-                scrub: 1
-            },
-            scale: 1,
-            filter: "grayscale(0%)"
-        });
+            {
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top bottom",
+                    end: "center center",
+                    scrub: 1
+                },
+                scale: 1,
+                filter: "grayscale(0%)",
+                ease: "none"
+            });
     });
 }
 
