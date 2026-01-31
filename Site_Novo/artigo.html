@@ -127,8 +127,12 @@
             <div class="article-grid">
                 <!-- Main Content -->
                 <article class="article-body" data-aos="fade-up">
-                    <figure class="article-featured-image">
-                        <img src="assets/images/bg-hero.webp" alt="Imagem Principal" id="post-image">
+                    <!-- Featured Image - hidden if no cover, shows logo placeholder -->
+                    <figure class="article-featured-image" id="featured-image-container" style="display: none;">
+                        <div class="article-image-placeholder">
+                            <img src="assets/images/logo.png" alt="R & CB Advogados" class="placeholder-logo">
+                        </div>
+                        <img src="" alt="Imagem Principal" id="post-image" style="display: none;">
                         <figcaption id="image-caption"></figcaption>
                     </figure>
 
@@ -142,12 +146,12 @@
                     <!-- Share Buttons -->
                     <div class="article-share">
                         <span>Compartilhe:</span>
-                        <a href="#" class="share-btn whatsapp" id="share-whatsapp" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="share-btn linkedin" id="share-linkedin" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="share-btn facebook" id="share-facebook" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn whatsapp" id="share-whatsapp" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn linkedin" id="share-linkedin" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="share-btn facebook" id="share-facebook" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="share-btn copy-link" id="share-copy" title="Copiar Link"><i
                                 class="fas fa-link"></i></a>
                     </div>
@@ -448,10 +452,24 @@
             document.getElementById('post-title').textContent = post.title;
             document.getElementById('post-excerpt').textContent = post.excerpt || '';
 
-            // Images
-            const mainImg = BlogService.getImageUrl(post, post.cover);
-            document.getElementById('post-image').src = mainImg;
-            document.querySelector('meta[property="og:image"]').content = mainImg;
+            // Images - only show if cover exists
+            const imageContainer = document.getElementById('featured-image-container');
+            const mainImgEl = document.getElementById('post-image');
+            const placeholderEl = imageContainer.querySelector('.article-image-placeholder');
+
+            if (post.cover) {
+                const mainImg = BlogService.getImageUrl(post, post.cover);
+                mainImgEl.src = mainImg;
+                mainImgEl.style.display = 'block';
+                placeholderEl.style.display = 'none';
+                imageContainer.style.display = 'block';
+                document.querySelector('meta[property="og:image"]').content = mainImg;
+            } else {
+                // Show logo placeholder instead
+                imageContainer.style.display = 'block';
+                mainImgEl.style.display = 'none';
+                placeholderEl.style.display = 'flex';
+            }
 
             // Content (HTML Safe?) - Assuming PocketBase editor returns safe HTML or we trust Admin input
             document.getElementById('post-content').innerHTML = post.content || '<p>Sem conteúdo.</p>';
@@ -494,7 +512,7 @@
                                 <span class="category-tag">${p.category || 'Blog'}</span>
                             </div>
                             <div class="related-content">
-                                <h4><a href="artigo.html?slug=${p.slug}">${p.title}</a></h4>
+                                <h4><a href="artigo?slug=${p.slug}">${p.title}</a></h4>
                                 <span class="date">${BlogService.formatDate(p.date || p.created)}</span>
                             </div>
                         </div>

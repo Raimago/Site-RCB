@@ -46,9 +46,166 @@
     <link rel="stylesheet" href="css/style.css?v=20260128v1">
     <link rel="stylesheet" href="css/button-effects.css">
     <link rel="stylesheet" href="css/alignment.css">
+    <link rel="stylesheet" href="css/micro-animations.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/cases.css">
 
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Schema.org Structured Data - SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "R & CB Advogados - Roriz & Castelo Branco",
+        "alternateName": "Roriz Castelo Branco Advogados",
+        "url": "https://rorizcastelobrancoadv.com",
+        "logo": "https://rorizcastelobrancoadv.com/assets/images/logo.png",
+        "image": "https://rorizcastelobrancoadv.com/assets/images/og-image.jpg",
+        "description": "Escritório de advocacia especializado em planejamento patrimonial, direito sucessório, holdings familiares e proteção de patrimônio em Recife, Pernambuco.",
+        "telephone": "+55-81-99446-1187",
+        "email": "contato@rorizcastelobrancoadv.com",
+        "priceRange": "$$$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Viscondessa do Livramento, 113",
+            "addressLocality": "Recife",
+            "addressRegion": "PE",
+            "postalCode": "52010-060",
+            "addressCountry": "BR",
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": -8.0642,
+                    "longitude": -34.8988
+                },
+                "geoRadius": "50000"
+            }
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -8.0642,
+            "longitude": -34.8988
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "sameAs": [
+            "https://www.instagram.com/rorizcastelobranco/",
+            "https://www.linkedin.com/company/rorizcastelobrancoadv/",
+            "https://www.facebook.com/rorizcastelobrancoadv/"
+        ],
+        "founder": [
+            {
+                "@type": "Person",
+                "name": "Davi Castelo Branco",
+                "jobTitle": "Sócio Fundador",
+                "description": "Especialista em Planejamento Patrimonial e Direito Sucessório"
+            },
+            {
+                "@type": "Person",
+                "name": "Leonardo Roriz",
+                "jobTitle": "Sócio Fundador",
+                "description": "Especialista em Direito Digital e Propriedade Intelectual"
+            }
+        ],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Recife"
+            },
+            {
+                "@type": "State",
+                "name": "Pernambuco"
+            },
+            {
+                "@type": "Country",
+                "name": "Brasil"
+            }
+        ],
+        "knowsAbout": [
+            "Planejamento Sucessório",
+            "Holding Familiar",
+            "Inventário",
+            "Direito Patrimonial",
+            "Proteção de Patrimônio",
+            "Direito Tributário",
+            "Direito Societário",
+            "Direito Digital",
+            "LGPD"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços Jurídicos",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Planejamento Sucessório & Holdings",
+                        "description": "Organização e transferência do patrimônio com segurança jurídica"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Proteção Patrimonial",
+                        "description": "Blindagem de bens e estruturação jurídica estratégica"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Eficiência Tributária",
+                        "description": "Planejamento fiscal para preservação de capital familiar"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qual a diferença entre inventário e planejamento sucessório?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "O inventário é o processo legal realizado após o falecimento para transferir os bens aos herdeiros. Já o planejamento sucessório é feito em vida, permitindo organizar a transferência de patrimônio de forma mais eficiente, rápida e com economia significativa de impostos (ITCMD)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto custa uma consultoria inicial?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oferecemos uma primeira consultoria gratuita para entender sua situação e apresentar as melhores estratégias."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "O que é uma holding familiar e quais suas vantagens?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A holding familiar é uma empresa constituída para administrar o patrimônio da família. As principais vantagens são: redução de impostos na transmissão de bens, proteção patrimonial, facilidade na gestão dos ativos e planejamento sucessório mais eficiente."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -154,8 +311,156 @@
                         societária e imobiliária para entregar soluções sob medida. Cada projeto é conduzido com
                         confidencialidade absoluta e participação direta dos sócios fundadores.</p>
                 </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="assets/images/medalhao.webp" alt="R & CB Advogados - Escritório" loading="lazy">
+                <div class="about-carousel" data-aos="fade-left">
+                    <div class="swiper about-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/images/escritorio.png" alt="Escritório R & CB Advogados"
+                                    loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/sala-reuniao.png" alt="Sala de Reuniões" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/livros.png" alt="Biblioteca Jurídica" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination about-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section - Diagnóstico Patrimonial -->
+    <section class="quiz-section" id="diagnostico">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-pretitle">Descubra Sua Situação</div>
+                <h2 class="section-title">Diagnóstico Patrimonial Gratuito</h2>
+                <p class="section-description">
+                    Responda 4 perguntas rápidas e receba uma análise personalizada
+                </p>
+            </div>
+            <div class="quiz-card" data-aos="fade-up" data-aos-delay="100">
+                <!-- Progress Bar -->
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="quizProgress"></div>
+                    <span class="quiz-progress-text">Pergunta <span id="currentQuestion">1</span> de 4</span>
+                </div>
+
+                <!-- Questions Container -->
+                <div class="quiz-questions" id="quizQuestions">
+                    <!-- Question 1 -->
+                    <div class="quiz-question active" data-question="1">
+                        <h3>Qual o valor aproximado do seu patrimônio?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="low" data-points="1">
+                                <i class="fas fa-home"></i>
+                                <span>Até R$ 500 mil</span>
+                            </button>
+                            <button class="quiz-option" data-value="medium" data-points="2">
+                                <i class="fas fa-building"></i>
+                                <span>R$ 500 mil a R$ 2 milhões</span>
+                            </button>
+                            <button class="quiz-option" data-value="high" data-points="3">
+                                <i class="fas fa-city"></i>
+                                <span>R$ 2 milhões a R$ 10 milhões</span>
+                            </button>
+                            <button class="quiz-option" data-value="very-high" data-points="4">
+                                <i class="fas fa-landmark"></i>
+                                <span>Acima de R$ 10 milhões</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="quiz-question" data-question="2">
+                        <h3>Você possui empresa ou participação societária?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="holding" data-points="1">
+                                <i class="fas fa-sitemap"></i>
+                                <span>Já tenho holding estruturada</span>
+                            </button>
+                            <button class="quiz-option" data-value="no" data-points="2">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Não possuo empresa</span>
+                            </button>
+                            <button class="quiz-option" data-value="one" data-points="3">
+                                <i class="fas fa-store"></i>
+                                <span>Sim, uma empresa (sem holding)</span>
+                            </button>
+                            <button class="quiz-option" data-value="multiple" data-points="4">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Sim, múltiplas empresas (sem holding)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="quiz-question" data-question="3">
+                        <h3>Quantos herdeiros você possui?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="none" data-points="1">
+                                <i class="fas fa-user"></i>
+                                <span>Nenhum</span>
+                            </button>
+                            <button class="quiz-option" data-value="few" data-points="2">
+                                <i class="fas fa-user-friends"></i>
+                                <span>1 a 2 herdeiros</span>
+                            </button>
+                            <button class="quiz-option" data-value="some" data-points="3">
+                                <i class="fas fa-users"></i>
+                                <span>3 a 5 herdeiros</span>
+                            </button>
+                            <button class="quiz-option" data-value="many" data-points="4">
+                                <i class="fas fa-people-group"></i>
+                                <span>Mais de 5 herdeiros</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="quiz-question" data-question="4">
+                        <h3>Você já fez algum planejamento sucessório?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="never" data-points="4">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Nunca pensei nisso</span>
+                            </button>
+                            <button class="quiz-option" data-value="thinking" data-points="3">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Estou pesquisando</span>
+                            </button>
+                            <button class="quiz-option" data-value="partial" data-points="2">
+                                <i class="fas fa-tasks"></i>
+                                <span>Tenho testamento</span>
+                            </button>
+                            <button class="quiz-option" data-value="complete" data-points="1">
+                                <i class="fas fa-check-double"></i>
+                                <span>Já tenho planejamento completo</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results (Initially Hidden) -->
+                <div class="quiz-results" id="quizResults" style="display: none;">
+                    <div class="quiz-result-icon" id="resultIcon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 id="resultTitle">Seu Diagnóstico</h3>
+                    <p id="resultDescription">Descrição do resultado.</p>
+                    <div class="quiz-result-recommendation" id="resultRecommendation">
+                        <h4>Recomendação:</h4>
+                        <p id="recommendationText">Texto de recomendação.</p>
+                    </div>
+                    <div class="quiz-result-cta">
+                        <a href="#" class="btn-primary btn-pulse" onclick="openModal('contato'); return false;">
+                            QUERO UMA CONSULTORIA GRATUITA
+                        </a>
+                        <button class="btn-secondary" onclick="resetQuiz()">Refazer Diagnóstico</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,6 +715,59 @@
         </div>
     </section>
 
+    <!-- Calculator Section - Economia ITCMD -->
+    <section class="calculator-section" id="calculadora">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-pretitle">Simulador Exclusivo</div>
+                <h2 class="section-title">Quanto Você Pode Economizar?</h2>
+                <p class="section-description">
+                    Descubra em segundos a economia potencial com o planejamento sucessório
+                </p>
+            </div>
+            <div class="calculator-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="calculator-content">
+                    <div class="calculator-input-group">
+                        <label for="patrimonioSlider">Valor Estimado do Patrimônio</label>
+                        <div class="slider-container">
+                            <input type="range" id="patrimonioSlider" min="100000" max="10000000" value="1000000"
+                                step="100000">
+                            <div class="slider-value" id="patrimonioValue">R$ 1.000.000</div>
+                        </div>
+                        <div class="slider-range">
+                            <span>R$ 100 mil</span>
+                            <span>R$ 10 milhões</span>
+                        </div>
+                    </div>
+                    <div class="calculator-results">
+                        <div class="result-item result-without">
+                            <div class="result-label"><i class="fas fa-times-circle"></i> Sem Planejamento</div>
+                            <div class="result-value" id="semPlanejamento">R$ 80.000</div>
+                            <div class="result-detail">ITCMD + Inventário Judicial</div>
+                        </div>
+                        <div class="result-item result-with">
+                            <div class="result-label"><i class="fas fa-check-circle"></i> Com Planejamento</div>
+                            <div class="result-value" id="comPlanejamento">R$ 40.000</div>
+                            <div class="result-detail">Holding + Doação em Vida</div>
+                        </div>
+                        <div class="result-item result-savings">
+                            <div class="result-label"><i class="fas fa-piggy-bank"></i> Sua Economia</div>
+                            <div class="result-value result-highlight" id="economiaTotal">R$ 40.000</div>
+                            <div class="result-detail">Até 50% de redução</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator-cta">
+                    <p class="calculator-disclaimer"><i class="fas fa-info-circle"></i> Valores estimados para fins
+                        ilustrativos. Cada caso requer análise personalizada.</p>
+                    <a href="#" class="btn-primary btn-pulse" onclick="openModal('contato'); return false;">
+                        QUERO UMA ANÁLISE GRATUITA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Us Section -->
     <section class="why-choose-us">
         <div class="container">
@@ -534,6 +892,117 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases de Sucesso Section -->
+    <section class="success-cases" id="cases">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-pretitle">Resultados Comprovados</div>
+                <h2 class="section-title">Cases de Sucesso</h2>
+                <p class="section-description">
+                    Histórias reais de famílias que protegeram seu patrimônio
+                </p>
+            </div>
+            <div class="cases-grid">
+                <!-- Case 1 -->
+                <div class="case-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="case-badge">Holding Familiar</div>
+                    </div>
+                    <div class="case-content">
+                        <h4>Família com Patrimônio Imobiliário</h4>
+                        <p class="case-description">
+                            Empresário com 12 imóveis comerciais e residenciais buscava proteger seu patrimônio e
+                            facilitar a sucessão para 3 filhos.
+                        </p>
+                        <div class="case-results">
+                            <div class="case-stat">
+                                <span class="stat-value">R$ 4,2M</span>
+                                <span class="stat-label">Patrimônio estruturado</span>
+                            </div>
+                            <div class="case-stat highlight">
+                                <span class="stat-value">52%</span>
+                                <span class="stat-label">Economia em ITCMD</span>
+                            </div>
+                        </div>
+                        <div class="case-solution">
+                            <strong>Solução:</strong> Holding patrimonial com doação de cotas com reserva de usufruto
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="case-badge">Planejamento Sucessório</div>
+                    </div>
+                    <div class="case-content">
+                        <h4>Sucessão Familiar Complexa</h4>
+                        <p class="case-description">
+                            Família com 5 herdeiros de diferentes casamentos precisava evitar conflitos e garantir
+                            distribuição justa do patrimônio.
+                        </p>
+                        <div class="case-results">
+                            <div class="case-stat">
+                                <span class="stat-value">R$ 8,5M</span>
+                                <span class="stat-label">Patrimônio organizado</span>
+                            </div>
+                            <div class="case-stat highlight">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label">Acordo familiar</span>
+                            </div>
+                        </div>
+                        <div class="case-solution">
+                            <strong>Solução:</strong> Testamento + acordo de quotistas + seguro de vida estratégico
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="case-badge">Proteção Patrimonial</div>
+                    </div>
+                    <div class="case-content">
+                        <h4>Empresário com Riscos Operacionais</h4>
+                        <p class="case-description">
+                            Empresário do ramo de construção civil precisava blindar patrimônio pessoal de possíveis
+                            passivos trabalhistas.
+                        </p>
+                        <div class="case-results">
+                            <div class="case-stat">
+                                <span class="stat-value">R$ 6,3M</span>
+                                <span class="stat-label">Patrimônio protegido</span>
+                            </div>
+                            <div class="case-stat highlight">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">Bens atingidos</span>
+                            </div>
+                        </div>
+                        <div class="case-solution">
+                            <strong>Solução:</strong> Separação patrimonial + constituição de holding + reorganização
+                            societária
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cases-cta" data-aos="fade-up">
+                <p>Cada caso é único. Descubra a melhor estratégia para o seu patrimônio.</p>
+                <a href="#" class="btn-primary btn-pulse" onclick="openModal('contato'); return false;">
+                    AGENDE SUA CONSULTORIA
+                </a>
             </div>
         </div>
     </section>
@@ -912,6 +1381,21 @@
                     <h5>R & CB Advogados</h5>
                     <p>Roriz & Castelo Branco Advogados</p>
                     <p>Estratégia patrimonial para hoje e para as próximas gerações.</p>
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>OAB/PE</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Sigiloso</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-award"></i>
+                            <span>+10 Anos</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h5>Escritório</h5>
@@ -933,7 +1417,7 @@
                 <div class="footer-section">
                     <h5>Redes Sociais</h5>
                     <div class="contact-social">
-                        <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank"
+                        <a href="https://www.instagram.com/rorizcastelobranco/" target="_blank"
                             rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -975,6 +1459,8 @@
 
     <!-- Main JavaScript -->
     <script src="js/success-modal.js" defer></script>
+    <script src="js/calculator.js" defer></script>
+    <script src="js/quiz.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>
 

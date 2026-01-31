@@ -1392,23 +1392,23 @@ window.handleEbookDownload = function () {
 function initServicesSwiper() {
     if (typeof Swiper !== 'undefined') {
         const swiper = new Swiper('.services-slider', {
-            slidesPerView: 'auto', // Better for coverflow
-            centeredSlides: true, // Crucial for coverflow 3D focus
+            slidesPerView: 'auto',
+            centeredSlides: true,
             spaceBetween: 40,
             loop: true,
-            speed: 5000, // Slow constant speed
+            speed: 5000,
             effect: 'coverflow',
             coverflowEffect: {
-                rotate: 0, // No rotation, just depth/scale
+                rotate: 0,
                 stretch: 0,
                 depth: 100,
                 modifier: 2,
-                slideShadows: false, // Cleaner look
+                slideShadows: false,
             },
             autoplay: {
-                delay: 0, // Continuous
+                delay: 0,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true, // Keep this feature
+                pauseOnMouseEnter: true,
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -1419,20 +1419,17 @@ function initServicesSwiper() {
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                // Mobile
                 640: {
-                    slidesPerView: 1, // Full width on mobile
-                    effect: 'slide', // Disable coverflow on mobile for simplicity? Or keep it? Let's keep slide for safety
+                    slidesPerView: 1,
+                    effect: 'slide',
                     centeredSlides: false,
                 },
-                // Tablet
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 30,
                     effect: 'coverflow',
                     centeredSlides: true,
                 },
-                // Desktop
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 40,
@@ -1472,4 +1469,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // About Section Carousel
+    if (typeof Swiper !== 'undefined' && document.querySelector('.about-swiper')) {
+        new Swiper('.about-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.about-pagination',
+                clickable: true,
+            },
+        });
+    }
 });

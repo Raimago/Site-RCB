@@ -169,9 +169,9 @@
                                 <div class="blog-meta">
                                     <span><i class="far fa-calendar-alt"></i> ${date}</span>
                                 </div>
-                                <h3><a href="artigo.html?slug=${post.slug}">${post.title}</a></h3>
+                                <h3><a href="artigo?slug=${post.slug}">${post.title}</a></h3>
                                 <p>${post.excerpt || ''}</p>
-                                <a href="artigo.html?slug=${post.slug}" class="read-more">Ler Artigo Completo <i class="fas fa-arrow-right"></i></a>
+                                <a href="artigo?slug=${post.slug}" class="read-more">Ler Artigo Completo <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </article>
                     `;
@@ -260,13 +260,15 @@
                 <h2 class="address-text">Rua Viscondessa do Livramento, 113 - Paissandu, Recife - PE, 52010-060</h2>
             </div>
             <div class="location-navigation-buttons" data-aos="fade-up" data-aos-delay="400">
-                <a href="https://waze.com/ul?ll=-8.0642,-34.8988&navigate=yes&zoom=17" target="_blank" rel="noopener noreferrer"
-                    rel="noopener noreferrer" class="btn-navigation btn-waze" aria-label="Abrir rota no Waze">
+                <a href="https://waze.com/ul?ll=-8.0642,-34.8988&navigate=yes&zoom=17" target="_blank"
+                    rel="noopener noreferrer" rel="noopener noreferrer" class="btn-navigation btn-waze"
+                    aria-label="Abrir rota no Waze">
                     <img src="assets/images/logo-waze.jpeg" alt="Waze" class="btn-navigation-logo">
                     <span>Abrir no Waze</span>
                 </a>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=-8.0642,-34.8988" target="_blank" rel="noopener noreferrer"
-                    rel="noopener noreferrer" class="btn-navigation btn-gmaps" aria-label="Abrir rota no Google Maps">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=-8.0642,-34.8988" target="_blank"
+                    rel="noopener noreferrer" rel="noopener noreferrer" class="btn-navigation btn-gmaps"
+                    aria-label="Abrir rota no Google Maps">
                     <img src="assets/images/logo-google-maps.jpeg" alt="Google Maps" class="btn-navigation-logo">
                     <span>Abrir no Google Maps</span>
                 </a>
@@ -475,16 +477,16 @@
                 <div class="footer-section">
                     <h5>Redes Sociais</h5>
                     <div class="contact-social">
-                        <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank" rel="noopener noreferrer"
-                            rel="noopener noreferrer" aria-label="Instagram">
+                        <a href="https://www.instagram.com/rorizcastelobranco.adv/" target="_blank"
+                            rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer"
-                            rel="noopener noreferrer" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/rorizcastelobrancoadv/" target="_blank"
+                            rel="noopener noreferrer" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.facebook.com/rorizcastelobrancoadv/" target="_blank" rel="noopener noreferrer"
-                            rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="https://www.facebook.com/rorizcastelobrancoadv/" target="_blank"
+                            rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>

@@ -1,0 +1,214 @@
+/* ==========================================================================
+   CALCULATOR SECTION - Economia ITCMD
+   ========================================================================== */
+
+.calculator-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--white) 100%);
+}
+
+.calculator-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: var(--luxury-shadow);
+    border: 1px solid var(--glass-border);
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+
+.calculator-content {
+    display: grid;
+    gap: 40px;
+}
+
+.calculator-input-group {
+    text-align: center;
+}
+
+.calculator-input-group label {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--primary-black);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.slider-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.slider-container input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    cursor: pointer;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.5);
+}
+
+.slider-container input[type="range"]::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    cursor: pointer;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+}
+
+.slider-value {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-top: 20px;
+}
+
+.slider-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.calculator-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.result-item {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+}
+
+.result-without {
+    background: rgba(220, 53, 69, 0.08);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.result-without .result-label i {
+    color: #dc3545;
+}
+
+.result-with {
+    background: rgba(40, 167, 69, 0.08);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.result-with .result-label i {
+    color: #28a745;
+}
+
+.result-savings {
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(192, 179, 153, 0.15) 100%);
+    border: 2px solid var(--accent-gold);
+}
+
+.result-savings .result-label i {
+    color: var(--accent-gold);
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.result-label i {
+    margin-right: 6px;
+}
+
+.result-value {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin-bottom: 8px;
+}
+
+.result-highlight {
+    color: var(--accent-gold) !important;
+    font-size: 2.2rem;
+}
+
+.result-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.calculator-cta {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.calculator-disclaimer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.calculator-disclaimer i {
+    margin-right: 6px;
+    color: var(--accent-gold);
+}
+
+/* Responsive Calculator */
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 30px 20px;
+        margin: 30px 15px 0;
+    }
+
+    .slider-value {
+        font-size: 1.8rem;
+    }
+
+    .calculator-results {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .result-item {
+        padding: 20px 15px;
+    }
+
+    .result-value {
+        font-size: 1.5rem;
+    }
+
+    .result-highlight {
+        font-size: 1.8rem;
+    }
+}
