@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rorizcastelobrancoadv.com/sitemap.xml
+Sitemap: https://rorizcastelobranco.adv.br/sitemap.xml
 
