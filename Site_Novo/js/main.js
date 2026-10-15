@@ -490,7 +490,7 @@
             nome: data.nome || '',
             empresa: data.empresa || '',
             email: data.email || '',
-            telefone: (data.telefone || '').replace(/\\D/g, ''),
+            telefone: (data.telefone || '').replace(/\D/g, ''),
             assunto: assuntoFormatted || data.assunto || '',
             mensagem: data.mensagem || '',
             origem: 'Formulário Contato - Site R&CB Advogados',
@@ -499,7 +499,6 @@
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook (formulário inline):', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
@@ -552,7 +551,6 @@
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook (modal contato):', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
@@ -1067,7 +1065,6 @@
                     e.stopPropagation(); // Prevent bubbling issues
                     // Toggle flip state - click anywhere to flip/unflip
                     card.classList.toggle('flipped');
-                    console.log('Card flipped:', card.id);
                 });
             }
         });
@@ -1287,7 +1284,6 @@
         submitBtn.disabled = true;
 
         // Envia webhook para n8n
-        console.log('Enviando webhook ebook:', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
