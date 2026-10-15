@@ -70,7 +70,7 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--gray-dark);
-    background: var(--white) url('../assets/textures/law_paper_texture.png') repeat;
+    background: var(--white) url('../assets/textures/law_paper_texture.webp') repeat;
     /* paper texture background */
     line-height: 1.8;
     /* Editorial breathing room */
