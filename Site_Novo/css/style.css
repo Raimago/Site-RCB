@@ -1168,6 +1168,24 @@ header.scrolled .menu-toggle span {
     /* Align with first line of text */
 }
 
+.service-features li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.service-title-area h4 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.service-features li a:focus-visible,
+.service-title-area h4 a:focus-visible {
+    outline: 2px solid var(--accent-gold-dark);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 .service-features li:hover {
     background: rgba(192, 179, 153, 0.15);
     transform: translateX(8px);

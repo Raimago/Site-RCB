@@ -206,7 +206,9 @@
         if (mobileOverlay) {
             mobileOverlay.classList.toggle('active');
         }
-        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        const isOpen = mobileNav.classList.contains('active');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        syncMenuToggleState(isOpen);
     }
 
     function closeMobileMenu() {
@@ -216,6 +218,14 @@
             mobileOverlay.classList.remove('active');
         }
         document.body.style.overflow = '';
+        syncMenuToggleState(false);
+    }
+
+    // Keeps the open/closed state of the menu button available to screen readers
+    function syncMenuToggleState(isOpen) {
+        if (!menuToggle) return;
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
     }
 
     // ==========================================================================
@@ -1135,6 +1145,13 @@
 
         // Privacy notice on forms that collect personal data
         initPrivacyNotices();
+
+        // ARIA state for the FAQ and the mobile menu
+        initFaqAccessibility();
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-controls', 'mobileNav');
+            syncMenuToggleState(false);
+        }
     }
 
     // ==========================================================================
@@ -1172,11 +1189,27 @@
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.setAttribute('aria-expanded', 'false');
+        });
 
         // Toggle current item
         if (!isActive) {
             faqItem.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
         }
+    }
+
+    // Links each FAQ question to its answer and starts every item closed
+    function initFaqAccessibility() {
+        document.querySelectorAll('.faq-question').forEach((question, index) => {
+            const answer = question.nextElementSibling;
+            if (answer && answer.classList.contains('faq-answer')) {
+                answer.id = answer.id || 'faq-answer-' + (index + 1);
+                question.setAttribute('aria-controls', answer.id);
+            }
+            question.setAttribute('aria-expanded', String(question.parentElement.classList.contains('active')));
+        });
     }
 
     // ==========================================================================
