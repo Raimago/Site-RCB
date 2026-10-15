@@ -6206,3 +6206,38 @@ body.loaded {
         object-fit: cover;
     }
 }
+/* ==========================================================================
+   Form Feedback & Privacy Notice
+   ========================================================================== */
+.form-privacy {
+    margin: 14px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    color: inherit;
+    opacity: 0.75;
+}
+
+.form-privacy a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.form-status {
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.form-status[data-type="success"] {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.form-status[data-type="error"] {
+    background: #fdecea;
+    color: #8c1d18;
+}

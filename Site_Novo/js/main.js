@@ -514,12 +514,11 @@
 
                 // Reset form
                 form.reset();
-                // Show success message
-                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+                showFormStatus(form, 'success', 'Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook (formulário inline):', err);
-                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(form, 'error', 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
             });
     }
 
@@ -562,21 +561,52 @@
                     throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
                 }
 
-                closeModal();
-                // Show custom success modal
-                if (typeof openSuccessModal === 'function') {
-                    openSuccessModal();
-                } else {
-                    alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve via WhatsApp.');
-                }
-
                 // Clear form
                 form.reset();
+
+                // Show custom success modal; pages without it show the message inside the form
+                if (typeof openSuccessModal === 'function') {
+                    closeModal();
+                    openSuccessModal();
+                } else {
+                    showFormStatus(form, 'success', 'Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+                }
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook (modal contato):', err);
-                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(form, 'error', 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
             });
+    }
+
+    // ==========================================================================
+    // Form Feedback & Privacy Notice
+    // ==========================================================================
+    const PRIVACY_FORMS = '#contactForm, #footerContactForm, #contactFormInline, #ebookForm';
+
+    // Shows the result of a submission inside the form (announced by screen readers)
+    function showFormStatus(form, type, message) {
+        let status = form.querySelector('.form-status');
+        if (!status) {
+            status = document.createElement('p');
+            status.className = 'form-status';
+            status.setAttribute('role', 'status');
+            status.setAttribute('aria-live', 'polite');
+            form.insertBefore(status, form.querySelector('.form-privacy'));
+        }
+        status.dataset.type = type;
+        status.textContent = message;
+    }
+
+    // Links every form that collects personal data to the privacy policy (LGPD)
+    function initPrivacyNotices() {
+        document.querySelectorAll(PRIVACY_FORMS).forEach(form => {
+            if (form.querySelector('.form-privacy')) return;
+            const note = document.createElement('p');
+            note.className = 'form-privacy';
+            note.innerHTML = 'Ao enviar, você concorda com o tratamento dos seus dados para retorno do contato, conforme a nossa ' +
+                '<a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.';
+            form.appendChild(note);
+        });
     }
 
     // ==========================================================================
@@ -1102,6 +1132,9 @@
 
         // Initialize phone mask for exit popup
         initExitPhoneMask();
+
+        // Privacy notice on forms that collect personal data
+        initPrivacyNotices();
     }
 
     // ==========================================================================
@@ -1260,7 +1293,7 @@
 
         // Validação básica
         if (!nome || !email || !telefone) {
-            alert('Por favor, preencha todos os campos.');
+            showFormStatus(event.target, 'error', 'Por favor, preencha todos os campos.');
             return;
         }
 
@@ -1297,16 +1330,14 @@
                     throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
                 }
 
-                // Mostra mensagem de sucesso
-                alert('Obrigado, ' + nome + '! Você receberá o guia em breve no e-mail: ' + email);
-                // Fecha o popup
-                closeExitPopup();
-                // Limpa o formulário
+                // Mostra mensagem de sucesso e fecha o popup em seguida
+                showFormStatus(event.target, 'success', 'Obrigado, ' + nome + '! Você receberá o guia em breve no e-mail: ' + email);
                 document.getElementById('ebookForm').reset();
+                setTimeout(closeExitPopup, 3000);
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook ebook:', err);
-                alert('Ocorreu um erro ao enviar seus dados. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(event.target, 'error', 'Ocorreu um erro ao enviar seus dados. Por favor, tente novamente em alguns instantes.');
             })
             .finally(() => {
                 // Restaura o botão
