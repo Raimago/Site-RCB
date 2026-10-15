@@ -206,7 +206,9 @@
         if (mobileOverlay) {
             mobileOverlay.classList.toggle('active');
         }
-        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        const isOpen = mobileNav.classList.contains('active');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        syncMenuToggleState(isOpen);
     }
 
     function closeMobileMenu() {
@@ -216,6 +218,14 @@
             mobileOverlay.classList.remove('active');
         }
         document.body.style.overflow = '';
+        syncMenuToggleState(false);
+    }
+
+    // Keeps the open/closed state of the menu button available to screen readers
+    function syncMenuToggleState(isOpen) {
+        if (!menuToggle) return;
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
     }
 
     // ==========================================================================
@@ -490,7 +500,7 @@
             nome: data.nome || '',
             empresa: data.empresa || '',
             email: data.email || '',
-            telefone: (data.telefone || '').replace(/\\D/g, ''),
+            telefone: (data.telefone || '').replace(/\D/g, ''),
             assunto: assuntoFormatted || data.assunto || '',
             mensagem: data.mensagem || '',
             origem: 'Formulário Contato - Site R&CB Advogados',
@@ -499,7 +509,6 @@
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook (formulário inline):', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
@@ -515,12 +524,11 @@
 
                 // Reset form
                 form.reset();
-                // Show success message
-                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+                showFormStatus(form, 'success', 'Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook (formulário inline):', err);
-                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(form, 'error', 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
             });
     }
 
@@ -552,7 +560,6 @@
         };
 
         // Send webhook to n8n
-        console.log('Enviando webhook (modal contato):', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
@@ -564,21 +571,52 @@
                     throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
                 }
 
-                closeModal();
-                // Show custom success modal
-                if (typeof openSuccessModal === 'function') {
-                    openSuccessModal();
-                } else {
-                    alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve via WhatsApp.');
-                }
-
                 // Clear form
                 form.reset();
+
+                // Show custom success modal; pages without it show the message inside the form
+                if (typeof openSuccessModal === 'function') {
+                    closeModal();
+                    openSuccessModal();
+                } else {
+                    showFormStatus(form, 'success', 'Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+                }
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook (modal contato):', err);
-                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(form, 'error', 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente em alguns instantes.');
             });
+    }
+
+    // ==========================================================================
+    // Form Feedback & Privacy Notice
+    // ==========================================================================
+    const PRIVACY_FORMS = '#contactForm, #footerContactForm, #contactFormInline, #ebookForm';
+
+    // Shows the result of a submission inside the form (announced by screen readers)
+    function showFormStatus(form, type, message) {
+        let status = form.querySelector('.form-status');
+        if (!status) {
+            status = document.createElement('p');
+            status.className = 'form-status';
+            status.setAttribute('role', 'status');
+            status.setAttribute('aria-live', 'polite');
+            form.insertBefore(status, form.querySelector('.form-privacy'));
+        }
+        status.dataset.type = type;
+        status.textContent = message;
+    }
+
+    // Links every form that collects personal data to the privacy policy (LGPD)
+    function initPrivacyNotices() {
+        document.querySelectorAll(PRIVACY_FORMS).forEach(form => {
+            if (form.querySelector('.form-privacy')) return;
+            const note = document.createElement('p');
+            note.className = 'form-privacy';
+            note.innerHTML = 'Ao enviar, você concorda com o tratamento dos seus dados para retorno do contato, conforme a nossa ' +
+                '<a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.';
+            form.appendChild(note);
+        });
     }
 
     // ==========================================================================
@@ -1067,7 +1105,6 @@
                     e.stopPropagation(); // Prevent bubbling issues
                     // Toggle flip state - click anywhere to flip/unflip
                     card.classList.toggle('flipped');
-                    console.log('Card flipped:', card.id);
                 });
             }
         });
@@ -1105,6 +1142,16 @@
 
         // Initialize phone mask for exit popup
         initExitPhoneMask();
+
+        // Privacy notice on forms that collect personal data
+        initPrivacyNotices();
+
+        // ARIA state for the FAQ and the mobile menu
+        initFaqAccessibility();
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-controls', 'mobileNav');
+            syncMenuToggleState(false);
+        }
     }
 
     // ==========================================================================
@@ -1142,11 +1189,27 @@
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.setAttribute('aria-expanded', 'false');
+        });
 
         // Toggle current item
         if (!isActive) {
             faqItem.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
         }
+    }
+
+    // Links each FAQ question to its answer and starts every item closed
+    function initFaqAccessibility() {
+        document.querySelectorAll('.faq-question').forEach((question, index) => {
+            const answer = question.nextElementSibling;
+            if (answer && answer.classList.contains('faq-answer')) {
+                answer.id = answer.id || 'faq-answer-' + (index + 1);
+                question.setAttribute('aria-controls', answer.id);
+            }
+            question.setAttribute('aria-expanded', String(question.parentElement.classList.contains('active')));
+        });
     }
 
     // ==========================================================================
@@ -1263,7 +1326,7 @@
 
         // Validação básica
         if (!nome || !email || !telefone) {
-            alert('Por favor, preencha todos os campos.');
+            showFormStatus(event.target, 'error', 'Por favor, preencha todos os campos.');
             return;
         }
 
@@ -1287,7 +1350,6 @@
         submitBtn.disabled = true;
 
         // Envia webhook para n8n
-        console.log('Enviando webhook ebook:', webhookPayload);
 
         fetch('https://n8n.raiarruda.com.br/webhook/RCB', {
             method: 'POST',
@@ -1301,16 +1363,14 @@
                     throw new Error('Erro HTTP ao enviar webhook: ' + response.status);
                 }
 
-                // Mostra mensagem de sucesso
-                alert('Obrigado, ' + nome + '! Você receberá o guia em breve no e-mail: ' + email);
-                // Fecha o popup
-                closeExitPopup();
-                // Limpa o formulário
+                // Mostra mensagem de sucesso e fecha o popup em seguida
+                showFormStatus(event.target, 'success', 'Obrigado, ' + nome + '! Você receberá o guia em breve no e-mail: ' + email);
                 document.getElementById('ebookForm').reset();
+                setTimeout(closeExitPopup, 3000);
             })
             .catch(err => {
                 console.error('Erro ao enviar webhook ebook:', err);
-                alert('Ocorreu um erro ao enviar seus dados. Por favor, tente novamente em alguns instantes.');
+                showFormStatus(event.target, 'error', 'Ocorreu um erro ao enviar seus dados. Por favor, tente novamente em alguns instantes.');
             })
             .finally(() => {
                 // Restaura o botão
